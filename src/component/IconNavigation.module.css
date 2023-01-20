@@ -1,0 +1,6 @@
+.iconNavigation{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 44px 44px 44px;
+
+}
