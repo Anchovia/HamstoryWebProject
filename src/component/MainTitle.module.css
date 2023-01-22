@@ -1,0 +1,33 @@
+.mainTitle{
+    width: 1920px;
+    height: 880px;
+}
+
+.titleText{
+    padding-top: 200px;
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+.titleKor{
+    font-size: 70px;
+    color: #666666;
+}
+
+.titleEng{
+    font-size: 90px;
+    color: #000000;
+}
+
+.toUnder{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+}
+
+.toUnderText{
+    font-size: 13px;
+    padding-bottom: 15px;
+}
