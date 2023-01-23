@@ -4,3 +4,7 @@
     grid-template-columns: 106.6666666666667px 106.6666666666667px 106.6666666666667px;
     grid-template-rows: 100px;
 }
+
+.git{
+    cursor: pointer;
+}
