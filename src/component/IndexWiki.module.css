@@ -1,0 +1,55 @@
+.indexWiki{
+    width: 1280px;
+    height: 620px;
+    padding-top: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.indexWikiContents{
+    text-align: right;
+    margin-right: 40px;
+}
+
+.indexGenre{
+    display: flex;
+    justify-content: right;
+    justify-items: center;
+    font-size: 30px;
+    letter-spacing: -2px;
+    margin-bottom: -10px;
+}
+
+.genreTitle{
+    letter-spacing: -2px;
+    margin-right: 4px;
+}
+
+.contentsTitle{
+    font-size: 52px;
+    line-height: 50%;
+    letter-spacing: -2px;
+}
+
+.contentsDetails{
+    font-size: 25px;
+    line-height: 60%;
+    letter-spacing: -2px;
+}
+
+.button{
+    margin-top: 15px;
+    width: 144px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #D9D9D9;
+    font-size: 12px;
+}
+
+.indexWikiPicture{
+    width: 620px;
+    height: 620px;
+}

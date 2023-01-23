@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function IconNavigation(){
     return (
-        <Link to="/main" className={styles.iconNavigation}>
+        <Link to="/" className={styles.iconNavigation}>
             <img src={iconGit} alt="IconGit"/>
             <img src={iconInfo} alt="IconInfo"/>
             <img src={iconMenu} alt="IconMenu"/>

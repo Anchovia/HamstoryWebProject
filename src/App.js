@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <TopNavigationBar/>
       <Routes>
-        <Route path="/main" element={<MainIndex/>}/>
+        <Route path="/" element={<MainIndex/>}/>
       </Routes>
     </BrowserRouter>
   );

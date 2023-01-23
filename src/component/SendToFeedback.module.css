@@ -1,0 +1,30 @@
+.sendToFeedback{
+    width: 1920px;
+    height: 400px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.title{
+    font-size: 70px;
+    letter-spacing: -2px;
+}
+
+.contents{
+    font-size: 25px;
+    letter-spacing: -2px;
+}
+
+.button{
+    margin-top: 20px;
+    width: 144px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #D9D9D9;
+    font-size: 12px;
+}
