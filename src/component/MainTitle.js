@@ -11,8 +11,8 @@ export default function MainTitle(){
                 <span className={styles.titleKor}>에서 만나보세요</span>
             </div>
             <div className={styles.toUnder}>
-            <div className={styles.toUnderText}>아래로 스크롤 해 자세히 알아보기</div>
-            <img src={iconToUnder} alt="iconToUnder"/>
+                <div className={styles.toUnderText}>아래로 스크롤 해 자세히 알아보기</div>
+                <img src={iconToUnder} alt="iconToUnder"/>
             </div>
         </div>
     );
