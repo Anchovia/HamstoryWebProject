@@ -3,11 +3,11 @@ import styles from "./IndexCommunity.module.css";
 import pictureCommunity from '../../images/picture/image_picture_community.png'
 import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
-export default function IndexCommunity(){
+export default function IndexCommunity({position}){
     return (
         <div className={styles.indexCommunity}>
             <img src={pictureCommunity} alt="PictureCommunity" className={styles.indexCommunityPicture}/>
-            <div className={styles.indexCommunityContents}>
+            <div className={position >= 200 && position <= 1515 ? styles.indexCommunityContentsYesAnimation : styles.indexCommunityContentsNoAnimation}>
                 <div className={styles.indexGenre}>
                     <img src={iconCommunity} alt="IconCommunity"/>
                     <span className={styles.genreTitle}>커뮤니티</span>

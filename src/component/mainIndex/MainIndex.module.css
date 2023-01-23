@@ -1,5 +1,8 @@
 .main{
     width: 1920px;
-    height: 3120px;
+    height: 3070px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background-color: #EEEEEE;
 }
