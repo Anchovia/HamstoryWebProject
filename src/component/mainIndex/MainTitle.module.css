@@ -1,0 +1,64 @@
+.mainTitle{
+    display: block;
+    width: 1920px;
+    height: 880px;
+    padding-top: 100px;
+}
+
+.titleText{
+    padding-top: 200px;
+    text-align: center;
+    letter-spacing: -2px;
+    animation-name: titleTextAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes titleTextAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to{
+        opacity: 3;
+        transform: none;
+    }
+}
+
+.titleKor{
+    font-size: 70px;
+    color: #666666;
+}
+
+.titleEng{
+    font-size: 90px;
+    color: #000000;
+}
+
+.toUnder{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    animation-name: toUnderAnimation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes toUnderAnimation{
+    from{
+        margin-bottom: 20px;
+    }
+
+    to{
+        margin-bottom: 0px;
+    }
+}
+
+.toUnderText{
+    font-size: 13px;
+    padding-bottom: 15px;
+}
