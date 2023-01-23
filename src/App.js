@@ -1,18 +1,24 @@
-import TopNavigationBar from "./component/navigation/TopNavigationBar";
-import MainIndex from "./component/mainIndex/MainIndex";
-import GoToUpButton from "./component/etc/GoToUpButton";
-
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <TopNavigationBar/>
-      <Routes>
-        <Route path="/" element={<MainIndex/>}/>
-      </Routes>
-      <GoToUpButton/>
-    </BrowserRouter>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
