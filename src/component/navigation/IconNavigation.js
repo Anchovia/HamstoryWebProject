@@ -7,11 +7,15 @@ import styles from "./IconNavigation.module.css";
 import { Link } from "react-router-dom";
 
 export default function IconNavigation(){
+    function gitClick(){
+        window.open("https://github.com/Anchovia/winterWebEtude", "_blank")
+    }
+
     return (
-        <Link to="/" className={styles.iconNavigation}>
-            <img src={iconGit} alt="IconGit"/>
-            <img src={iconInfo} alt="IconInfo"/>
-            <img src={iconMenu} alt="IconMenu"/>
-        </Link>
+        <div className={styles.iconNavigation}>
+            <img src={iconGit} alt="IconGit" onClick={gitClick} className={styles.git}/>
+            <Link to="/"><img src={iconInfo} alt="IconInfo"/></Link>
+            <Link to="/"><img src={iconMenu} alt="IconMenu"/></Link>
+        </div>
     )
 }
