@@ -1,0 +1,13 @@
+.textNavigation{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 220px 220px 220px 220px;
+    grid-template-rows: 100px;
+}
+
+a{
+    font-size: 20px;
+    letter-spacing: -2px;
+    text-decoration: none;
+    color: #000000;
+}
