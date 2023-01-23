@@ -7,7 +7,7 @@ export default function IndexCommunity({position}){
     return (
         <div className={styles.indexCommunity}>
             <img src={pictureCommunity} alt="PictureCommunity" className={styles.indexCommunityPicture}/>
-            <div className={position >= 200 && position <= 1515 ? styles.indexCommunityContentsYesAnimation : styles.indexCommunityContentsNoAnimation}>
+            <div className={position >= 380 && position <= 1770 ? styles.indexCommunityContentsYesAnimation : styles.indexCommunityContentsNoAnimation}>
                 <div className={styles.indexGenre}>
                     <img src={iconCommunity} alt="IconCommunity"/>
                     <span className={styles.genreTitle}>커뮤니티</span>
