@@ -2,14 +2,32 @@
     width: 1280px;
     height: 620px;
     padding-top: 100px;
-    margin: auto;
     display: flex;
     justify-content: left;
     align-items: center;
-
 }
 
-.indexCommunityContents{
+.indexCommunityContentsYesAnimation{
+    text-align: left;
+    margin-left: 40px;
+    animation-name: indexCommunityContentsAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes indexCommunityContentsAnimation{
+    from{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to{
+        opacity: 3;
+        transform: none;
+    }
+}
+
+.indexCommunityContentsNoAnimation{
     text-align: left;
     margin-left: 40px;
 }

@@ -23,10 +23,10 @@ export default function MainIndex(){
     
     return (
         <div className={styles.main}>
-            <MainTitle position={position}/>
-            <IndexCommunity/>
-            <IndexWiki/>
-            <SendToFeedback/>
+            <MainTitle/>
+            <IndexCommunity position={position}/>
+            <IndexWiki position={position}/>
+            <SendToFeedback position={position}/>
             <Bottom/>
         </div>
     );

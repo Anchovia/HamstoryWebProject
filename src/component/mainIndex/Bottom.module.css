@@ -1,9 +1,6 @@
 .bottom{
-    width: 1920;
-    height: 100;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    width: 1920px;
+    height: 150px;
+    background-color: #ffdab9;
 }
