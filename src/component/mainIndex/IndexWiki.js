@@ -1,7 +1,7 @@
 import styles from "./IndexWiki.module.css";
 
-import pictureWiki from '../images/image_picture_wiki.png'
-import iconWiki from '../images/image_icon_index_wiki.png'
+import pictureWiki from '../../images/picture/image_picture_wiki.png'
+import iconWiki from '../../images/icon/image_icon_index_wiki.png'
 
 export default function IndexWiki(){
     return (

@@ -1,4 +1,4 @@
-import hamstoryLogo from '../images/image_logo.png'
+import hamstoryLogo from '../../images/logo/image_logo.png'
 
 import styles from "./LogoNavigation.module.css";
 
