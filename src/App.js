@@ -1,5 +1,5 @@
-import MainIndex from "./component/MainIndex";
-import TopNavigationBar from "./component/TopNavigationBar";
+import TopNavigationBar from "./component/navigation/TopNavigationBar";
+import MainIndex from "./component/mainIndex/MainIndex";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 

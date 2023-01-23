@@ -1,7 +1,7 @@
 import styles from "./IndexCommunity.module.css";
 
-import pictureCommunity from '../images/image_picture_community.png'
-import iconCommunity from '../images/image_icon_index_community.png'
+import pictureCommunity from '../../images/picture/image_picture_community.png'
+import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
 export default function IndexCommunity(){
     return (

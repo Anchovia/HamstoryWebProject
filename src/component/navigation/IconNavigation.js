@@ -1,6 +1,6 @@
-import iconGit from '../images/image_icon_git.png'
-import iconInfo from '../images/image_icon_info.png'
-import iconMenu from '../images/image_icon_menu.png'
+import iconGit from '../../images/icon/image_icon_git.png'
+import iconInfo from '../../images/icon/image_icon_info.png'
+import iconMenu from '../../images/icon/image_icon_menu.png'
 
 import styles from "./IconNavigation.module.css";
 
