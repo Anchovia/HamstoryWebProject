@@ -1,7 +1,6 @@
 import styles from "./SendToFeedback.module.css";
 
 export default function SendToFeedback({position}){
-    console.log(position);
     return (
         <div className={styles.sendToFeedback} style={{
             width: 1280 + (position - 2160) * 1.65
