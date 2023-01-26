@@ -4,7 +4,6 @@ import MainTitle from "./MainTitle";
 import IndexCommunity from "./IndexCommunity";
 import IndexWiki from "./IndexWiki";
 import SendToFeedback from "./SendToFeedback";
-import Bottom from "./Bottom";
 
 import styles from "./MainIndex.module.css";
 
@@ -20,8 +19,6 @@ export default function MainIndex(){
             window.removeEventListener("scroll", onScroll);
         }
     }, []);
-
-    console.log(position)
     
     return (
         <div className={styles.main}>
@@ -29,7 +26,6 @@ export default function MainIndex(){
             <IndexCommunity position={position}/>
             <IndexWiki position={position}/>
             <SendToFeedback position={position}/>
-            <Bottom/>
         </div>
     );
 }
