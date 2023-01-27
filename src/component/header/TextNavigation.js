@@ -1,6 +1,6 @@
-import styles from "./TextNavigation.module.css";
-
 import { Link } from "react-router-dom";
+
+import styles from "./TextNavigation.module.css";
 
 export default function TextNavigation(){
     return (

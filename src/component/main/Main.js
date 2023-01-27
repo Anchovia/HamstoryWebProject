@@ -5,9 +5,9 @@ import IndexCommunity from "./IndexCommunity";
 import IndexWiki from "./IndexWiki";
 import SendToFeedback from "./SendToFeedback";
 
-import styles from "./MainIndex.module.css";
+import styles from "./Main.module.css";
 
-export default function MainIndex(){
+export default function Main(){
     const[position, setPosition] = useState(0);
 
     function onScroll(){

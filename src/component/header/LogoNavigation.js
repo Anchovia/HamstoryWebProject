@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
+
 import hamstoryLogo from '../../images/logo/image_logo.png'
 
 import styles from "./LogoNavigation.module.css";
-
-import { Link } from "react-router-dom";
 
 export default function LogoNavigation(){
     return (
