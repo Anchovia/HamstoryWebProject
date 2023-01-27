@@ -3,6 +3,7 @@
     display: grid;
     place-items: center;
     grid-template-columns: 320px 1280px 320px;
+    grid-template-rows: 100px;
     background-color: #ffffff;
     z-index: 1;
 }

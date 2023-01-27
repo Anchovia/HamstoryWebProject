@@ -1,5 +1,7 @@
 import Header from "./component/header/Header";
 import Main from "./component/main/Main";
+import Login from "./component/login/Login";
+import EmptyPage from "./component/etc/EmptyPage";
 import Footer from "./component/footer/Footer";
 import GoToUpButton from "./component/etc/GoToUpButton";
 
@@ -11,6 +13,8 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Main/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/*" element={<EmptyPage/>}/>
       </Routes>
       <Footer/>
       <GoToUpButton/>

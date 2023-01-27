@@ -1,0 +1,40 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputArea{
+    margin-top: 24px;
+}
+
+.inputPassWord{
+    margin-top: 13px;
+}
+
+input[type=text]{
+    width: 455px;
+    height: 43px;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    filter: blur(0.5px);
+}
+
+input::placeholder{
+    font-size: 18px;
+    letter-spacing: -2px;
+}
+
+.button{
+    margin-top: 24px;
+    font-size: 18px;
+    letter-spacing: -2px;
+    background-color: #FBDEA2;
+    width: 460px;
+    height: 43px;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    filter: blur(0.5px);
+    cursor: pointer;
+}
