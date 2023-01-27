@@ -1,6 +1,6 @@
-import styles from "./GoToUpButton.module.css"
-
 import iconGoToUp from '../../images/icon/image_icon_goToUp.png'
+
+import styles from "./GoToUpButton.module.css"
 
 export default function GoToUpButton(){
     function onClick(){
