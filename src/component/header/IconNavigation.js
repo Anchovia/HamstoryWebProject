@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import iconGit from '../../images/icon/image_icon_git.png'
 import iconInfo from '../../images/icon/image_icon_info.png'
@@ -22,12 +21,19 @@ export default function IconNavigation(){
     }
 
     return (
-        <div className={styles.iconNavigation}>
-            <img src={iconGit} alt="IconGit" onClick={gitClick}/>
-            <img src={iconInfo} alt="IconInfo" onClick={infoClick}/>
+        <>
+            <div className={styles.iconNavigation}>
+                <div className={styles.container}>
+                    <img src={iconGit} alt="IconGit" onClick={gitClick}/>
+                </div>
+                <div className={styles.container}>
+                    <img src={iconInfo} alt="IconInfo" onClick={infoClick}/>
+                </div>
+                <div className={styles.container}>
+                    <img src={iconMenu} alt="IconMenu"/>
+                </div>
+            </div>
             {infoClickJudg === true ? <Displayinfo/> : null}
-            <Link to="/"><img src={iconMenu} alt="IconMenu"/></Link>
-
-        </div>
+        </>
     )
 }
