@@ -31,14 +31,14 @@ export default function Login(){
             <div className={styles.title}>HAMSTORY</div>
             <div className={styles.button}>
                 <button onClick={memberClick} style={isLogin ? {
-                    backgroundColor: "#FBDEA2"
+                    backgroundColor: "#FFDAB9"
                 } : {
                     backgroundColor : "#FFFFFF"
                 }}>회원</button>
                 <button onClick={signUpClick} style={isLogin ? {
                     backgroundColor : "#FFFFFF"
                 } : {
-                    backgroundColor : "#FBDEA2"
+                    backgroundColor : "#FFDAB9"
                 }}>비회원</button>
             </div>
             {isLogin === true ? <Member/> : <SignUp/>}
