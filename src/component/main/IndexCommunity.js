@@ -20,7 +20,7 @@ export default function IndexCommunity({position}){
                     <p>홈페이지 이용자분들이 공유해주신</p>
                     <p>사랑스러운 가족분들을 만나보실 수 있어요.</p>
                 </div>
-                <button className={styles.button}>자세히 알아보기</button>
+                <button className={styles.button}>커뮤니티로 이동</button>
             </div>
         </div>
     );

@@ -18,7 +18,7 @@ export default function IndexWiki({position}){
                 <div className={styles.contentsDetails}>
                     <p>다양한 종류의 햄스터를 알아가보세요.</p>
                 </div>
-                <button className={styles.button}>자세히 알아보기</button>
+                <button className={styles.button}>위키로 이동</button>
             </span>
             <img src={pictureWiki} alt="PictureWiki" className={styles.indexWikiPicture}/>
         </div>
