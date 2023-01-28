@@ -4,11 +4,13 @@ import iconGit from '../../images/icon/image_icon_git.png'
 import iconInfo from '../../images/icon/image_icon_info.png'
 import iconMenu from '../../images/icon/image_icon_menu.png'
 import Displayinfo from "./DisplayInfo";
+import MenuBar from "./MenuBar";
 
 import styles from "./IconNavigation.module.css";
 
 export default function IconNavigation(){
-    const[infoClickJudg, setInfoClickJudg] = useState(false);
+    const[isInfo, setIsInfo] = useState(false);
+    const[isMenu, setIsMenu] = useState(false);
 
     function gitClick(event){
         event.preventDefault();
@@ -17,7 +19,24 @@ export default function IconNavigation(){
 
     function infoClick(event){
         event.preventDefault();
-        setInfoClickJudg(!infoClickJudg)
+        if(isMenu){
+            setIsMenu(false);
+            setIsInfo(true);
+        }
+        else{
+            setIsInfo(!isInfo);
+        }
+    }
+
+    function menuClick(event){
+        event.preventDefault();
+        if(isInfo){
+            setIsInfo(false);
+            setIsMenu(true);
+        }
+        else{
+            setIsMenu(!isMenu);
+        }
     }
 
     return (
@@ -30,10 +49,11 @@ export default function IconNavigation(){
                     <img src={iconInfo} alt="IconInfo" onClick={infoClick}/>
                 </div>
                 <div className={styles.container}>
-                    <img src={iconMenu} alt="IconMenu"/>
+                    <img src={iconMenu} alt="IconMenu" onClick={menuClick}/>
                 </div>
             </div>
-            {infoClickJudg === true ? <Displayinfo/> : null}
+            {isInfo ? <Displayinfo setInfoFunc={setIsInfo}/> : null}
+            {isMenu ? <MenuBar/> : null}
         </>
     )
 }

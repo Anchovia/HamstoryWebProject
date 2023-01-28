@@ -1,7 +1,7 @@
 import styles from "./DisplayInfo.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Displayinfo(){
+export default function Displayinfo({setInfoFunc}){
     const movePage = useNavigate();
 
     function loginClick(event){
@@ -11,6 +11,7 @@ export default function Displayinfo(){
 
     function goToLoginPage(){
         movePage("/login");
+        setInfoFunc(false);
     }
 
     return (
