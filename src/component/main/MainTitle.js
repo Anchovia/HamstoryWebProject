@@ -1,6 +1,6 @@
-import styles from "./MainTitle.module.css";
-
 import iconToUnder from '../../images/icon/image_icon_toUnder.png'
+
+import styles from "./MainTitle.module.css";
 
 export default function MainTitle(){
     return (

@@ -5,6 +5,16 @@
     grid-template-rows: 100px;
 }
 
-.git{
+.container{
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+}
+
+.container:hover{
+    background: #EEEEEE;
+    border-radius: 100%;
 }

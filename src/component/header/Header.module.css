@@ -1,4 +1,4 @@
-.topNavigationBar{
+.Header{
     position: fixed;
     display: grid;
     place-items: center;
