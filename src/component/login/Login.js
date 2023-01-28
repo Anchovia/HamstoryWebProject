@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Login.module.css";
 import Member from "./Member";
 import SignUp from "./SignUp";
@@ -19,7 +19,13 @@ export default function Login(){
             setIsLogin(false);
         }
     }
-    
+
+    useEffect(()=>{
+        window.scrollTo({
+            top:0
+        })
+    }, []);
+
     return (
         <div className={styles.login}>
             <div className={styles.title}>HAMSTORY</div>

@@ -14,6 +14,9 @@ export default function Main(){
         setPosition(window.scrollY);
     }
     useEffect(() => {
+        window.scrollTo({
+            top:0
+        })
         window.addEventListener("scroll", onScroll);
         return ()=>{
             window.removeEventListener("scroll", onScroll);
