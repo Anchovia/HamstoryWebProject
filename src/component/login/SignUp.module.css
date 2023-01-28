@@ -19,8 +19,12 @@
     margin-top: 24px;
 }
 
+.inputId{
+    margin-top: 15px;
+}
+
 .inputPassWord{
-    margin-top: 13px;
+    margin-top: 15px;
 }
 
 input[type=text]{

@@ -27,3 +27,16 @@ button{
     filter: blur(0.5px);
     cursor: pointer;
 }
+
+.element{
+    animation: fadein 0.4s;
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
