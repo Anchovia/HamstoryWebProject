@@ -3,27 +3,25 @@ import { useNavigate } from "react-router-dom";
 import styles from "./SignUp.module.css";
 
 export default function SignUp(){
-    const [nickname, setNickname] = useState("");
+    const [email, setEmail] = useState("");
     const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
+    const [pw, setPw] = useState("");
 
-    const [nicknameValid, setnicknameValid] = useState(false);
+    const [emailValid, setEmailValid] = useState(false);
     const [idValid, setIdValid] = useState(false);
-    const [passwordValid, setPasswordValid] = useState(false);
+    const [pwValid, setPwValid] = useState(false);
 
     const [notAllow, setNotAllow] = useState(true);
 
     const movePage = useNavigate();
+        function signUp(event){
+            event.preventDefault();
+            movePage("/");
+        }
 
-    function signUp(event){
-        console.log("닉네임 : " + nickname + " 아이디 : " + id + " 비밀번호 : " + password);
-        event.preventDefault();
-        movePage("/");
-    }
-
-    function handleEmail(event){
-        setNickname(event.target.value);
-        nickname.length > 0 ? setnicknameValid(true) : setnicknameValid(false);
+    function handleEmail(e){
+        setEmail(e.target.value);
+        email.length > 0 ? setEmailValid(true) : setEmailValid(false);
     }
 
     function handleId(event){
@@ -31,20 +29,22 @@ export default function SignUp(){
         id.length > 0 ? setIdValid(true) : setIdValid(false);
     }
 
-    function handlePassword(event){
-        setPassword(event.target.value);
+    function handlePw(event){
+        setPw(event.target.value);
         const regex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-        regex.test(password) ? setPasswordValid(true) : setPasswordValid(false);
+        regex.test(pw) ? setPwValid(true) : setPwValid(false);
     }
 
-    
-
     useEffect(()=>{
-        if(nicknameValid && idValid && passwordValid){
+        if(emailValid && idValid && pwValid){
             setNotAllow(false);
+            console.log(email + " " + id + " " + pw);
             return;
         }
-    }, [nicknameValid, idValid, passwordValid])
+        else{
+            setNotAllow(true);
+        }
+    }, [email, id, pw, emailValid, idValid, pwValid])
 
     return (
         <form className={styles.body}>
@@ -53,11 +53,11 @@ export default function SignUp(){
                     <input
                         type="text"
                         placeholder="닉네임"
-                        value={nickname}
+                        value={email}
                         onChange={handleEmail}
                     />
                     <div className={styles.errorName}>
-                        {!nicknameValid && nickname.length > 0 && (
+                        {!emailValid && email.length > 0 && (
                             <div>이미 사용중인 닉네임입니다.</div>
                         )}
                     </div>
@@ -65,14 +65,14 @@ export default function SignUp(){
                 <div>
                     <input
                         type="text"
-                        placeholder="아이디"
+                        placeholder="이메일"
                         className={styles.inputId}
                         value={id}
                         onChange={handleId}
                     />
                     <div className={styles.errorId}>
                         {!idValid && id.length > 0 && (
-                            <div>이미 사용중인 아이디입니다.</div>
+                            <div>이미 사용중인 이메일입니다.</div>
                         )}
                     </div>
                 </div>
@@ -80,12 +80,12 @@ export default function SignUp(){
                     <input
                         type="text"
                         placeholder="비밀번호"
-                        className={styles.inputPassword}
-                        value={password}
-                        onChange={handlePassword}
+                        className={styles.inputPw}
+                        value={pw}
+                        onChange={handlePw}
                     />
-                    <div className={styles.errorPassword}>
-                        {!passwordValid && password.length > 0 && (
+                    <div className={styles.errorPw}>
+                        {!pwValid && pw.length > 0 && (
                             <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                         )}
                     </div>
