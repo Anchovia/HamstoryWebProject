@@ -3,12 +3,13 @@ import { useState } from "react";
 import iconGit from '../../images/icon/image_icon_git.png'
 import iconInfo from '../../images/icon/image_icon_info.png'
 import iconMenu from '../../images/icon/image_icon_menu.png'
-import Displayinfo from "./DisplayInfo";
-import MenuBar from "./MenuBar";
 
-import styles from "./IconNavigation.module.css";
+import Displayinfo from "../display/DisplayInfo";
+import DisplayMenu from "../display/DisplayMenu";
 
-export default function IconNavigation(){
+import styles from "./IconNav.module.css";
+
+export default function IconNav(){
     const[isInfo, setIsInfo] = useState(false);
     const[isMenu, setIsMenu] = useState(false);
 
@@ -41,7 +42,7 @@ export default function IconNavigation(){
 
     return (
         <>
-            <div className={styles.iconNavigation}>
+            <nav className={styles.iconNav}>
                 <div className={styles.container}>
                     <img src={iconGit} alt="IconGit" onClick={gitClick}/>
                 </div>
@@ -51,9 +52,9 @@ export default function IconNavigation(){
                 <div className={styles.container}>
                     <img src={iconMenu} alt="IconMenu" onClick={menuClick}/>
                 </div>
-            </div>
+            </nav>
             {isInfo ? <Displayinfo setInfoFunc={setIsInfo}/> : null}
-            {isMenu ? <MenuBar/> : null}
+            {isMenu ? <DisplayMenu/> : null}
         </>
     )
 }

@@ -37,25 +37,24 @@
     justify-content: left;
     justify-items: center;
     font-size: 30px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
     margin-bottom: -10px;
 }
 
 .genreTitle{
-    letter-spacing: -2px;
     margin-left: 4px;
 }
 
 .contentsTitle{
     font-size: 52px;
     line-height: 50%;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
 }
 
 .contentsDetails{
     font-size: 25px;
     line-height: 60%;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
     color: #666666;
 }
 
@@ -67,5 +66,5 @@
     border: none;
     background-color: #FFDAB9;
     font-size: 14px;
-    letter-spacing: -1px;
+    letter-spacing: -0.1em;
 }

@@ -1,6 +1,6 @@
-import styles from "./TextNavigation.module.css";
+import styles from "./TextNav.module.css";
 
-export default function TextNavigation(){
+export default function TextNav(){
     function hamstoryClick(event){
         event.preventDefault();
     }
@@ -18,18 +18,18 @@ export default function TextNavigation(){
     }
 
     return (
-        <nav className={styles.textNavigation}>
+        <nav className={styles.textNav}>
             <div className={styles.container} onClick={hamstoryClick}>
-                <div className={styles.text}>햄스토리</div>
+                <div className={styles.title}>햄스토리</div>
             </div>
             <div className={styles.container} onClick={communityClick}>
-                <div className={styles.text}>커뮤니티</div>
+                <div className={styles.title}>커뮤니티</div>
             </div>
             <div className={styles.container} onClick={wikiClick}>
-                <div className={styles.text}>위키</div>
+                <div className={styles.title}>위키</div>
             </div>
             <div className={styles.container} onClick={helpClick}>
-                <div className={styles.text}>도움말</div>
+                <div className={styles.title}>도움말</div>
             </div>
         </nav>
     );

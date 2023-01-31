@@ -34,13 +34,13 @@ input[type=text]{
 
 input::placeholder{
     font-size: 18px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
 }
 
 .button{
     margin-top: 24px;
     font-size: 18px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
     background-color: #FFDAB9;
     width: 460px;
     height: 43px;

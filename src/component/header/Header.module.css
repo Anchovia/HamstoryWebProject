@@ -1,9 +1,9 @@
-.Header{
-    position: fixed;
-    display: grid;
-    place-items: center;
+.header{
     grid-template-columns: 320px 1280px 320px;
     grid-template-rows: 100px;
+    display: grid;
+    position: fixed;
+    place-items: center;
     background-color: #ffffff;
     z-index: 1;
 }
