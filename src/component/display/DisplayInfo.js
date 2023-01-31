@@ -1,7 +1,7 @@
 import styles from "./DisplayInfo.module.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Displayinfo({setInfoFunc}){
+export default function DisplayInfo({setInfoFunc}){
     const movePage = useNavigate();
 
     function loginClick(event){
@@ -16,8 +16,8 @@ export default function Displayinfo({setInfoFunc}){
 
     return (
         <div className={styles.display}>
-            <div className={styles.element}>
-                <div className={styles.text}>HAMSTORY</div>
+            <div className={styles.container}>
+                <div className={styles.title}>HAMSTORY</div>
                 <button className={styles.button} onClick={loginClick}>로그인</button>
             </div>
         </div>

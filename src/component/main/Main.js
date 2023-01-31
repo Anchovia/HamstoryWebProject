@@ -13,6 +13,7 @@ export default function Main(){
     function onScroll(){
         setPosition(window.scrollY);
     }
+    
     useEffect(() => {
         window.scrollTo({
             top:0

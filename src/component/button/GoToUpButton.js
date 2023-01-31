@@ -15,8 +15,8 @@ export default function GoToUpButton(){
     };
 
     return (
-        <div>
+        <>
             <img src={iconGoToUp} alt="IconGoToUp" onClick={onClick} className={styles.button}/>
-        </div>
+        </>
     );
 }
