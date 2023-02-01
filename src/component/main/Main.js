@@ -24,6 +24,8 @@ export default function Main(){
         }
     }, []);
     
+    console.log(position);
+    
     return (
         <div className={styles.main}>
             <MainTitle/>

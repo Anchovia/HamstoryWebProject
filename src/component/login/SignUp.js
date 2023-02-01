@@ -38,7 +38,6 @@ export default function SignUp(){
     useEffect(()=>{
         if(emailValid && idValid && pwValid){
             setNotAllow(false);
-            console.log(email + " " + id + " " + pw);
             return;
         }
         else{
@@ -48,48 +47,40 @@ export default function SignUp(){
 
     return (
         <form className={styles.body}>
-            <div className={styles.inputArea}>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="닉네임"
-                        value={email}
-                        onChange={handleEmail}
-                    />
-                    <div className={styles.errorName}>
-                        {!emailValid && email.length > 0 && (
-                            <div>이미 사용중인 닉네임입니다.</div>
-                        )}
-                    </div>
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="이메일"
-                        className={styles.inputId}
-                        value={id}
-                        onChange={handleId}
-                    />
-                    <div className={styles.errorId}>
-                        {!idValid && id.length > 0 && (
-                            <div>이미 사용중인 이메일입니다.</div>
-                        )}
-                    </div>
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="비밀번호"
-                        className={styles.inputPw}
-                        value={pw}
-                        onChange={handlePw}
-                    />
-                    <div className={styles.errorPw}>
-                        {!pwValid && pw.length > 0 && (
-                            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
-                        )}
-                    </div>
-                </div>
+            <input
+                type="text"
+                placeholder="닉네임"
+                value={email}
+                onChange={handleEmail}
+            />
+            <div className={styles.container}>
+                {!emailValid && email.length > 0 && (
+                    <div className={styles.errorText}>이미 사용중인 닉네임입니다.</div>
+                )}
+            </div>
+            <input
+                className={styles.inputMarin}
+                type="text"
+                placeholder="이메일"
+                value={id}
+                onChange={handleId}
+            />
+            <div className={styles.container}>
+                {!idValid && id.length > 0 && (
+                    <div className={styles.errorText}>이미 사용중인 이메일입니다.</div>
+                )}
+            </div>
+            <input
+                className={styles.inputMarin}
+                type="text"
+                placeholder="비밀번호"
+                value={pw}
+                onChange={handlePw}
+            />
+            <div className={styles.container}>
+                {!pwValid && pw.length > 0 && (
+                <div className={styles.errorText}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+            )}
             </div>
             <button disabled={notAllow} className={styles.button} onClick={signUp}>회원가입</button>
         </form>
