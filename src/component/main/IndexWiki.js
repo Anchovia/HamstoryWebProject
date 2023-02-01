@@ -6,7 +6,7 @@ import styles from "./IndexWiki.module.css";
 export default function IndexWiki({position}){
     return (
         <div className={styles.indexWiki}>
-            <span className={position >= 1200 && position <= 2620 ? styles.indexWikiContentsYesAnimation : styles.indexWikiContentsNoAnimation}>
+            <span className={position >= 1230 && position <= 2699 ? styles.indexWikiContentsYesAnimation : styles.indexWikiContentsNoAnimation}>
                 <div className={styles.indexGenre}>
                     <span className={styles.genreTitle}>위키</span>
                     <img src={iconWiki} alt="IconWiki"/>

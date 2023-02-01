@@ -29,19 +29,21 @@ export default function Login(){
     return (
         <div className={styles.login}>
             <div className={styles.title}>HAMSTORY</div>
-            <div className={styles.button}>
+            <div className={styles.selector}>
                 <button onClick={memberClick} style={isLogin ? {
                     backgroundColor: "#FFDAB9"
                 } : {
                     backgroundColor : "#FFFFFF"
-                }}>회원</button>
+                }} className={styles.button}>회원</button>
                 <button onClick={signUpClick} style={isLogin ? {
                     backgroundColor : "#FFFFFF"
                 } : {
                     backgroundColor : "#FFDAB9"
-                }}>비회원</button>
+                }} className={styles.button}>비회원</button>
             </div>
-            {isLogin === true ? <Member/> : <SignUp/>}
+            <div className={styles.form}>
+                {isLogin === true ? <Member/> : <SignUp/>}
+            </div>
         </div>
     );
 }

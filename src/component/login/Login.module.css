@@ -13,11 +13,11 @@
     letter-spacing: -0.1em;
 }
 
-.button{
+.selector{
     margin-top: 35px;
 }
 
-button{
+.button{
     font-size: 18px;
     width: 230px;
     height: 42px;
@@ -27,6 +27,10 @@ button{
     filter: blur(0.5px);
     cursor: pointer;
     letter-spacing: -0.1em;
+}
+
+.form{
+    margin-top: 25px;
 }
 
 .element{
