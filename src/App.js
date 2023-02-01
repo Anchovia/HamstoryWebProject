@@ -5,6 +5,7 @@ import Footer from "./component/footer/Footer";
 import GoToUpButton from "./component/button/GoToUpButton";
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import EmptyPage from "./component/emptyPage/EmptyPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/*" element={<EmptyPage/>}/>
       </Routes>
       <Footer/>
       <GoToUpButton/>
