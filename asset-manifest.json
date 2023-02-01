@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/HamstoryWebProject/main/static/css/main.238a27f4.css",
-    "main.js": "/HamstoryWebProject/main/static/js/main.1ba3534d.js",
-    "static/media/NotoSansKR-Medium.otf": "/HamstoryWebProject/main/static/media/NotoSansKR-Medium.56207b5e52841342a21b.otf",
-    "static/media/image_picture_wiki.png": "/HamstoryWebProject/main/static/media/image_picture_wiki.37ea9a8fe179417597d0.png",
-    "static/media/image_picture_community.png": "/HamstoryWebProject/main/static/media/image_picture_community.f8944d17fa8a92c2fed2.png",
-    "index.html": "/HamstoryWebProject/main/index.html",
-    "main.238a27f4.css.map": "/HamstoryWebProject/main/static/css/main.238a27f4.css.map",
-    "main.1ba3534d.js.map": "/HamstoryWebProject/main/static/js/main.1ba3534d.js.map"
+    "main.css": "/HamstoryWebProject/static/css/main.6381f15f.css",
+    "main.js": "/HamstoryWebProject/static/js/main.40f38d5c.js",
+    "static/media/NotoSansKR-Medium.otf": "/HamstoryWebProject/static/media/NotoSansKR-Medium.56207b5e52841342a21b.otf",
+    "static/media/image_picture_wiki.png": "/HamstoryWebProject/static/media/image_picture_wiki.37ea9a8fe179417597d0.png",
+    "static/media/image_picture_community.png": "/HamstoryWebProject/static/media/image_picture_community.f8944d17fa8a92c2fed2.png",
+    "index.html": "/HamstoryWebProject/index.html",
+    "main.6381f15f.css.map": "/HamstoryWebProject/static/css/main.6381f15f.css.map",
+    "main.40f38d5c.js.map": "/HamstoryWebProject/static/js/main.40f38d5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.238a27f4.css",
-    "static/js/main.1ba3534d.js"
+    "static/css/main.6381f15f.css",
+    "static/js/main.40f38d5c.js"
   ]
 }
