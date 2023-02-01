@@ -11,14 +11,8 @@ export default function Member(){
 
     return (
         <form className={styles.body}>
-            <div className={styles.inputArea}>
-                <div>
-                    <input type="text" placeholder="아이디"/>
-                </div>
-                <div>
-                    <input type="text" placeholder="비밀번호" className={styles.inputPassWord}/>
-                </div>
-            </div>
+            <input type="text" placeholder="아이디"/>
+            <input className={styles.inputMarin} type="text" placeholder="비밀번호"/>
             <button className={styles.button} onClick={login}>로그인</button>
         </form>
     );

@@ -1,13 +1,16 @@
-.menuBar{
+.display{
+    width: 318px;
+    height: 980px;
     position: fixed;
     top: 100px;
     left: 1601px;
-    width: 318px;
-    height: 980px;
-    background-color: #FFFFFF;
     border: 1px solid #D9D9D9;
     box-shadow: 0px 4px 4px 0px #D9D9D9;
+    background-color: #FFFFFF;
     z-index: 1;
+}
+
+.fadeInRight{
     animation: fadeInRight 0.4s;
 }
 

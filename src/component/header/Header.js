@@ -1,15 +1,15 @@
-import LogoNavigation from './LogoNavigation';
-import TextNavigation from './TextNavigation';
-import IconNavigation from './IconNavigation';
+import LogoNav from './LogoNav';
+import TextNav from './TextNav';
+import IconNav from './IconNav';
 
 import styles from "./Header.module.css";
 
 export default function Header(){
     return (
-        <div className={styles.Header}>
-            <LogoNavigation/>
-            <TextNavigation/>
-            <IconNavigation/>
+        <div className={styles.header}>
+            <LogoNav/>
+            <TextNav/>
+            <IconNav/>
         </div>
     );
 }

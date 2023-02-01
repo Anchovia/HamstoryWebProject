@@ -1,23 +1,22 @@
 .sendToFeedback{
-    display: block;
-    margin-top: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 300px;
     background-color: #FFFFFF;
-    height: 400px;
 }
 
 .title{
     font-size: 70px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
 }
 
 .contents{
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 25px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
     color: #666666;
 }
 
@@ -29,5 +28,5 @@
     border: none;
     background-color: #FFDAB9;
     font-size: 14px;
-    letter-spacing: -1px;
+    letter-spacing: -0.1em;
 }

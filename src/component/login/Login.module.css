@@ -10,14 +10,14 @@
 
 .title{
     font-size: 50px;
-    letter-spacing: -4px;
+    letter-spacing: -0.1em;
 }
 
-.button{
+.selector{
     margin-top: 35px;
 }
 
-button{
+.button{
     font-size: 18px;
     width: 230px;
     height: 42px;
@@ -26,6 +26,11 @@ button{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     filter: blur(0.5px);
     cursor: pointer;
+    letter-spacing: -0.1em;
+}
+
+.form{
+    margin-top: 25px;
 }
 
 .element{

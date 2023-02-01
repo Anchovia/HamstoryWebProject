@@ -1,20 +1,15 @@
-.body{
-    cursor: pointer;
-}
-
 .link{
+    width: 202px;
+    height: 61px;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    width: 204px;
-    height: 61px;
-    color: #000000;
     text-decoration: none;
 }
 
-.text{
+.logo{
     font-size: 32px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.025em;
+    color: #000000;
 }

@@ -1,4 +1,5 @@
 .body{
+    width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,15 +16,7 @@
     }
 }
 
-.inputArea{
-    margin-top: 24px;
-}
-
-.inputId{
-    margin-top: 15px;
-}
-
-.inputPassWord{
+.inputMarin{
     margin-top: 15px;
 }
 
@@ -38,18 +31,37 @@ input[type=text]{
 
 input::placeholder{
     font-size: 18px;
-    letter-spacing: -2px;
+    letter-spacing: -0.1em;
 }
 
 .button{
-    margin-top: 24px;
-    font-size: 18px;
-    letter-spacing: -2px;
-    background-color: #FFDAB9;
     width: 460px;
     height: 43px;
+    margin-top: 25px;
+    font-size: 18px;
+    letter-spacing: -0.1em;
+    cursor: pointer;
+    filter: blur(0.5px);
     border: 0.5px solid rgba(0, 0, 0, 0.35);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    filter: blur(0.5px);
-    cursor: pointer;
+    background-color: #FFDAB9;
+}
+
+.button:disabled{
+    cursor: auto;
+    color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 218, 185, 0.25);
+}
+
+.container{
+    width: 460px;
+}
+
+.errorText{
+    text-align: right;
+    margin-top: 8px;
+    margin-bottom: -8px;
+    font-size: 16px;
+    letter-spacing: -0.1em;
+    color: rgba(255, 0, 0, 0.5);
 }
