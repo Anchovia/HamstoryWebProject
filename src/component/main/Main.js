@@ -7,8 +7,6 @@ import SendToFeedback from "./SendToFeedback";
 
 import styles from "./Main.module.css";
 
-import dummy from "../../db/data.json";
-
 export default function Main(){
     const[position, setPosition] = useState(0);
 
@@ -25,9 +23,6 @@ export default function Main(){
             window.removeEventListener("scroll", onScroll);
         }
     }, []);
-    
-    //dummy 데이터 출력
-    console.log(dummy.userData);
 
     return (
         <div className={styles.main}>
