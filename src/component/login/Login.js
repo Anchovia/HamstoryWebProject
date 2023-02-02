@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 
 export default function Login(){
     const [isLogin , setIsLogin] = useState(true);
+    const [signUpSuccess, setSignUpSuccess] = useState(false);
 
     function memberClick(event){
         event.preventDefault();
@@ -14,6 +15,8 @@ export default function Login(){
     }
 
     function signUpClick(event){
+        setSignUpSuccess(false);
+
         event.preventDefault();
         if(isLogin === true){
             setIsLogin(false);
@@ -30,19 +33,19 @@ export default function Login(){
         <div className={styles.login}>
             <div className={styles.title}>HAMSTORY</div>
             <div className={styles.selector}>
-                <button onClick={memberClick} style={isLogin ? {
+                <button onClick={memberClick} style={isLogin | signUpSuccess ? {
                     backgroundColor: "#FFDAB9"
                 } : {
                     backgroundColor : "#FFFFFF"
                 }} className={styles.button}>회원</button>
-                <button onClick={signUpClick} style={isLogin ? {
+                <button onClick={signUpClick} style={isLogin | signUpSuccess ? {
                     backgroundColor : "#FFFFFF"
                 } : {
                     backgroundColor : "#FFDAB9"
                 }} className={styles.button}>비회원</button>
             </div>
             <div className={styles.form}>
-                {isLogin === true ? <Member/> : <SignUp/>}
+                {isLogin === true | signUpSuccess ? <Member/> : <SignUp setSignUpSuccess = {setSignUpSuccess}/>}
             </div>
         </div>
     );

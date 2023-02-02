@@ -58,7 +58,7 @@ input::placeholder{
 }
 
 .errorText{
-    text-align: right;
+    text-align: left;
     margin-top: 8px;
     margin-bottom: -8px;
     font-size: 16px;
