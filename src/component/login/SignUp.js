@@ -61,6 +61,9 @@ export default function SignUp(props){
 
     return (
         <form className={styles.body}>
+            <div className={styles.profile}>
+                
+            </div>
             <input
                 type="text"
                 placeholder="닉네임"

@@ -16,6 +16,14 @@
     }
 }
 
+.profile{
+    width: 128px;
+    height: 128px;
+    background-color: #d9d9d9;
+    margin-bottom: 25px;
+    border-radius: 100%;
+}
+
 .inputMarin{
     margin-top: 15px;
 }
