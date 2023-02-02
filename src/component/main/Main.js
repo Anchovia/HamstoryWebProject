@@ -23,9 +23,7 @@ export default function Main(){
             window.removeEventListener("scroll", onScroll);
         }
     }, []);
-    
-    console.log(position);
-    
+
     return (
         <div className={styles.main}>
             <MainTitle/>
