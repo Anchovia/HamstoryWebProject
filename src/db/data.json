@@ -1,9 +1,22 @@
 {
-    "userData" : [{
-            "id" : 1,
-            "nickName" : "Carol",
-            "email" : "abc@naver.com",
-            "pw" : 1234
-        }
-    ]
+  "userData": [
+    {
+      "id": 1,
+      "nickName": "Carol",
+      "email": "abc@naver.com",
+      "pw": 1234
+    },
+    {
+      "id": 2,
+      "nickName": "123",
+      "email": "rsa@maver.acq",
+      "pw": "125qfacc"
+    },
+    {
+      "id": 3,
+      "nickName": "qwe",
+      "email": "2412@acs.qweq",
+      "pw": "124aker12"
+    }
+  ]
 }

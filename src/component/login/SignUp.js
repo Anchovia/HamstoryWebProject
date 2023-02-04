@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import styles from "./SignUp.module.css";
 
-import dummy from "../../db/data.json";
+import useFetch from "../../hooks/useFetch";
+
+import styles from "./SignUp.module.css";
 
 export default function SignUp(props){
     const [nickName, setNickName] = useState("");
@@ -14,18 +15,31 @@ export default function SignUp(props){
 
     const [notAllow, setNotAllow] = useState(true);
 
+    const id = useFetch("http://localhost:4000/userData").length + 1;
+
     function signUp(event){
         event.preventDefault();
         pushData(nickName, email, pw);
         props.setSignUpSuccess(true);
     }
 
+    // fetch를 이용한 데이터 전송
     function pushData(nickName, email, pw){
-        dummy.userData.push({
-            id: dummy.userData.length + 1,
-            nickName: nickName,
-            email: email,
-            pw: pw
+        fetch("http://localhost:4000/userData", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: id,
+                nickName: nickName,
+                email: email,
+                pw: pw
+            })
+        })
+        .then((res)=>res.json())
+        .then((res)=>{
+            console.log(res);
         });
     }
 
