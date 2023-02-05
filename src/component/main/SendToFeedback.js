@@ -1,3 +1,8 @@
+/*
+    설명: 메인 페이지의 피드백 보내기 컴포넌트
+*/
+
+// CSS import
 import styles from "./SendToFeedback.module.css";
 
 export default function SendToFeedback({position}){

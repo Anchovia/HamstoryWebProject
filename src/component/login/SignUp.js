@@ -1,46 +1,56 @@
+/*
+    설명: 회원가입 페이지 컴포넌트
+*/
+
+// 모듈 import
 import { useState, useEffect } from "react";
 
+// hook import
 import useFetch from "../../hooks/useFetch";
 
+// CSS import
 import styles from "./SignUp.module.css";
 
 export default function SignUp(props){
+    // 회원가입 폼 데이터를 저장할 state
     const [nickName, setNickName] = useState("");
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");
 
+    // 회원가입 폼 데이터 유효성을 저장할 state
     const [nickNameValid, setNickNameValid] = useState(false);
     const [emailValid, setEmailValid] = useState(false);
     const [pwValid, setPwValid] = useState(false);
 
+    // 회원가입 버튼 활성화 여부를 저장할 state
     const [notAllow, setNotAllow] = useState(true);
 
+    // id를 생성하기 위한 hook
     const id = useFetch("http://localhost:4000/userData").length + 1;
 
+    // 회원가입 함수
     function signUp(event){
         event.preventDefault();
-        pushData(nickName, email, pw);
-        props.setSignUpSuccess(true);
+        pushData(nickName, email, pw); // 데이터 전송
+        props.setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
     }
 
-    // fetch를 이용한 데이터 전송
+    // 데이터 전송 함수
     function pushData(nickName, email, pw){
+        // 데이터 전송
         fetch("http://localhost:4000/userData", {
-            method: "POST",
-            headers: {
+            method: "POST", // POST 방식으로 전송
+            headers: { // 헤더 설정
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                id: id,
-                nickName: nickName,
-                email: email,
-                pw: pw
+            body: JSON.stringify({ // 데이터를 JSON 형식으로 변환
+                id: id, // id는 데이터의 개수 + 1
+                nickName: nickName, // 닉네임 
+                email: email, // 이메일
+                pw: pw // 비밀번호
             })
         })
-        .then((res)=>res.json())
-        .then((res)=>{
-            console.log(res);
-        });
+        .then((res)=>res.json()); // 응답을 JSON 형식으로 변환
     }
 
     // 닉네임 체크 함수
@@ -63,7 +73,9 @@ export default function SignUp(props){
         regex.test(pw) ? setPwValid(true) : setPwValid(false);
     }
 
+    // 회원가입 버튼 활성화 여부를 결정하는 함수
     useEffect(()=>{
+        // 모든 데이터가 유효하면 회원가입 버튼 활성화
         if(nickNameValid && emailValid && pwValid){
             setNotAllow(false);
             return;
@@ -75,9 +87,7 @@ export default function SignUp(props){
 
     return (
         <form className={styles.body}>
-            <div className={styles.profile}>
-                
-            </div>
+            <div className={styles.profile}/>
             <input
                 type="text"
                 placeholder="닉네임"
