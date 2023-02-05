@@ -22,6 +22,11 @@ export default function Member(){
         <form className={styles.body}>
             <input type="text" placeholder="아이디"/>
             <input className={styles.inputMarin} type="text" placeholder="비밀번호"/>
+            <div className={styles.container}>
+                {true && (
+                <div className={styles.errorText}>아이디 또는 비밀번호가 틀렸습니다.</div>
+            )}
+            </div>
             <button className={styles.button} onClick={login}>로그인</button>
         </form>
     );

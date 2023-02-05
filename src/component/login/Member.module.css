@@ -1,6 +1,5 @@
 .body{
     width: 460px;
-    height: 169px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,4 +45,17 @@ input::placeholder{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     filter: blur(0.5px);
     background-color: #FFDAB9;
+}
+
+.container{
+    width: 460px;
+}
+
+.errorText{
+    text-align: left;
+    margin-top: 8px;
+    margin-bottom: -8px;
+    font-size: 16px;
+    letter-spacing: -0.1em;
+    color: rgba(255, 0, 0, 0.5);
 }
