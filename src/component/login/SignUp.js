@@ -17,7 +17,7 @@ export default function SignUp(props){
     const url = "http://localhost:4000/userData";
 
     // 회원가입 폼 데이터를 저장할 state
-    const [nickName, nickNamgeChange] = useInput("");
+    const [nickName, nickNameChange] = useInput("");
     const [email, emailChange] = useInput("");
     const [pw, pwChange] = useInput("");
 
@@ -86,7 +86,7 @@ export default function SignUp(props){
                 type="text"
                 placeholder="닉네임"
                 value={nickName}
-                onChange={nickNamgeChange}
+                onChange={nickNameChange}
             />
             <input
                 className={styles.inputMarin}
