@@ -12,6 +12,9 @@ import useFetch from "../../hooks/useFetch";
 import styles from "./SignUp.module.css";
 
 export default function SignUp(props){
+    // 데이터를 저장할 url
+    const url = "http://localhost:4000/userData";
+
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, setNickName] = useState("");
     const [email, setEmail] = useState("");
@@ -26,7 +29,11 @@ export default function SignUp(props){
     const [notAllow, setNotAllow] = useState(true);
 
     // id를 생성하기 위한 hook
-    const id = useFetch("http://localhost:4000/userData").length + 1;
+    const id = useFetch(url).length + 1;
+
+    // regex 정규식
+    const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    const pwRegex = /^(?=.*[a-zA-z])(?=.*[0-9]).{6,20}$/;
 
     // 회원가입 함수
     function signUp(event){
@@ -37,8 +44,13 @@ export default function SignUp(props){
 
     // 데이터 전송 함수
     function pushData(nickName, email, pw){
+        // 닉네임이 비어있을 경우 닉네임을 "익명"으로 설정
+        if(nickName === ""){
+            nickName = "익명";
+        }
+
         // 데이터 전송
-        fetch("http://localhost:4000/userData", {
+        fetch(url, {
             method: "POST", // POST 방식으로 전송
             headers: { // 헤더 설정
                 "Content-Type": "application/json"
@@ -50,7 +62,7 @@ export default function SignUp(props){
                 pw: pw // 비밀번호
             })
         })
-        .then((res)=>res.json()); // 응답을 JSON 형식으로 변환
+        .then((res)=>res.json()) // 응답을 JSON 형식으로 변환
     }
 
     // 닉네임 체크 함수
@@ -62,15 +74,13 @@ export default function SignUp(props){
     // 이메일 체크 함수
     function handleEmail(e){
         setEmail(e.target.value);
-        const regex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-        regex.test(email) ? setEmailValid(true) : setEmailValid(false);
+        emailRegex.test(email) ? setEmailValid(true) : setEmailValid(false);
     }
 
     // 비밀번호 체크 함수
     function handlePw(e){
         setPw(e.target.value);
-        const regex = /^(?=.*[a-zA-z])(?=.*[0-9]).{6,20}$/;
-        regex.test(pw) ? setPwValid(true) : setPwValid(false);
+        pwRegex.test(pw) ? setPwValid(true) : setPwValid(false);
     }
 
     // 회원가입 버튼 활성화 여부를 결정하는 함수
@@ -80,10 +90,8 @@ export default function SignUp(props){
             setNotAllow(false);
             return;
         }
-        else{
-            setNotAllow(true);
-        }
-    }, [nickName, email, pw, nickNameValid, emailValid, pwValid])
+        setNotAllow(true);
+    }, [nickNameValid, emailValid, pwValid])
 
     return (
         <form className={styles.body}>
@@ -94,11 +102,6 @@ export default function SignUp(props){
                 value={nickName}
                 onChange={handleNickName}
             />
-            <div className={styles.container}>
-                {!nickNameValid && nickName.length > 0 && (
-                    <div className={styles.errorText}>이미 사용중인 닉네임입니다.</div>
-                )}
-            </div>
             <input
                 className={styles.inputMarin}
                 type="text"

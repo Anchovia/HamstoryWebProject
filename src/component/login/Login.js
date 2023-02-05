@@ -28,15 +28,14 @@ export default function Login(){
 
     // 비회원 버튼 클릭 이벤트
     function signUpClick(event){
-        setSignUpSuccess(false);
-
         event.preventDefault();
+        setSignUpSuccess(false);
         if(isLogin === true){
             setIsLogin(false);
         }
     }
 
-    // 로그인 페이지가 로드될 때 스크롤을 맨 위로 이동
+    // 로그인 페이지가 로드될 때 스크롤을 맨 위로 이동(1회만 실행)
     useEffect(()=>{
         window.scrollTo({
             top:0
