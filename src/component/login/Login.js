@@ -1,12 +1,24 @@
+/*
+    설명: 로그인 및 회원가입 페이지
+*/  
+
+// 모듈 import
 import { useState, useEffect } from "react";
-import styles from "./Login.module.css";
+
+// 컴포넌트 import
 import Member from "./Member";
 import SignUp from "./SignUp";
 
+// CSS import
+import styles from "./Login.module.css";
+
 export default function Login(){
+    // 로그인 여부를 저장할 state
     const [isLogin , setIsLogin] = useState(true);
+    // 회원가입 성공 여부를 저장할 state
     const [signUpSuccess, setSignUpSuccess] = useState(false);
 
+    // 회원 버튼 클릭 이벤트
     function memberClick(event){
         event.preventDefault();
         if(isLogin === false){
@@ -14,6 +26,7 @@ export default function Login(){
         }
     }
 
+    // 비회원 버튼 클릭 이벤트
     function signUpClick(event){
         setSignUpSuccess(false);
 
@@ -23,6 +36,7 @@ export default function Login(){
         }
     }
 
+    // 로그인 페이지가 로드될 때 스크롤을 맨 위로 이동
     useEffect(()=>{
         window.scrollTo({
             top:0

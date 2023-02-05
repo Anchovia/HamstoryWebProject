@@ -1,19 +1,29 @@
+/*
+    설명: 텍스트 네비게이션 컴포넌트
+*/
+
+// CSS import
 import styles from "./TextNav.module.css";
 
 export default function TextNav(){
+    // 링크 클릭 시 이벤트
+    // HAMSTORT 로고 클릭 시 실행되는 함수
     function hamstoryClick(event){
         event.preventDefault();
     }
 
-    function communityClick(event){
+    // 커뮤니티 클릭 시 실행되는 함수
+    function communityClick(event){ 
         event.preventDefault();
     }
     
+    // 위키 클릭 시 실행되는 함수
     function wikiClick(event){
         event.preventDefault();
     }
 
-    function helpClick(event){
+    // 도움말 클릭 시 실행되는 함수
+    function helpClick(event){ 
         event.preventDefault();
     }
 
