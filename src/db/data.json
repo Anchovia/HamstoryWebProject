@@ -5,24 +5,6 @@
       "nickName": "Carol",
       "email": "abc@naver.com",
       "pw": 1234
-    },
-    {
-      "id": 2,
-      "nickName": "",
-      "email": "asd123@asc1.12as",
-      "pw": "asc.123a"
-    },
-    {
-      "id": 3,
-      "nickName": "",
-      "email": "123a@asc.123",
-      "pw": "124easd1"
-    },
-    {
-      "id": 4,
-      "nickName": "익명",
-      "email": "12asd@asc.asc",
-      "pw": "12easc1"
     }
   ]
 }
