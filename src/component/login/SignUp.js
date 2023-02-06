@@ -4,6 +4,7 @@
 
 // 모듈 import
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 // hook import
 import useFetch from "../../hooks/useFetch";
@@ -12,12 +13,9 @@ import useInput from "../../hooks/useInput";
 // CSS import
 import styles from "./SignUp.module.css";
 
-export default function SignUp(props){
-    // 데이터를 저장할 url
-    const url = "http://localhost:4000/userData";
-
+export default function SignUp({setSignUpSuccess, url}){
     // 회원가입 폼 데이터를 저장할 state
-    const [nickName, nickNamgeChange] = useInput("");
+    const [nickName, nickNameChange] = useInput("");
     const [email, emailChange] = useInput("");
     const [pw, pwChange] = useInput("");
 
@@ -36,25 +34,18 @@ export default function SignUp(props){
     function signUp(event){
         event.preventDefault();
         pushData(nickName, email, pw); // 데이터 전송
-        props.setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
+        setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
     }
 
     // 데이터 전송 함수
     function pushData(nickName, email, pw){
         // 데이터 전송
-        fetch(url, {
-            method: "POST", // POST 방식으로 전송
-            headers: { // 헤더 설정
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ // 데이터를 JSON 형식으로 변환
-                id: id, // id는 데이터의 개수 + 1
-                nickName: nickName, // 닉네임 
-                email: email, // 이메일
-                pw: pw // 비밀번호
-            })
+        axios.post(url, {
+            id: id, // id는 데이터의 개수 + 1
+            nickName: nickName, // 닉네임
+            email: email, // 이메일
+            pw: pw // 비밀번호
         })
-        .then((res)=>res.json()) // 응답을 JSON 형식으로 변환
     }
 
     // 회원가입 버튼 활성화 여부를 결정하는 useEffect
@@ -86,7 +77,7 @@ export default function SignUp(props){
                 type="text"
                 placeholder="닉네임"
                 value={nickName}
-                onChange={nickNamgeChange}
+                onChange={nickNameChange}
             />
             <input
                 className={styles.inputMarin}
