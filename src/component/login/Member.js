@@ -13,10 +13,7 @@ import useInput from "../../hooks/useInput";
 // CSS import
 import styles from "./Member.module.css";
 
-export default function Member(){
-    // 데이터를 저장할 url
-    const url = "http://localhost:4000/userData";
-
+export default function Member({url}){
     // 데이터 배열을 저장할 변수 data
     const data = useFetch(url);
 
@@ -44,6 +41,7 @@ export default function Member(){
             return;
         }
         else if(getData.email === email && getData.pw.toString() === pw){
+            makeLoginToken();
             movePage("/");
         }
         else{
@@ -51,6 +49,10 @@ export default function Member(){
         }
     }
 
+    function makeLoginToken(){
+
+    }
+    
     return (
         <form className={styles.body}>
             <input
