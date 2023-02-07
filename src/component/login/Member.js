@@ -7,15 +7,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // 훅 import
-import useFetch from "../../hooks/useFetch";
+// import useFetch from "../../hooks/useFetch";
 import useInput from "../../hooks/useInput";
 
 // CSS import
 import styles from "./Member.module.css";
 
-export default function Member({url}){
+export default function Member(){
+    /*
+    // 데이터를 가져올 url
+    const url = "http://34.219.133.17/members/new";
+
+
     // 데이터 배열을 저장할 변수 data
     const data = useFetch(url);
+    */
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");
@@ -31,6 +37,7 @@ export default function Member({url}){
     function login(e){
         e.preventDefault();
     
+        /*
         // 이메일과 비밀번호가 일치하는 데이터를 찾아서 저장
         const getData = data.find(item => item.email === email)
 
@@ -47,10 +54,8 @@ export default function Member({url}){
         else{
             setError(true);
         }
-    }
-
-    function makeLoginToken(){
-
+        */
+       movePage("/");
     }
     
     return (

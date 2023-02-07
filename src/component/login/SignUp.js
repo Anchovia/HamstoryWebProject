@@ -7,13 +7,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 // hook import
-import useFetch from "../../hooks/useFetch";
 import useInput from "../../hooks/useInput";
 
 // CSS import
 import styles from "./SignUp.module.css";
 
-export default function SignUp({setSignUpSuccess, url}){
+export default function SignUp({setSignUpSuccess}){
+    // 데이터를 전송할 url
+    const url = "http://34.219.133.17/members/new";
+
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, nickNameChange] = useInput("");
     const [email, emailChange] = useInput("");
@@ -27,9 +29,6 @@ export default function SignUp({setSignUpSuccess, url}){
     // 회원가입 버튼 활성화 여부를 저장할 state
     const [notAllow, setNotAllow] = useState(true);
 
-    // id를 생성하기 위한 hook
-    const id = useFetch(url).length + 1;
-
     // 회원가입 함수
     function signUp(event){
         event.preventDefault();
@@ -41,10 +40,13 @@ export default function SignUp({setSignUpSuccess, url}){
     function pushData(nickName, email, pw){
         // 데이터 전송
         axios.post(url, {
-            id: id, // id는 데이터의 개수 + 1
             nickName: nickName, // 닉네임
             email: email, // 이메일
             pw: pw // 비밀번호
+        })
+        //응답을 성공적으로 마쳤을때 콘솔 실행
+        .then((res) => {
+            console.log(res);
         })
     }
 
