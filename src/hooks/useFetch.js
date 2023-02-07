@@ -13,8 +13,9 @@ export default function useFetch(url){
 
     // url이 변경될 때마다 데이터를 가져오는 useEffect
     useEffect(() => {
-        axios.get(url) // url을 이용해 데이터를 가져옴
+        axios.get(url) // url을 이용해 데이터를 가져옴 
         .then((res) => {
+            console.log(res);
             setData(res.data); // 데이터를 state에 저장
         });
     }, [url]);

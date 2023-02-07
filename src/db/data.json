@@ -23,6 +23,12 @@
       "nickName": "test",
       "email": "a@b.c",
       "pw": "asd123"
+    },
+    {
+      "id": 5,
+      "nickName": "12",
+      "email": "asd@gasc.2qwe",
+      "pw": "123asf"
     }
   ]
 }

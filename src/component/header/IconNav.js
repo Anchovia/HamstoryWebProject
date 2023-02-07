@@ -23,12 +23,14 @@ export default function IconNav(){
     const[isMenu, setIsMenu] = useState(false);
 
     // 각 아이콘을 클릭했을 때 실행되는 함수
-    function gitClick(event){ // git 아이콘 클릭 시 실행되는 함수
+    // git 아이콘 클릭 시 실행되는 함수
+    function gitClick(event){
         event.preventDefault();
         window.open("https://github.com/Anchovia/winterWebEtude", "_blank")
     }
 
-    function infoClick(event){ // info 아이콘 클릭 시 실행되는 함수
+    // info 아이콘 클릭 시 실행되는 함수
+    function infoClick(event){
         event.preventDefault();
         if(isMenu){
             setIsMenu(false);
@@ -39,7 +41,8 @@ export default function IconNav(){
         }
     }
 
-    function menuClick(event){ // menu 아이콘 클릭 시 실행되는 함수
+    // menu 아이콘 클릭 시 실행되는 함수
+    function menuClick(event){ 
         event.preventDefault();
         if(isInfo){
             setIsInfo(false);
