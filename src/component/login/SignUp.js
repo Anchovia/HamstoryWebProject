@@ -44,10 +44,6 @@ export default function SignUp({setSignUpSuccess}){
             email: email, // 이메일
             pw: pw // 비밀번호
         })
-        //응답을 성공적으로 마쳤을때 콘솔 실행
-        .then((res) => {
-            console.log(res);
-        })
     }
 
     // 회원가입 버튼 활성화 여부를 결정하는 useEffect
