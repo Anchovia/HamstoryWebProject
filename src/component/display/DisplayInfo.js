@@ -1,34 +1,22 @@
 /*
-    설명: 로그인 전에 보여지는 화면
+    설명: 
 */
 
 // 모듈 import
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import AccessibleWindow from "./AccessibleWindow";
 
 // CSS import
 import styles from "./DisplayInfo.module.css";
+import MembersOnlyWindow from "./MembersOnlyWindow";
 
 export default function DisplayInfo({setInfoFunc}){
-    // 페이지 이동 함수
-    const movePage = useNavigate();
-
-    // 로그인 버튼 클릭 시, 로그인 페이지로 이동하는 함수
-    function loginClick(event){
-        event.preventDefault();
-        goToLoginPage();
-    }
-
-    // 로그인 페이지로 이동 함수
-    function goToLoginPage(){
-        movePage("/login");
-        setInfoFunc(false); // 로그인 페이지로 이동하면, 로그인 디스플레이를 숨김
-    }
+    const [display, setDisplay] = useState(false);
 
     return (
         <div className={styles.display}>
-            <div className={styles.container}>
-                <div className={styles.title}>HAMSTORY</div>
-                <button className={styles.button} onClick={loginClick}>로그인</button>
+            <div className={styles.element}>
+                {display ? <AccessibleWindow setInfoFunc={setInfoFunc}/> : <MembersOnlyWindow setDisplay = {setDisplay}/>}
             </div>
         </div>
     );

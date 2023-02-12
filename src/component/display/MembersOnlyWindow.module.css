@@ -1,0 +1,103 @@
+.container{
+    width: 278px;
+    height: 110px;
+}
+
+.gridTable{
+    display: grid;
+    grid-template-columns: 75px 183px;
+    grid-template-rows: 75px 25px;
+    row-gap: 10px;
+    column-gap: 20px;
+}
+
+.image{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+
+.element{
+    width: 183px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonEditProfile{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 14px;
+    letter-spacing: -0.1em;
+    cursor: pointer;
+    filter: blur(0.5px);
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #ffdab9;
+}
+
+.buttonLogout{
+    box-sizing: border-box;
+    width: 50px;
+    height: 18px;
+    background-color: #666666;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    filter: blur(0.5px);
+    border-radius: 100px;
+    font-size: 9px;
+    color: #FFFFFF;
+    letter-spacing: -0.05em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nickName{
+    font-size: 17px;
+    letter-spacing: -0.1em;
+    color: #000000;
+}
+
+.email{
+    font-size: 13px;
+    letter-spacing: -0.05em;
+    color: #666666;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.userData{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 13px;
+    letter-spacing: -0.1em;
+}
+
+.topContainer{
+    display: grid;
+    grid-template-columns: 128px 50px;
+    grid-template-rows: 25px;
+    align-items: center;
+}
+
+.linkTitle{
+    color: #000000;
+}
+
+.linkElement{
+    color: #666666;
+    padding-left: 2px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.link:active{
+    color: #FFFFFF;
+}

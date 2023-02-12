@@ -1,6 +1,9 @@
 /*
     설명: 로그인 및 회원가입 페이지
-*/  
+    
+    ,
+  "proxy" : "http://34.219.133.17"
+*/ 
 
 // 모듈 import
 import { useState, useEffect } from "react";
@@ -17,8 +20,6 @@ export default function Login(){
     const [isLogin , setIsLogin] = useState(true);
     // 회원가입 성공 여부를 저장할 state
     const [signUpSuccess, setSignUpSuccess] = useState(false);
-
-    const url = "http://localhost:4000/userData";
 
     // 회원 버튼 클릭 이벤트
     function memberClick(event){
@@ -60,7 +61,7 @@ export default function Login(){
                 }} className={styles.button}>비회원</button>
             </div>
             <div className={styles.form}>
-                {isLogin === true | signUpSuccess ? <Member url={url}/> : <SignUp setSignUpSuccess = {setSignUpSuccess} url = {url}/>}
+                {isLogin === true | signUpSuccess ? <Member/> : <SignUp setSignUpSuccess = {setSignUpSuccess}/>}
             </div>
         </div>
     );
