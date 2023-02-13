@@ -16,7 +16,7 @@ import styles from "./Member.module.css";
 
 export default function Member(){
     // 데이터를 가져올 url
-    const url = "http://localhost:8080/members/login";
+    const url = "http://34.219.133.17/members/login";
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");
@@ -35,14 +35,16 @@ export default function Member(){
             pw: pw
         })
         .then((res)=>{
-            console.log(res);
             // 로그인 성공 시 메인 페이지로 이동
-            if(res.data === "success"){
+            if(res.data){
                 movePage("/");
                 return;
             }
+
             // 로그인 실패 시 에러 메시지 표시
-            setError(true);
+            else{
+                setError(true);
+            }
         })
     }
 
