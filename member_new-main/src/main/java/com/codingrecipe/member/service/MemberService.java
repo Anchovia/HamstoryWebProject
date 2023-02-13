@@ -15,19 +15,25 @@ public class MemberService {
     public static final String COLLECTION_NAME = "MEMBER";
 
     //데이터베이스에 member 삽입(save)
-    public void insertMember(MemberDTO member) throws Exception{
+    public boolean insertMember(MemberDTO member) throws Exception{
         Firestore firestore = FirestoreClient.getFirestore();
-        validateDuplicateMember(member.getMemberEmail());//중복 이메일인지 체크
-        //ApiFuture<WriteResult> apiFuture = firestore.collection(COLLECTION_NAME).document(member.getEmail()).set(member);
+
+        //중복 이메일인지 체크
+        if(!validateDuplicateMember(member.getMemberEmail())){
+            return false;
+        }
         ApiFuture<DocumentReference> apiFuture = firestore.collection(COLLECTION_NAME).add(member);
+        return true;
     }
 
     //이메일 중복 체크(emailCheck)
-    public void validateDuplicateMember(String email) throws Exception{
+    public boolean validateDuplicateMember(String email) throws Exception{
         MemberDTO member = getMemberDetail(email);
         if(member != null){//이메일이 중복된다면
-            throw new IllegalStateException("중복되는 이메일 입니다.");
+            return false;//중복
+            //throw new IllegalStateException("중복되는 이메일 입니다.");
         }
+        return true;//사용가능
     }
 
     //email로 멤버 정보 조회

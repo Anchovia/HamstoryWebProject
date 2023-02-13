@@ -21,15 +21,13 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/members/new")
-    public MemberDTO create(@RequestBody MemberForm form) throws Exception{
+    public boolean create(@RequestBody MemberForm form) throws Exception{
         MemberDTO member = new MemberDTO();
         member.setMemberName(form.getNickName());
         member.setMemberEmail(form.getEmail());
         member.setMemberPassword(form.getPw());
 
-        memberService.insertMember(member);
-
-        return member;
+        return memberService.insertMember(member);
     }
 
     @PostMapping("/members/login")
