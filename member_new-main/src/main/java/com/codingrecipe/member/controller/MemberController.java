@@ -16,17 +16,12 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/members/new")
-<<<<<<< HEAD
     public String create(@RequestBody MemberForm form) throws Exception{
-=======
-    public boolean create(@RequestBody MemberForm form) throws Exception{
->>>>>>> f81a05eb8deb54a767383e1b193f711575374278
         MemberDTO member = new MemberDTO();
         member.setMemberName(form.getNickName());
         member.setMemberEmail(form.getEmail());
         member.setMemberPassword(form.getPw());
 
-<<<<<<< HEAD
         String token = memberService.insertMember(member);
         if(token != null){
             System.out.println(">>> created: " + member.getMemberEmail());
@@ -37,9 +32,6 @@ public class MemberController {
 
         return token;
         //토큰 리턴
-=======
-        return memberService.insertMember(member);
->>>>>>> f81a05eb8deb54a767383e1b193f711575374278
     }
 
     @PostMapping("/members/login")
