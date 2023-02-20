@@ -22,15 +22,26 @@ public class MemberService {
     }
 
     //데이터베이스에 member 삽입(save)
+<<<<<<< HEAD
     public String insertMember(MemberDTO member) throws Exception{
+=======
+    public boolean insertMember(MemberDTO member) throws Exception{
+>>>>>>> f81a05eb8deb54a767383e1b193f711575374278
         Firestore firestore = FirestoreClient.getFirestore();
 
         //중복 이메일인지 체크
         if(!validateDuplicateMember(member.getMemberEmail())){
+<<<<<<< HEAD
             return null;
         }
         ApiFuture<DocumentReference> apiFuture = firestore.collection(COLLECTION_NAME).add(member);
         return createToken(member);
+=======
+            return false;
+        }
+        ApiFuture<DocumentReference> apiFuture = firestore.collection(COLLECTION_NAME).add(member);
+        return true;
+>>>>>>> f81a05eb8deb54a767383e1b193f711575374278
     }
 
     //이메일 중복 체크(emailCheck)
