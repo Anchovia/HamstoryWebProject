@@ -108,4 +108,8 @@ public class MemberService {
     public String createToken(MemberDTO member){
         return jwtTokenProvider.createToken(member);
     }
+
+    public boolean validateToken(String token){
+        return jwtTokenProvider.validateToken(token);
+    }
 }

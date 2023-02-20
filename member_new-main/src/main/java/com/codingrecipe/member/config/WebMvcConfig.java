@@ -15,13 +15,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     public void addInterceptors(InterceptorRegistry registry){
-        System.out.println(">>> 인터셉터 등록");
-        registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/members/mypage");
-        registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/");
+        System.out.println(">>> Interceptor added");
+        registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/info");
     }
 
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/members/new").allowedOrigins("http://localhost:3000");
         registry.addMapping("/members/login").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/info").allowedOrigins("http://localhost:3000");
     }
 }

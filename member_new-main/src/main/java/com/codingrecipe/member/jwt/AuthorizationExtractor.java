@@ -16,10 +16,12 @@ public class AuthorizationExtractor {
         while(headers.hasMoreElements()){
             String value = headers.nextElement();
             if(value.toLowerCase().startsWith(type.toLowerCase())){
+                //System.out.println(">>> return substring");
                 return value.substring(type.length()).trim();
             }
         }
 
+        //System.out.println(">>> return empty string");
         return Strings.EMPTY;
     }
 }
