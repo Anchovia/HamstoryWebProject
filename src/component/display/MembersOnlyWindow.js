@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 // CSS import
 import styles from "./MembersOnlyWindow.module.css";
 
-export default function MembersOnlyWindow({setDisplay}){
+export default function MembersOnlyWindow({setGetToken}){
     function logout(e){
         e.preventDefault();
-        setDisplay(true);
+        setGetToken(true);
     }
 
     return(

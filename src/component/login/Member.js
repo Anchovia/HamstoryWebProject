@@ -37,6 +37,8 @@ export default function Member(){
         .then((res)=>{
             // 로그인 성공 시 메인 페이지로 이동
             if(res.data){
+                localStorage.setItem("jwt", res.data);
+                console.log(localStorage.getItem("jwt"));
                 movePage("/");
                 return;
             }
