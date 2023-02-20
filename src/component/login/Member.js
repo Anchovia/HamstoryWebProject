@@ -17,6 +17,7 @@ import styles from "./Member.module.css";
 export default function Member(){
     // 데이터를 가져올 url
     const url = "http://34.219.133.17/members/login";
+    //const url = "http://localhost:8080/members/login";
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");

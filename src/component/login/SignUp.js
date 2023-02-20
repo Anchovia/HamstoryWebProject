@@ -15,6 +15,7 @@ import styles from "./SignUp.module.css";
 export default function SignUp({setSignUpSuccess}){
     // 데이터를 전송할 url
     const url = "http://34.219.133.17/members/new";
+    //const url = "http://localhost:8080/members/new";
 
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, nickNameChange] = useInput("");
