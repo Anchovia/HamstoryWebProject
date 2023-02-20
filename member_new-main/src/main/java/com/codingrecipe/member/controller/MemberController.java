@@ -5,14 +5,9 @@ import com.codingrecipe.member.form.LoginForm;
 import com.codingrecipe.member.form.MemberForm;
 import com.codingrecipe.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @RestController
 public class MemberController {
@@ -21,39 +16,36 @@ public class MemberController {
     MemberService memberService;
 
     @PostMapping("/members/new")
-    public MemberDTO create(@RequestBody MemberForm form) throws Exception{
+    public String create(@RequestBody MemberForm form) throws Exception{
         MemberDTO member = new MemberDTO();
         member.setMemberName(form.getNickName());
         member.setMemberEmail(form.getEmail());
         member.setMemberPassword(form.getPw());
 
-        memberService.insertMember(member);
+        String token = memberService.insertMember(member);
+        if(token != null){
+            System.out.println(">>> created: " + member.getMemberEmail());
+            System.out.println(">>> token: " + token);
+        }else{
+            System.out.println(">>> create failed");
+        }
 
-        return member;
+        return token;
+        //토큰 리턴
     }
 
     @PostMapping("/members/login")
-    public boolean login(@RequestBody LoginForm form, HttpSession session) throws Exception{
-        MemberDTO member = memberService.login(form);
+    public String login(@RequestBody LoginForm form) throws Exception{
+        String token = memberService.login(form);
 
         //로그인 성공
-        if(member != null){
-            session.setAttribute("member", member);
-            //session.setAttribute("loginEmail", member.getMemberEmail());
-            MemberDTO loginMember = (MemberDTO) session.getAttribute("member");
-            System.out.println(">>> login success " + loginMember.getMemberEmail());
-            return true;
+        if(token != null){
+            System.out.println(">>> login success: " + form.getEmail());
+            System.out.println(">>> token: " + token);
+            return token;
         }else{
-            System.out.println(">>> login fail");
-            return false;
+            System.out.println(">>> login failed");
+            return null;
         }
-    }
-
-    @GetMapping("/getMemberDTO")
-    public ResponseEntity<MemberDTO> getMemberDTO(HttpServletRequest request){
-        HttpSession session = request.getSession();
-        MemberDTO member = (MemberDTO) session.getAttribute("member");
-
-        return ResponseEntity.ok(member);
     }
 }
