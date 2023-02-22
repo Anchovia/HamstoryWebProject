@@ -29,7 +29,10 @@ public class MemberService {
         if(!validateDuplicateMember(member.getMemberEmail())){
             return null;
         }
+
+        //COLLECTION_NAME, 즉 MEMBER 라는 이름을 가진 테이블에 member를 추가
         ApiFuture<DocumentReference> apiFuture = firestore.collection(COLLECTION_NAME).add(member);
+
         return createToken(member);
     }
 
@@ -46,17 +49,15 @@ public class MemberService {
     //email로 멤버 정보 조회
     public MemberDTO getMemberDetail(String email) throws Exception{
         Firestore firestore = FirestoreClient.getFirestore();
-        /*
-        DocumentReference documentReference = firestore.collection(COLLECTION_NAME).document(email);
-        ApiFuture<DocumentSnapshot> apiFuture = documentReference.get();
-        DocumentSnapshot documentSnapshot = apiFuture.get();
-        */
+
+        //이메일로 멤버를 찾아서 DocumentSnapshot 형태로 받아옴
         DocumentSnapshot documentSnapshot = getMemberByEmail(email);
 
-        if(documentSnapshot == null){
+        if(documentSnapshot == null){//이메일이 email인 멤버를 찾지 못한 경우
             return null;
         }
 
+        //여기도 뭔지 잘 모르겠는데 아무튼 DocumentSnapshot 형태를 MemberDTO 형태로 바꿔줌
         MemberDTO member = null;
         if(documentSnapshot.exists()){
             member = documentSnapshot.toObject(MemberDTO.class);
@@ -69,16 +70,25 @@ public class MemberService {
     //이메일로 멤버 찾아서 문서 반환
     public DocumentSnapshot getMemberByEmail(String email) throws Exception {
         Firestore firestore = FirestoreClient.getFirestore();
+
+        //memberEmail이 email인 멤버를 찾아서 apiFuture에 저장
         ApiFuture<QuerySnapshot> apiFuture = firestore.collection(COLLECTION_NAME).whereEqualTo("memberEmail", email).get();
+
+        //apiFuture에 저장된 애들을 리스트에 저장
         List<QueryDocumentSnapshot> documents = apiFuture.get().getDocuments();
-        if(documents.size() == 0){
+
+        if(documents.size() == 0){//리스트의 사이즈가 0이라는 것은 이메일이 email인 멤버가 없다는 뜻이므로 널 반환
             return null;
         }
+        //리스트의 사이즈가 0이 아니라는 건 리스트에 적어도 하나 이상의 멤버가 있다는 뜻인데,
+        //우리는 회원가입에서 이메일이 겹치지 않게 했으니까 결론적으로는 리스트에 하나의 멤버만 있을거임
+        //그래서 리스트의 0번째 요소가 이메일이 email인 멤버
         DocumentSnapshot documentSnapshot = documents.get(0);
 
-        return documentSnapshot;
+        return documentSnapshot;//멤버의 정보를 DocumentSnapshot 형태로 반환(이게 뭔지 잘 모르겟는데 암튼 일케 하면 돼)
     }
 
+    //로그인
     public String login(LoginForm form) throws Exception {
         MemberDTO member = getMemberDetail(form.getEmail());
 
@@ -87,14 +97,14 @@ public class MemberService {
             //비밀번호 일치
             if(member.getMemberPassword().equals(form.getPw())){
                 return createToken(member);
-            }else{
+            }else{//비밀번호 불일치
                 return null;
             }
-        }
+        }//조회결과가 없음
         return null;
     }
 
-    //테스트x
+    //회원 탈퇴 만들어봤는데 아직 테스트는 안해봤다
     public void deleteByEmail(String email) throws Exception {
         MemberDTO member = getMemberDetail(email);
 
@@ -109,6 +119,7 @@ public class MemberService {
         return jwtTokenProvider.createToken(member);
     }
 
+    //유효한 토큰인지 확인
     public boolean validateToken(String token){
         return jwtTokenProvider.validateToken(token);
     }

@@ -15,12 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+//RestController: 그냥 컨트롤러는 리턴했을 때 여기서 지정해준 경로로 이동하는데,
+//rest는 여기서 지정해준 경로로 이동하는게 아니라 프론트로 데이터를 리턴함
 @RestController
 public class MemberController {
 
     @Autowired
     MemberService memberService;
 
+    //회원가입
     @PostMapping("/members/new")
     public String create(@RequestBody MemberForm form) throws Exception{
         MemberDTO member = new MemberDTO();
@@ -28,7 +31,10 @@ public class MemberController {
         member.setMemberEmail(form.getEmail());
         member.setMemberPassword(form.getPw());
 
+        //memberService 호출해서 member를 데이터베이스에 저장하고 토큰을 받아옴
+        //회원가입 실패하면 token에는 null이 저장됨
         String token = memberService.insertMember(member);
+
         if(token != null){
             System.out.println(">>> created: " + member.getMemberEmail());
             System.out.println(">>> token: " + token);
@@ -40,26 +46,30 @@ public class MemberController {
         //토큰 리턴
     }
 
+    //로그인
     @PostMapping("/members/login")
     public String login(@RequestBody LoginForm form) throws Exception{
+        //memberService 호출해서 로그인
+        //실패하면 token = null
         String token = memberService.login(form);
 
-        //로그인 성공
-        if(token != null){
+        if(token != null){//로그인 성공
             System.out.println(">>> login success: " + form.getEmail());
             System.out.println(">>> token: " + token);
-            if(!memberService.validateToken(token)){
+            if(!memberService.validateToken(token)){//유효하지 않은 토큰
                 System.out.println(">>> invalid token");
-            }else{
+            }else{//유효한 토큰
                 System.out.println(">>> valid token");
             }
             return token;
-        }else{
+        }else{//로그인 실패
             System.out.println(">>> login failed");
             return null;
         }
     }
 
+    //멤버 정보 요청
+    //여기로 오기 전에 인터셉터(BearerAuthInterceptor) 먼저 실행됨
     @GetMapping("/info")
     public ResponseEntity<MemberDTO> getMemberFromToken(HttpServletRequest request){
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
@@ -71,6 +81,6 @@ public class MemberController {
 
         System.out.println(">>> returned data: " + member.getMemberEmail());
 
-        return ResponseEntity.ok().body(member);
+        return ResponseEntity.ok().body(member);//member의 내용을 json형태로 반환
     }
 }

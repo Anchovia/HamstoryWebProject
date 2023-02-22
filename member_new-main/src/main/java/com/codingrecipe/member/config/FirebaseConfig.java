@@ -9,15 +9,15 @@ import javax.annotation.PostConstruct;
 import java.io.FileInputStream;
 
 @Service
-public class FirebaseConfig {
+public class FirebaseConfig {//파이어베이스에 접근할 수 있게 해줌
     @PostConstruct
     public void init(){
         try{
             FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/serviceAccountKey.json");
+                    new FileInputStream("src/main/resources/serviceAccountKey.json");//키 파일 경로
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setDatabaseUrl("https://hamstory-32e2f.firebaseio.com")
+                    .setDatabaseUrl("https://hamstory-32e2f.firebaseio.com")//데이터베이스 링크
                     .build();
             FirebaseApp.initializeApp(options);
 

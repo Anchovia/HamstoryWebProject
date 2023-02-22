@@ -14,11 +14,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
         this.bearerAuthInterceptor = bearerAuthInterceptor;
     }
 
+    // /info 경로로 들어오면 컨트롤러보다 인터셉터가 먼저 실행되게 함
     public void addInterceptors(InterceptorRegistry registry){
         System.out.println(">>> Interceptor added");
         registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/info");
     }
 
+    //프론트엔드에서 백엔드로 접속할 수 있게 해줌
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/members/new").allowedOrigins("http://localhost:3000");
         registry.addMapping("/members/login").allowedOrigins("http://localhost:3000");
