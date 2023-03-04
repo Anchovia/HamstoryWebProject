@@ -4,7 +4,6 @@ import com.codingrecipe.member.dto.MemberDTO;
 import com.codingrecipe.member.form.LoginForm;
 import com.codingrecipe.member.form.MemberForm;
 import com.codingrecipe.member.service.MemberService;
-import com.google.firebase.remoteconfig.internal.TemplateResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
