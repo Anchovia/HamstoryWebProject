@@ -1,5 +1,5 @@
 .textNav{
-    grid-template-columns: 220px 220px 220px 220px;
+    grid-template-columns: 270px 270px 270px 270px;
     grid-template-rows: 100px;
     display: grid;
     place-items: center;

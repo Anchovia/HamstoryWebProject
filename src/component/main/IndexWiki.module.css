@@ -59,14 +59,15 @@
 }
 
 .button{
+    color: white;
     margin-top: 15px;
-    width: 144px;
-    height: 30px;
-    border-radius: 20px;
+    width: 290px;
+    height: 60px;
+    border-radius: 30px;
     border: none;
-    background-color: #FFDAB9;
-    font-size: 14px;
-    letter-spacing: -0.1em;
+    background-color: #72B2C6;
+    font-size: 20px;
+    letter-spacing: -0.05em;
 }
 
 .indexWikiPicture{

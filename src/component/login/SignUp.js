@@ -14,8 +14,7 @@ import styles from "./SignUp.module.css";
 
 export default function SignUp({setSignUpSuccess}){
     // 데이터를 전송할 url
-    const url = "http://34.219.133.17/members/new";
-    //const url = "http://localhost:8080/members/new";
+    const url = "http://localhost:8080/members/new";
 
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, nickNameChange] = useInput("");
@@ -31,21 +30,30 @@ export default function SignUp({setSignUpSuccess}){
     const [notAllow, setNotAllow] = useState(true);
 
     // 회원가입 함수
-    function signUp(event){
+    let signUp = (event) => {
         event.preventDefault();
         pushData(nickName, email, pw); // 데이터 전송
         setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
     }
 
-    // 데이터 전송 함수
-    function pushData(nickName, email, pw){
-        // 데이터 전송
-        axios.post(url, {
-            nickName: nickName, // 닉네임
-            email: email, // 이메일
-            pw: pw // 비밀번호
-        })
-    }
+    let pushData = async(nickName, email, pw) => {
+        try{
+            // 데이터 전송
+            const res = await axios.post(url, {
+                nickName: nickName, // 닉네임
+                email: email, // 이메일
+                pw: pw, // 비밀번호
+            })
+
+            console.log(res) // 테스트 콘솔
+
+            return true;
+        }
+        // 오류 처리
+        catch(err){
+            return false;
+        }
+    };
 
     // 회원가입 버튼 활성화 여부를 결정하는 useEffect
     useEffect(()=>{

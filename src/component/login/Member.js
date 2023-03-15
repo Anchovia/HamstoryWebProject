@@ -8,7 +8,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // 훅 import
-// import useFetch from "../../hooks/useFetch";
 import useInput from "../../hooks/useInput";
 
 // CSS import
@@ -16,8 +15,7 @@ import styles from "./Member.module.css";
 
 export default function Member(){
     // 데이터를 가져올 url
-    const url = "http://34.219.133.17/members/login";
-    //const url = "http://localhost:8080/members/login";
+    const url = "http://localhost:8080/members/login";
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");
@@ -29,32 +27,33 @@ export default function Member(){
     // 에러 메시지 표시 여부
     const [error, setError] = useState(false);
 
-    function dataPost(email, pw){
-        // 이메일과 pw를 axios를 이용해 url로 전송
-        axios.post(url, {
-            email: email,
-            pw: pw
-        })
-        .then((res)=>{
-            // 로그인 성공 시 메인 페이지로 이동
-            if(res.data){
-                localStorage.setItem("jwt", res.data);
-                console.log(localStorage.getItem("jwt"));
-                movePage("/");
-                return;
-            }
+    // dataPost 함수
+    let dataPost = async(email, pw) => {
+        try{
+            // 이메일과 pw를 axios를 이용해 url로 전송 및 jwt 토큰 생성
+            const res = await axios.post(url, {
+                email: email,
+                pw: pw,
+            })
 
-            // 로그인 실패 시 에러 메시지 표시
-            else{
-                setError(true);
-            }
-        })
+            localStorage.setItem("jwt", res.data); // jwt 토큰 로컬 스토리지에 저장
+
+            movePage("/"); // 로그인 성공 시 메인 페이지로 이동
+
+            return true;
+        }
+        // 로그인 실패시
+        catch(err){
+            setError(true); // 에러 메시지 표시
+
+            return false;
+        }
     }
 
     // 로그인 버튼 클릭 시 실행되는 함수
-    function login(e){
+    let login = (e) => {
         e.preventDefault();
-        dataPost(email, pw); // 데이터 전송
+        dataPost(email, pw);
     }
     
     return (

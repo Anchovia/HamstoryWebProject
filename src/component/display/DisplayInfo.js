@@ -25,9 +25,7 @@ export default function DisplayInfo({setInfoFunc}){
 
     return (
         <div className={styles.display}>
-            <div className={styles.element}>
-                {getToken ? <MembersOnlyWindow setGetToken = {setGetToken}/> : <AccessibleWindow setInfoFunc={setInfoFunc}/>}
-            </div>
+            {getToken ? <MembersOnlyWindow setGetToken = {setGetToken}/> : <AccessibleWindow setInfoFunc={setInfoFunc}/>}
         </div>
     );
 }

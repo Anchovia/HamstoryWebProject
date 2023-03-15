@@ -1,5 +1,5 @@
 .header{
-    grid-template-columns: 320px 1280px 320px;
+    grid-template-columns: 420px 1080px 420px;
     grid-template-rows: 100px;
     display: grid;
     position: fixed;

@@ -1,16 +1,16 @@
 /*
     설명: 로그인 및 회원가입 페이지
-    
-    ,
-  "proxy" : "http://34.219.133.17"
 */ 
 
 // 모듈 import
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // 컴포넌트 import
 import Member from "./Member";
 import SignUp from "./SignUp";
+
+// 훅 import
+import useScrollTop from "../../hooks/useScrollTop";
 
 // CSS import
 import styles from "./Login.module.css";
@@ -38,26 +38,25 @@ export default function Login(){
         }
     }
 
-    // 로그인 페이지가 로드될 때 스크롤을 맨 위로 이동(1회만 실행)
-    useEffect(()=>{
-        window.scrollTo({
-            top:0
-        })
-    }, []);
+    useScrollTop(); // 스크롤을 최상단으로 이동
 
     return (
         <div className={styles.login}>
             <div className={styles.title}>HAMSTORY</div>
             <div className={styles.selector}>
                 <button onClick={memberClick} style={isLogin | signUpSuccess ? {
-                    backgroundColor: "#FFDAB9"
+                    backgroundColor: "#72B2C6",
+                    color: "white"
                 } : {
-                    backgroundColor : "#FFFFFF"
+                    backgroundColor : "#FFFFFF",
+                    color: "black"
                 }} className={styles.button}>회원</button>
                 <button onClick={signUpClick} style={isLogin | signUpSuccess ? {
-                    backgroundColor : "#FFFFFF"
+                    backgroundColor : "#FFFFFF",
+                    color: "black"
                 } : {
-                    backgroundColor : "#FFDAB9"
+                    backgroundColor : "#72B2C6",
+                    color: "white"
                 }} className={styles.button}>비회원</button>
             </div>
             <div className={styles.form}>

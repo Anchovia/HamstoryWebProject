@@ -11,6 +11,9 @@ import IndexCommunity from "./IndexCommunity";
 import IndexWiki from "./IndexWiki";
 import SendToFeedback from "./SendToFeedback";
 
+// 훅 import
+import useScrollTop from "../../hooks/useScrollTop";
+
 // CSS import
 import styles from "./Main.module.css";
 
@@ -25,15 +28,13 @@ export default function Main(){
     
     // 스크롤 이벤트 등록
     useEffect(() => {
-        // 스크롤 위치를 맨 위로 이동
-        window.scrollTo({
-            top:0
-        })
         window.addEventListener("scroll", onScroll);
         return ()=>{
             window.removeEventListener("scroll", onScroll);
         }
     }, []);
+
+    useScrollTop(); // 스크롤을 최상단으로 이동
 
     return (
         <div className={styles.main}>
