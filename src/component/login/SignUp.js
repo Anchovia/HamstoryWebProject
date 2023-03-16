@@ -45,12 +45,14 @@ export default function SignUp({setSignUpSuccess}){
                 pw: pw, // 비밀번호
             })
 
-            console.log(res) // 테스트 콘솔
+            console.log(res.data) // 테스트 콘솔
 
             return true;
         }
         // 오류 처리
         catch(err){
+            console.log(err) // 오류 출력
+
             return false;
         }
     };

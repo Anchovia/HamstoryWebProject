@@ -19,7 +19,6 @@ export default function DisplayInfo({setInfoFunc}){
         }
         else{
             setGetToken(true);
-            console.log(localStorage.getItem("jwt"));
         }
     }, []);
 

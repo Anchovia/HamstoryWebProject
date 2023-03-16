@@ -36,14 +36,18 @@ export default function Member(){
                 pw: pw,
             })
 
-            localStorage.setItem("jwt", res.data); // jwt 토큰 로컬 스토리지에 저장
+            // 에러 판단
+            if(res.status === 200 && res.data.length === 0){
+                throw new Error("빈 데이터를 전달받았습니다.");
+            }
 
-            movePage("/"); // 로그인 성공 시 메인 페이지로 이동
+            localStorage.setItem("jwt", res.data); // jwt 토큰 로컬 스토리지에 저장
 
             return true;
         }
         // 로그인 실패시
         catch(err){
+            console.log("Error:", err.message); // 에러문 콘솔에 출력
             setError(true); // 에러 메시지 표시
 
             return false;
@@ -53,7 +57,21 @@ export default function Member(){
     // 로그인 버튼 클릭 시 실행되는 함수
     let login = (e) => {
         e.preventDefault();
-        dataPost(email, pw);
+        
+        try{
+            let funcReturn = null;
+
+            funcReturn = dataPost(email, pw);
+
+            if(funcReturn === false){
+                throw new Error("dataPost 함수에서 에러 발생"); 
+            }
+
+            movePage("/");
+        }
+        catch(err){
+            console.log("Error:", err.message);
+        }
     }
     
     return (
