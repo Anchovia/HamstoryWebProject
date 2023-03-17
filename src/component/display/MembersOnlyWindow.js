@@ -14,7 +14,8 @@ export default function MembersOnlyWindow({setGetToken}){
 
     function logout(e){
         e.preventDefault();
-        setGetToken(true);
+        localStorage.removeItem('jwt');
+        setGetToken(false);
     }
 
     let getUserData = async(url) => {
