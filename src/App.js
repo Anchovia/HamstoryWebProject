@@ -12,8 +12,22 @@ import EmptyPage from "./component/emptyPage/EmptyPage";
 
 // 모듈 import
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useEffect } from "react";
 
 function App() {
+  // 브라우저가 닫힐때 로컬스토리지 삭제하는 useEffect
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.clear(); // 로컬스토리지 삭제
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <Header/>
