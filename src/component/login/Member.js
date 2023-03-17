@@ -32,23 +32,22 @@ export default function Member(){
         try{
             // 이메일과 pw를 axios를 이용해 url로 전송 및 jwt 토큰 생성
             const res = await axios.post(url, {
-                email: email,
-                pw: pw,
+                email,
+                pw,
             })
 
             // 에러 판단
             if(res.status === 200 && res.data.length === 0){
-                throw new Error("빈 데이터를 전달받았습니다.");
+                throw new Error("members/login에 axios.post에서 빈 데이터를 전달받았습니다.");
             }
 
-            localStorage.setItem("jwt", res.data); // jwt 토큰 로컬 스토리지에 저장
+            localStorage.setItem("jwt", res.data); // jwt 토큰을 로컬 스토리지에 저장
 
             return true;
         }
         // 로그인 실패시
         catch(err){
-            console.log("Error:", err.message); // 에러문 콘솔에 출력
-            setError(true); // 에러 메시지 표시
+            console.log(err); // 에러문 콘솔에 출력
 
             return false;
         }
@@ -58,20 +57,15 @@ export default function Member(){
     let login = (e) => {
         e.preventDefault();
         
-        try{
-            let funcReturn = null;
-
-            funcReturn = dataPost(email, pw);
-
-            if(funcReturn === false){
-                throw new Error("dataPost 함수에서 에러 발생"); 
+        dataPost(email, pw)
+        .then((res) => {
+            if(res === true){
+                movePage("/");
             }
-
-            movePage("/");
-        }
-        catch(err){
-            console.log("Error:", err.message);
-        }
+            else{
+                setError(true); // 에러 메시지 표시
+            }
+        });
     }
     
     return (

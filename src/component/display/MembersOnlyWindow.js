@@ -1,6 +1,6 @@
 // 모듈 import
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // CSS import
@@ -17,7 +17,7 @@ export default function MembersOnlyWindow({setGetToken}){
         setGetToken(true);
     }
 
-    let useUserData = async(url) => {
+    let getUserData = async(url) => {
         try{
             const res = await axios.get(url, {
                 headers: {
@@ -34,7 +34,9 @@ export default function MembersOnlyWindow({setGetToken}){
         }
     }
 
-    useUserData(url);
+    useEffect(()=>{
+        getUserData(url);
+    }, []);
 
     return(
         <div className={styles.gridTable}>
