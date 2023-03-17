@@ -1,13 +1,13 @@
 .iconNav{
-    grid-template-columns: 106.6666666666667px 106.6666666666667px 106.6666666666667px;
+    grid-template-columns: 140px 140px 140px;
     grid-template-rows: 100px;
     display: grid;
     place-items: center;
 }
 
 .container{
-    width: 62px;
-    height: 62px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;

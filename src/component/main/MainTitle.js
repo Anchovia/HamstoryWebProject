@@ -1,5 +1,11 @@
+/*
+    설명: 메인 페이지의 타이틀을 담당하는 컴포넌트
+*/
+
+// 이미지 import
 import iconToUnder from '../../images/icon/image_icon_toUnder.png'
 
+// CSS import
 import styles from "./MainTitle.module.css";
 
 export default function MainTitle(){

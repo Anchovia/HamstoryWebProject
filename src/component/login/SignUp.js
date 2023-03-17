@@ -1,73 +1,103 @@
+/*
+    설명: 회원가입 페이지 컴포넌트
+*/
+
+// 모듈 import
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+// hook import
+import useInput from "../../hooks/useInput";
+
+// CSS import
 import styles from "./SignUp.module.css";
 
-export default function SignUp(){
-    const [email, setEmail] = useState("");
-    const [id, setId] = useState("");
-    const [pw, setPw] = useState("");
+export default function SignUp({setSignUpSuccess}){
+    // 데이터를 전송할 url
+    const url = "http://localhost:8080/members/new";
 
+    // 회원가입 폼 데이터를 저장할 state
+    const [nickName, nickNameChange] = useInput("");
+    const [email, emailChange] = useInput("");
+    const [pw, pwChange] = useInput("");
+
+    // 회원가입 폼 데이터 유효성을 저장할 state
+    const [nickNameValid, setNickNameValid] = useState(false);
     const [emailValid, setEmailValid] = useState(false);
-    const [idValid, setIdValid] = useState(false);
     const [pwValid, setPwValid] = useState(false);
 
+    // 회원가입 버튼 활성화 여부를 저장할 state
     const [notAllow, setNotAllow] = useState(true);
 
-    const movePage = useNavigate();
-        function signUp(event){
-            event.preventDefault();
-            movePage("/");
+    // 회원가입 함수
+    let signUp = (event) => {
+        event.preventDefault();
+        pushData(nickName, email, pw); // 데이터 전송
+        setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
+    }
+
+    let pushData = async(nickName, email, pw) => {
+        try{
+            // 데이터 전송
+            const res = await axios.post(url, {
+                nickName: nickName, // 닉네임
+                email: email, // 이메일
+                pw: pw, // 비밀번호
+            })
+
+            console.log(res.data) // 테스트 콘솔
+
+            return true;
         }
+        // 오류 처리
+        catch(err){
+            console.log(err) // 오류 출력
 
-    function handleEmail(e){
-        setEmail(e.target.value);
-        email.length > 0 ? setEmailValid(true) : setEmailValid(false);
-    }
+            return false;
+        }
+    };
 
-    function handleId(event){
-        setId(event.target.value);
-        id.length > 0 ? setIdValid(true) : setIdValid(false);
-    }
-
-    function handlePw(event){
-        setPw(event.target.value);
-        const regex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-        regex.test(pw) ? setPwValid(true) : setPwValid(false);
-    }
-
+    // 회원가입 버튼 활성화 여부를 결정하는 useEffect
     useEffect(()=>{
-        if(emailValid && idValid && pwValid){
+        // 모든 데이터가 유효하면 회원가입 버튼 활성화
+        if(nickNameValid && emailValid && pwValid){
             setNotAllow(false);
             return;
         }
-        else{
-            setNotAllow(true);
-        }
-    }, [email, id, pw, emailValid, idValid, pwValid])
+        setNotAllow(true);
+    }, [nickNameValid, emailValid, pwValid])
+
+    // 회원가입 폼 데이터 유효성을 결정하는 useEffect
+    useEffect(()=>{
+        // regex 정규식
+        const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        const pwRegex = /^(?=.*[a-zA-z])(?=.*[0-9]).{6,20}$/;
+
+        // 데이터 유효성 검사
+        nickName.length > 0 ? setNickNameValid(true) : setNickNameValid(false);
+        emailRegex.test(email) ? setEmailValid(true) : setEmailValid(false);
+        pwRegex.test(pw) ? setPwValid(true) : setPwValid(false);
+    }, [nickName, email, pw])
 
     return (
         <form className={styles.body}>
+            <div className={styles.profile}/>
             <input
                 type="text"
                 placeholder="닉네임"
-                value={email}
-                onChange={handleEmail}
+                value={nickName}
+                onChange={nickNameChange}
             />
-            <div className={styles.container}>
-                {!emailValid && email.length > 0 && (
-                    <div className={styles.errorText}>이미 사용중인 닉네임입니다.</div>
-                )}
-            </div>
             <input
                 className={styles.inputMarin}
                 type="text"
                 placeholder="이메일"
-                value={id}
-                onChange={handleId}
+                value={email}
+                onChange={emailChange}
             />
             <div className={styles.container}>
-                {!idValid && id.length > 0 && (
-                    <div className={styles.errorText}>이미 사용중인 이메일입니다.</div>
+                {!emailValid && email.length > 0 && (
+                    <div className={styles.errorText}>올바른 이메일을 입력해주시길 바랍니다.</div>
                 )}
             </div>
             <input
@@ -75,11 +105,11 @@ export default function SignUp(){
                 type="text"
                 placeholder="비밀번호"
                 value={pw}
-                onChange={handlePw}
+                onChange={pwChange}
             />
             <div className={styles.container}>
                 {!pwValid && pw.length > 0 && (
-                <div className={styles.errorText}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                <div className={styles.errorText}>영문, 숫자 포함 6자 이상 20자 이하로 입력해주세요.</div>
             )}
             </div>
             <button disabled={notAllow} className={styles.button} onClick={signUp}>회원가입</button>

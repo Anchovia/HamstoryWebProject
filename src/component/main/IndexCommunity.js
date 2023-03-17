@@ -1,6 +1,12 @@
+/*
+    설명: 메인 페이지의 커뮤니티 섹션을 구성하는 컴포넌트
+*/
+
+// 이미지 import
 import pictureCommunity from '../../images/picture/image_picture_community.png'
 import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
+// CSS import
 import styles from "./IndexCommunity.module.css";
 
 export default function IndexCommunity({position}){

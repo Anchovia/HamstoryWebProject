@@ -1,0 +1,96 @@
+.gridTable{
+    display: grid;
+    grid-template-columns: 95px 250px;
+    grid-template-rows: 95px 40px;
+    row-gap: 15px;
+    column-gap: 25px;
+}
+
+.image{
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+
+.element{
+    width: 250px;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonEditProfile{
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 20px;
+    letter-spacing: -0.1em;
+    cursor: pointer;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    background-color: #72B2C6;
+}
+
+.buttonLogout{
+    box-sizing: border-box;
+    width: 60px;
+    height: 19px;
+    background-color: #666666;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    border-radius: 100px;
+    font-size: 11px;
+    color: #FFFFFF;
+    letter-spacing: -0.05em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nickName{
+    font-size: 20px;
+    letter-spacing: -0.1em;
+    color: #000000;
+}
+
+.email{
+    font-size: 15px;
+    letter-spacing: -0.05em;
+    color: #666666;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+.userData{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 15px;
+    letter-spacing: -0.1em;
+}
+
+.topContainer{
+    display: grid;
+    grid-template-columns: 190px 60px;
+    grid-template-rows: auto;
+    align-items: center;
+}
+
+.linkTitle{
+    color: #000000;
+}
+
+.linkElement{
+    color: #666666;
+    padding-left: 2px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.link:active{
+    color: #FFFFFF;
+}

@@ -1,14 +1,14 @@
 .link{
-    width: 202px;
-    height: 61px;
+    width: 290px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
 
-.logo{
-    font-size: 32px;
+.logoTxt{
+    font-size: 40px;
     font-weight: 600;
     letter-spacing: 0.025em;
     color: #000000;

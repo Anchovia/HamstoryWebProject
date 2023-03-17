@@ -1,6 +1,12 @@
+/*
+    설명: 메인 페이지의 위키 컴포넌트
+*/
+
+// 이미지 import
 import pictureWiki from '../../images/picture/image_picture_wiki.png'
 import iconWiki from '../../images/icon/image_icon_index_wiki.png'
 
+// CSS import
 import styles from "./IndexWiki.module.css";
 
 export default function IndexWiki({position}){

@@ -1,0 +1,34 @@
+{
+  "userData": [
+    {
+      "id": 1,
+      "nickName": "Carol",
+      "email": "abc@naver.com",
+      "pw": 1234
+    },
+    {
+      "id": 2,
+      "nickName": "123",
+      "email": "asd@asc.asd",
+      "pw": "123ascd"
+    },
+    {
+      "id": 3,
+      "nickName": "123",
+      "email": "asd@ascasc.asca",
+      "pw": "123asc"
+    },
+    {
+      "id": 4,
+      "nickName": "test",
+      "email": "a@b.c",
+      "pw": "asd123"
+    },
+    {
+      "id": 5,
+      "nickName": "12",
+      "email": "asd@gasc.2qwe",
+      "pw": "123asf"
+    }
+  ]
+}

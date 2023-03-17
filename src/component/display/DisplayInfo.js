@@ -1,25 +1,30 @@
+/*
+    설명: 
+*/
+
+// 모듈 import
+import { useEffect, useState } from "react";
+import AccessibleWindow from "./AccessibleWindow";
+import MembersOnlyWindow from "./MembersOnlyWindow";
+
+// CSS import
 import styles from "./DisplayInfo.module.css";
-import { useNavigate } from "react-router-dom";
 
 export default function DisplayInfo({setInfoFunc}){
-    const movePage = useNavigate();
+    const [getToken, setGetToken] = useState(false);
 
-    function loginClick(event){
-        event.preventDefault();
-        goToLoginPage();
-    }
-
-    function goToLoginPage(){
-        movePage("/login");
-        setInfoFunc(false);
-    }
+    useEffect(()=>{
+        if(!localStorage.getItem("jwt")){
+            return;
+        }
+        else{
+            setGetToken(true);
+        }
+    }, []);
 
     return (
         <div className={styles.display}>
-            <div className={styles.container}>
-                <div className={styles.title}>HAMSTORY</div>
-                <button className={styles.button} onClick={loginClick}>로그인</button>
-            </div>
+            {getToken ? <MembersOnlyWindow setGetToken = {setGetToken}/> : <AccessibleWindow setInfoFunc={setInfoFunc}/>}
         </div>
     );
 }

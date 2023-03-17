@@ -16,6 +16,14 @@
     }
 }
 
+.profile{
+    width: 128px;
+    height: 128px;
+    background-color: #d9d9d9;
+    margin-bottom: 25px;
+    border-radius: 100%;
+}
+
 .inputMarin{
     margin-top: 15px;
 }
@@ -24,7 +32,6 @@ input[type=text]{
     width: 439px;
     height: 43px;
     border: 0.5px solid rgba(0, 0, 0, 0.35);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     filter: blur(0.5px);
     padding-left: 18px;
 }
@@ -35,6 +42,7 @@ input::placeholder{
 }
 
 .button{
+    color: white;
     width: 460px;
     height: 43px;
     margin-top: 25px;
@@ -43,14 +51,13 @@ input::placeholder{
     cursor: pointer;
     filter: blur(0.5px);
     border: 0.5px solid rgba(0, 0, 0, 0.35);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #FFDAB9;
+    background-color: #72B2C6;
 }
 
 .button:disabled{
     cursor: auto;
     color: rgba(0, 0, 0, 0.25);
-    background-color: rgba(255, 218, 185, 0.25);
+    background-color: rgba(114, 178, 198, 0.25);
 }
 
 .container{
@@ -58,7 +65,7 @@ input::placeholder{
 }
 
 .errorText{
-    text-align: right;
+    text-align: left;
     margin-top: 8px;
     margin-bottom: -8px;
     font-size: 16px;
