@@ -3,21 +3,28 @@
 */
 
 // 모듈 import
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AccessibleWindow from "./AccessibleWindow";
+import MembersOnlyWindow from "./MembersOnlyWindow";
 
 // CSS import
 import styles from "./DisplayInfo.module.css";
-import MembersOnlyWindow from "./MembersOnlyWindow";
 
 export default function DisplayInfo({setInfoFunc}){
-    const [display, setDisplay] = useState(false);
+    const [getToken, setGetToken] = useState(false);
+
+    useEffect(()=>{
+        if(!localStorage.getItem("jwt")){
+            return;
+        }
+        else{
+            setGetToken(true);
+        }
+    }, []);
 
     return (
         <div className={styles.display}>
-            <div className={styles.element}>
-                {display ? <AccessibleWindow setInfoFunc={setInfoFunc}/> : <MembersOnlyWindow setDisplay = {setDisplay}/>}
-            </div>
+            {getToken ? <MembersOnlyWindow setGetToken = {setGetToken}/> : <AccessibleWindow setInfoFunc={setInfoFunc}/>}
         </div>
     );
 }

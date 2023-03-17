@@ -3,25 +3,19 @@
 */
 
 // 모듈 import
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // 훅 import
-// import useFetch from "../../hooks/useFetch";
 import useInput from "../../hooks/useInput";
 
 // CSS import
 import styles from "./Member.module.css";
 
 export default function Member(){
-    /*
     // 데이터를 가져올 url
-    const url = "http://34.219.133.17/members/new";
-
-
-    // 데이터 배열을 저장할 변수 data
-    const data = useFetch(url);
-    */
+    const url = "http://localhost:8080/members/login";
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");
@@ -33,29 +27,45 @@ export default function Member(){
     // 에러 메시지 표시 여부
     const [error, setError] = useState(false);
 
-    // 로그인 버튼 클릭 시 실행되는 함수
-    function login(e){
-        e.preventDefault();
-    
-        /*
-        // 이메일과 비밀번호가 일치하는 데이터를 찾아서 저장
-        const getData = data.find(item => item.email === email)
+    // dataPost 함수
+    let dataPost = async(email, pw) => {
+        try{
+            // 이메일과 pw를 axios를 이용해 url로 전송 및 jwt 토큰 생성
+            const res = await axios.post(url, {
+                email,
+                pw,
+            })
 
-        // 데이터가 없거나 이메일과 비밀번호가 일치하지 않으면 에러 메시지 표시
-        // 일치하면 메인 페이지로 이동
-        if(getData === undefined){
-            setError(true);
-            return;
+            // 에러 판단
+            if(res.status === 200 && res.data.length === 0){
+                throw new Error("members/login에 axios.post에서 빈 데이터를 전달받았습니다.");
+            }
+
+            localStorage.setItem("jwt", res.data); // jwt 토큰을 로컬 스토리지에 저장
+
+            return true;
         }
-        else if(getData.email === email && getData.pw.toString() === pw){
-            makeLoginToken();
-            movePage("/");
+        // 로그인 실패시
+        catch(err){
+            console.log(err); // 에러문 콘솔에 출력
+
+            return false;
         }
-        else{
-            setError(true);
-        }
-        */
-       movePage("/");
+    }
+
+    // 로그인 버튼 클릭 시 실행되는 함수
+    let login = (e) => {
+        e.preventDefault();
+        
+        dataPost(email, pw)
+        .then((res) => {
+            if(res === true){
+                movePage("/");
+            }
+            else{
+                setError(true); // 에러 메시지 표시
+            }
+        });
     }
     
     return (

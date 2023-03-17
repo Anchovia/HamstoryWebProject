@@ -10,10 +10,10 @@ import styles from "./LogoNav.module.css";
 
 export default function LogoNav(){
     return (
-        <>
+        <div className={styles.body}>
             <Link to="/" className={styles.link}>
-                <div className={styles.logo}>HAMSTORY</div>
+                <div className={styles.logoTxt}>HAMSTORY</div>
             </Link>
-        </>
+        </div>
     );
 }
