@@ -12,22 +12,19 @@ import EmptyPage from "./component/emptyPage/EmptyPage";
 
 // 모듈 import
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { CookiesProvider } from "react-cookie";
 
 function App() {
   return (
-    <CookiesProvider>
-      <BrowserRouter>
-        <Header/>
-        <Routes>
-          <Route path="/" element={<Main/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/*" element={<EmptyPage/>}/>
-        </Routes>
-        <Footer/>
-        <GoToUpButton/>
-      </BrowserRouter>
-    </CookiesProvider>
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/*" element={<EmptyPage/>}/>
+      </Routes>
+      <Footer/>
+      <GoToUpButton/>
+    </BrowserRouter>
   );
 }
 
