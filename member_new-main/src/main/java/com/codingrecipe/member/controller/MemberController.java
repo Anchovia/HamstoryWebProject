@@ -23,15 +23,17 @@ public class MemberController {
     MemberService memberService;
 
     //회원가입
+    //회원가입 정보를 프론트에서 받아와서 토큰발급
     @PostMapping("/members/new")
     public String create(@RequestBody MemberForm form) throws Exception{
         MemberDTO member = new MemberDTO();
-        member.setMemberName(form.getNickName());
+        member.setMemberName(form.getNickName());  // 받아온 정보를 각 변수를 저장
         member.setMemberEmail(form.getEmail());
         member.setMemberPassword(form.getPw());
 
         //memberService 호출해서 member를 데이터베이스에 저장하고 토큰을 받아옴
         //회원가입 실패하면 token에는 null이 저장됨
+        //이메일과 닉네임이 중복되면 null(아직 이메일 중복밖에 없음)
         String token = memberService.insertMember(member);
 
         if(token != null){
@@ -46,11 +48,12 @@ public class MemberController {
     }
 
     //로그인
+    //프론트에서 로그인 정보를 보내면 그 정보를 비교해서 맞으면 토큰발급, 아니면 널
     @PostMapping("/members/login")
     public String login(@RequestBody LoginForm form) throws Exception{
         //memberService 호출해서 로그인
         //실패하면 token = null
-        String token = memberService.login(form);
+        String token = memberService.login(form);  // memberService 부분이 파이어베이스
 
         if(token != null){//로그인 성공
             System.out.println(">>> login success: " + form.getEmail());
@@ -69,6 +72,7 @@ public class MemberController {
 
     //멤버 정보 요청
     //여기로 오기 전에 인터셉터(BearerAuthInterceptor) 먼저 실행됨
+    //프론트에서 토큰을 보내면 그 토큰을 해석해서 이메일, 닉네임, 페스워드를 프론트에 보내줌
     @GetMapping("/info")
     public ResponseEntity<MemberDTO> getMemberFromToken(HttpServletRequest request){
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
@@ -78,8 +82,8 @@ public class MemberController {
         member.setMemberName((String) claims.get("nickName"));
         member.setMemberPassword((String) claims.get("pw"));
 
-        System.out.println(">>> returned data: " + member.getMemberEmail());
+        System.out.println(">>> returned data: " + member.getMemberEmail());  // 디버깅용
 
-        return ResponseEntity.ok().body(member);//member의 내용을 json형태로 반환
+        return ResponseEntity.ok().body(member);//member의 내용을 json형태로 반환(프론트에 보낼 때)
     }
 }

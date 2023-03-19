@@ -18,6 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry){
         System.out.println(">>> Interceptor added");
         registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/info");
+        registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/board/save");
     }
 
     //프론트엔드에서 백엔드로 접속할 수 있게 해줌
