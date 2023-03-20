@@ -5,16 +5,18 @@
 // 모듈 import
 import { useState, useEffect } from "react";
 import axios from "axios";
+import validator from "validator";
 
 // hook import
 import useInput from "../../hooks/useInput";
 
 // CSS import
 import styles from "./SignUp.module.css";
+import { URL_SIGNUP } from "../../config/config";
 
 export default function SignUp({setSignUpSuccess}){
     // 데이터를 전송할 url
-    const url = "http://localhost:8080/members/new";
+    const url = URL_SIGNUP;
 
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, nickNameChange] = useInput("");
@@ -69,14 +71,10 @@ export default function SignUp({setSignUpSuccess}){
 
     // 회원가입 폼 데이터 유효성을 결정하는 useEffect
     useEffect(()=>{
-        // regex 정규식
-        const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-        const pwRegex = /^(?=.*[a-zA-z])(?=.*[0-9]).{6,20}$/;
-
-        // 데이터 유효성 검사
+        // validator 라이브러리를 사용하여 데이터 유효성 검사를 수행합니다.
         nickName.length > 0 ? setNickNameValid(true) : setNickNameValid(false);
-        emailRegex.test(email) ? setEmailValid(true) : setEmailValid(false);
-        pwRegex.test(pw) ? setPwValid(true) : setPwValid(false);
+        validator.isEmail(email) ? setEmailValid(true) : setEmailValid(false);
+        validator.isStrongPassword(pw, { minLength: 6, maxLength: 20, minLowercase: 1, minUppercase: 0, minSymbols: 0, minNumbers: 1 }) ? setPwValid(true) : setPwValid(false);
     }, [nickName, email, pw])
 
     return (

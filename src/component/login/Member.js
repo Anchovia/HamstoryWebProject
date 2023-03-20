@@ -6,6 +6,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { URL_LOGIN } from "../../config/config";
 
 // 훅 import
 import useInput from "../../hooks/useInput";
@@ -15,7 +16,7 @@ import styles from "./Member.module.css";
 
 export default function Member(){
     // 데이터를 가져올 url
-    const url = "http://localhost:8080/members/login";
+    const url = URL_LOGIN;
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");

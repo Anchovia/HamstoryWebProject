@@ -2,12 +2,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { URL_INFO } from "../../config/config";
 
 // CSS import
 import styles from "./MembersOnlyWindow.module.css";
 
 export default function MembersOnlyWindow({setGetToken}){
-    const url = "http://localhost:8080/info"
+    const url = URL_INFO;
 
     const [userEmail, setUserEmail] = useState("");
     const [userName, setUserName] = useState("");
@@ -37,7 +38,7 @@ export default function MembersOnlyWindow({setGetToken}){
 
     useEffect(()=>{
         getUserData(url);
-    }, []);
+    }, [url]);
 
     return(
         <div className={styles.gridTable}>
