@@ -14,15 +14,12 @@ import java.util.function.BiPredicate;
 
 public class BoardDTO {
     private Long id;
-    private String boardWriter;
     private String boardTitle;
-    private String boardContents;
-    private int boardHits;  // 조회수
+    private String boardWriter;
     private LocalDateTime boardCreatedTime;  // 글 작성시간
+    private int boardHits;  // 조회수
+    private int boardLikes; // 좋아요수
+    private String boardContents;
+    private String category; //카테고리
     //private LocalDateTime boardUpdatedTime;  // 글 수정시간
-
-    //public static BoardDTO toBoardDTO(BoardEntity boardEntity) {  // dto를 entity로 변환하는
-    //   BoardDTO boardDTO = new BoardDTO();
-        //boardDTO
-    //}
 }

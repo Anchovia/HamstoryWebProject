@@ -35,11 +35,13 @@ public class BoardController {
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
 
         BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setBoardWriter((String) claims.get("nickName"));
         boardDTO.setBoardTitle(boardForm.getBoardTitle());
-        boardDTO.setBoardContents(boardForm.getBoardContents());
+        boardDTO.setBoardWriter((String) claims.get("nickName"));
         boardDTO.setBoardCreatedTime(LocalDateTime.now());
         boardDTO.setBoardHits(0);
+        boardDTO.setBoardLikes(0);
+        boardDTO.setBoardContents(boardForm.getBoardContents());
+        boardDTO.setCategory("-");
         boardService.save(boardDTO);
 
         return "boardSave";
