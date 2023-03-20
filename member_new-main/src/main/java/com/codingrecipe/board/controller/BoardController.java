@@ -24,7 +24,7 @@ public class BoardController {
 
     @GetMapping("/board")  // 보낼 때
     public String saveForm() {
-        return "boardSave";
+        return "boardHome";
     }
     @PostMapping("/board/save")  // 받아올 때
     public String save(@ModelAttribute BoardForm boardForm, HttpServletRequest request) throws ExecutionException, InterruptedException {
@@ -41,12 +41,12 @@ public class BoardController {
         return "index";
     }
 
-    /*
+
     @GetMapping("/")
     public String findAll(Model model) throws ExecutionException, InterruptedException {
         // DB에서 전체 게시글 데이터를 가져와서 list.html에 보여줌
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
         return "List";
-    }*/
+    }
 }
