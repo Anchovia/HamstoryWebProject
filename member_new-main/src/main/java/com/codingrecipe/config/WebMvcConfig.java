@@ -27,5 +27,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addMapping("/members/login").allowedOrigins("http://localhost:3000");
         registry.addMapping("/info").allowedOrigins("http://localhost:3000");
         registry.addMapping("/board/findAll").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/board/findOne").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/board/save").allowedOrigins("http://localhost:3000");
     }
 }
