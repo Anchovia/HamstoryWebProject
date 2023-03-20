@@ -1,4 +1,4 @@
-package com.codingrecipe.member.config;
+package com.codingrecipe.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
@@ -14,7 +14,7 @@ public class FirebaseConfig {
     public void init() {
         try {
             FileInputStream serviceAccount =
-                    new FileInputStream("member_new-main/src/main/resources/serviceAccountKey.json");//키 파일 경로
+                    new FileInputStream("src/main/resources/serviceAccountKey.json");//키 파일 경로
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl("https://hamstory-32e2f.firebaseio.com")//데이터베이스 링크

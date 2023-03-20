@@ -23,6 +23,10 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/board")  // 보낼 때
+    public String homeForm() {
+        return "boardHome";
+    }
+    @GetMapping("/board/save")  // 보낼 때
     public String saveForm() {
         return "boardSave";
     }
@@ -38,15 +42,17 @@ public class BoardController {
         boardDTO.setBoardHits(0);
         boardService.save(boardDTO);
 
-        return "index";
+        return "boardSave";
     }
 
+/*
     @GetMapping("/")
-
     public String findAll(Model model) throws ExecutionException, InterruptedException {
         // DB에서 전체 게시글 데이터를 가져와서 list.html에 보여줌
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
         return "List";
     }
+
+ */
 }

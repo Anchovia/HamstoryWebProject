@@ -2,7 +2,7 @@ package com.codingrecipe.member.service;
 
 import com.codingrecipe.member.dto.MemberDTO;
 import com.codingrecipe.member.form.LoginForm;
-import com.codingrecipe.member.jwt.JwtTokenProvider;
+import com.codingrecipe.jwt.JwtTokenProvider;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;

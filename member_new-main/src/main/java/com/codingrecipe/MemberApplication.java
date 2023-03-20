@@ -1,4 +1,4 @@
-package com.codingrecipe.member;
+package com.codingrecipe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
