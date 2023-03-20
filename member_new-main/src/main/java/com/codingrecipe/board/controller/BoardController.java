@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -33,14 +34,15 @@ public class BoardController {
     @PostMapping("/board/save")  // 받아올 때
     public String save(@ModelAttribute BoardForm boardForm, HttpServletRequest request) throws ExecutionException, InterruptedException {
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
+        Timestamp now = new Timestamp(System.currentTimeMillis());
 
         BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setBoardTitle(boardForm.getBoardTitle());
-        boardDTO.setBoardWriter((String) claims.get("nickName"));
-        boardDTO.setBoardCreatedTime(LocalDateTime.now());
-        boardDTO.setBoardHits(0);
-        boardDTO.setBoardLikes(0);
-        boardDTO.setBoardContents(boardForm.getBoardContents());
+        boardDTO.setTitle(boardForm.getBoardTitle());
+        boardDTO.setWriter((String) claims.get("nickName"));
+        boardDTO.setCreatedTime(now);
+        boardDTO.setHits(0);
+        boardDTO.setLikes(0);
+        boardDTO.setContents(boardForm.getBoardContents());
         boardDTO.setCategory("-");
         boardService.save(boardDTO);
 

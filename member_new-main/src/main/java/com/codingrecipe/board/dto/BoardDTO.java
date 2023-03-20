@@ -2,6 +2,7 @@ package com.codingrecipe.board.dto;
 
 import lombok.*;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.function.BiPredicate;
 
@@ -14,12 +15,12 @@ import java.util.function.BiPredicate;
 
 public class BoardDTO {
     private Long id;
-    private String boardTitle;
-    private String boardWriter;
-    private LocalDateTime boardCreatedTime;  // 글 작성시간
-    private int boardHits;  // 조회수
-    private int boardLikes; // 좋아요수
-    private String boardContents;
+    private String title;
+    private String writer;
+    private Timestamp createdTime;  // 글 작성시간
+    private int hits;  // 조회수
+    private int likes; // 좋아요수
+    private String contents;
     private String category; //카테고리
     //private LocalDateTime boardUpdatedTime;  // 글 수정시간
 }
