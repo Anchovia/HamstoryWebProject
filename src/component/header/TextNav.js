@@ -1,28 +1,29 @@
-/*
-    설명: 텍스트 네비게이션 컴포넌트
-*/
+import { Link } from 'react-router-dom';
+import styles from './TextNav.module.css';
 
-// CSS import
-import { Link } from "react-router-dom";
-import styles from "./TextNav.module.css";
+export default function TextNav() {
+    const menuItems = [
+        { name: '햄스토리', path: '/hamstory' },
+        { name: '커뮤니티', path: '/community' },
+        { name: '위키', path: 'wiki' },
+        { name: '도움말', path: 'help' },
+    ];
 
-export default function TextNav(){
-    return (
-        <nav className={styles.textNav}>
+  return (
+    <nav className={styles.textNav}>
+      {menuItems.map((item, index) => (
+        item.path ? (
+          <Link key={index} to={item.path} className={styles.link}>
             <div className={styles.container}>
-                <div className={styles.title}>햄스토리</div>
+              <div className={styles.title}>{item.name}</div>
             </div>
-            <Link to="/community" className={styles.link}>
-                <div className={styles.container}>
-                    <div className={styles.title}>커뮤니티</div>
-                </div>
-            </Link>
-            <div className={styles.container}>
-                <div className={styles.title}>위키</div>
-            </div>
-            <div className={styles.container}>
-                <div className={styles.title}>도움말</div>
-            </div>
-        </nav>
-    );
+          </Link>
+        ) : (
+          <div key={index} className={styles.container}>
+            <div className={styles.title}>{item.name}</div>
+          </div>
+        )
+      ))}
+    </nav>
+  );
 }

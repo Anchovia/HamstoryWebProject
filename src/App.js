@@ -4,26 +4,18 @@
 
 // 컴포넌트 import
 import Header from "./component/header/Header";
-import Main from "./component/main/Main";
-import Login from "./component/login/Login";
-import Community from "./component/community/Community";
 import Footer from "./component/footer/Footer";
 import GoToUpButton from "./component/button/GoToUpButton";
-import EmptyPage from "./component/emptyPage/EmptyPage";
 
 // 모듈 import
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <Routes>
-        <Route path="/" element={<Main/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/community" element={<Community/>}/>
-        <Route path="/*" element={<EmptyPage/>}/>
-      </Routes>
+      <AppRoutes/>
       <Footer/>
       <GoToUpButton/>
     </BrowserRouter>
