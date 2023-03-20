@@ -1,9 +1,7 @@
 import com.codingrecipe.member.form.LoginForm;
-import com.codingrecipe.member.jwt.JwtTokenProvider;
+import com.codingrecipe.jwt.JwtTokenProvider;
 import com.codingrecipe.member.service.MemberService;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.*;
 
 public class JwtTest {
     String token = null;

@@ -1,6 +1,6 @@
-package com.codingrecipe.member.config;
+package com.codingrecipe.config;
 
-import com.codingrecipe.member.jwt.BearerAuthInterceptor;
+import com.codingrecipe.jwt.BearerAuthInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

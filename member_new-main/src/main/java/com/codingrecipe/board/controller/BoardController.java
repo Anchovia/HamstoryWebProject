@@ -41,12 +41,12 @@ public class BoardController {
         return "index";
     }
 
+    /*
     @GetMapping("/")
-
     public String findAll(Model model) throws ExecutionException, InterruptedException {
         // DB에서 전체 게시글 데이터를 가져와서 list.html에 보여줌
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
         return "List";
-    }
+    }*/
 }

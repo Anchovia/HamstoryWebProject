@@ -1,4 +1,4 @@
-package com.codingrecipe.member.jwt;
+package com.codingrecipe.jwt;
 
 import com.codingrecipe.member.dto.MemberDTO;
 import io.jsonwebtoken.*;
