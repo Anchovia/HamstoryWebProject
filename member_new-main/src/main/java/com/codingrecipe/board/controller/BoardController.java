@@ -31,6 +31,8 @@ public class BoardController {
     public String saveForm() {
         return "boardSave";
     }
+
+    /*
     @PostMapping("/board/save")  // 받아올 때
     public String save(@ModelAttribute BoardForm boardForm, HttpServletRequest request) throws ExecutionException, InterruptedException {
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
@@ -43,11 +45,11 @@ public class BoardController {
         boardDTO.setHits(0);
         boardDTO.setLikes(0);
         boardDTO.setContents(boardForm.getBoardContents());
-        boardDTO.setCategory("-");
+        boardDTO.setCategory("자유게시판");
         boardService.save(boardDTO);
 
         return "boardSave";
-    }
+    }*/
 
 /*
     @GetMapping("/")

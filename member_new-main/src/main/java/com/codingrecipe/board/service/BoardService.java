@@ -27,6 +27,22 @@ public class BoardService {
 
     }
 
+    public BoardDTO findOne(Long id) throws ExecutionException, InterruptedException {
+        Firestore firestore = FirestoreClient.getFirestore();
+
+        DocumentReference docRef = firestore.collection(COLLECTION_NAME).document(String.valueOf(id));
+        ApiFuture<DocumentSnapshot> apiFuture = docRef.get();
+        DocumentSnapshot document = apiFuture.get();
+
+        if(document == null){
+            System.out.println(">>> This id does not exist");
+            return null;
+        }
+
+        System.out.println(">>> returned board: " + id);
+        return document.toObject(BoardDTO.class);
+    }
+
     public List<BoardDTO> findAll() throws ExecutionException, InterruptedException {
         Firestore firestore = FirestoreClient.getFirestore();
 
