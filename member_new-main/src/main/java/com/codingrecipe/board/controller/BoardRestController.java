@@ -45,8 +45,10 @@ public class BoardRestController {
     }
 
     @PostMapping("/board/findOne")  //  프론트에서 게시글의 아이디를 보내주면 그 아이디를 가진 게시글 찾아서 정보 리턴
-    public BoardDTO findOne(@RequestBody Long id) throws ExecutionException, InterruptedException {
+    public ResponseEntity<BoardDTO> findOne(@RequestBody Long id) throws ExecutionException, InterruptedException {
 
-        return boardService.findOne(id);
+        BoardDTO boardDTO = boardService.findOne(id);
+
+        return ResponseEntity.ok().body(boardDTO);
     }
 }
