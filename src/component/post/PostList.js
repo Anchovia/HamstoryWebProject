@@ -1,3 +1,4 @@
+// CSS import
 import styles from './PostList.module.css';
 
 export default function PostList({ id, title, writer, createdTime, hits, likes }){

@@ -6,6 +6,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookie from "js-cookie";
+
+// config import
 import { URL_LOGIN } from "../../config/config";
 
 // 훅 import
@@ -15,6 +18,10 @@ import useInput from "../../hooks/useInput";
 import styles from "./Member.module.css";
 
 export default function Member(){
+    // 만료일자 설정
+    const minuteExpries = 30; // 입력부
+    const expiresTime = minuteExpries / 60 / 24; // 계산식
+
     // 데이터를 가져올 url
     const url = URL_LOGIN;
 
@@ -42,7 +49,7 @@ export default function Member(){
                 throw new Error("members/login에 axios.post에서 빈 데이터를 전달받았습니다.");
             }
 
-            localStorage.setItem("jwt", res.data); // jwt 토큰을 로컬 스토리지에 저장
+            Cookie.set("jwt", res.data, { expires: expiresTime, secure: true }); // jwt 토큰을 쿠키에 저장
 
             return true;
         }

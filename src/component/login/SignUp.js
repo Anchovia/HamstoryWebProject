@@ -12,6 +12,8 @@ import useInput from "../../hooks/useInput";
 
 // CSS import
 import styles from "./SignUp.module.css";
+
+// config import
 import { URL_SIGNUP } from "../../config/config";
 
 export default function SignUp({setSignUpSuccess}){
@@ -41,13 +43,12 @@ export default function SignUp({setSignUpSuccess}){
     let pushData = async(nickName, email, pw) => {
         try{
             // 데이터 전송
+            // eslint-disable-next-line
             const res = await axios.post(url, {
                 nickName: nickName, // 닉네임
                 email: email, // 이메일
                 pw: pw, // 비밀번호
             })
-
-            console.log(res.data) // 테스트 콘솔
 
             return true;
         }

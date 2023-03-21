@@ -1,9 +1,15 @@
-import styles from './CommunityLatestPost.module.css';
-
-import PostList from "../post/PostList";
+// 컴포넌트 import
 import CommunityHeader from './CommunityHeader';
+import PostList from "../post/PostList";
+
+// config import
 import { URL_GET_BOARD } from '../../config/config';
+
+// hook import
 import useFetch from '../../hooks/useFetch';
+
+// css import
+import styles from './CommunityLatestPost.module.css';
 
 export default function CommunityLatestPost(){
     const res = useFetch(URL_GET_BOARD)

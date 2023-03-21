@@ -2,6 +2,8 @@
     설명:
 */
 
+
+// 모듈 import
 import { useNavigate } from "react-router";
 
 // CSS import

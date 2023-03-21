@@ -2,6 +2,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Cookie from "js-cookie";
+
+// config import
 import { URL_INFO } from "../../config/config";
 
 // CSS import
@@ -15,7 +18,7 @@ export default function MembersOnlyWindow({setGetToken}){
 
     function logout(e){
         e.preventDefault();
-        localStorage.removeItem('jwt');
+        Cookie.remove("token");
         setGetToken(false);
     }
 
@@ -24,7 +27,7 @@ export default function MembersOnlyWindow({setGetToken}){
             const res = await axios.get(url, {
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("jwt"),
+                    "Authorization": "Bearer " + Cookie.get("jwt"),
                 }
             });
 

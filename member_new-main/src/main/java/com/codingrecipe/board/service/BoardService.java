@@ -60,11 +60,11 @@ public class BoardService {
             long diff = System.currentTimeMillis() - createdTime.getTime(); // 현재시간 - 작성시간
             long day = 86400000; // 1일 = 86400000 밀리초
             if(diff > day * 3){ // 작성일이 3일 전 이후 이라면 날짜 표시
-                boardDTO.setCreatedTime(new SimpleDateFormat("yyyy/MM/dd").format(createdTime));
+                boardDTO.setCreatedTime(new SimpleDateFormat("yyyy . MM . dd").format(createdTime));
             } else {
                 int diff2 = (int) (diff / day);
                 if(diff2 == 0){ // 오늘이면 시간 표시
-                    boardDTO.setCreatedTime(new SimpleDateFormat("hh시 mm분").format(createdTime));
+                    boardDTO.setCreatedTime(new SimpleDateFormat("hh : mm").format(createdTime));
                 }else{ // 1일 ~ 3일 전이라면 며칠전인지 표시
                     boardDTO.setCreatedTime(diff2 + "일 전");
                 }

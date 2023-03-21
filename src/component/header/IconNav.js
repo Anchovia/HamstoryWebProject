@@ -1,9 +1,16 @@
+// 모듈 import
 import { useState } from 'react';
+
+// 이미지 import
 import iconGit from '../../images/icon/image_icon_git.png';
 import iconInfo from '../../images/icon/image_icon_info.png';
 import iconMenu from '../../images/icon/image_icon_menu.png';
+
+// 컴포넌트 import
 import Displayinfo from '../display/DisplayInfo';
 import DisplayMenu from '../display/DisplayMenu';
+
+// CSS import
 import styles from './IconNav.module.css';
 
 export default function IconNav() {

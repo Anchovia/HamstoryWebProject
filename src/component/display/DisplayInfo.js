@@ -4,6 +4,9 @@
 
 // 모듈 import
 import { useEffect, useState } from "react";
+import Cookie from "js-cookie";
+
+// 컴포넌트 import
 import AccessibleWindow from "./AccessibleWindow";
 import MembersOnlyWindow from "./MembersOnlyWindow";
 
@@ -14,7 +17,7 @@ export default function DisplayInfo({setInfoFunc}){
     const [getToken, setGetToken] = useState(false);
 
     useEffect(()=>{
-        if(!localStorage.getItem("jwt")){
+        if(!Cookie.get("jwt")){
             return;
         }
         else{

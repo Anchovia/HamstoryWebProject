@@ -1,4 +1,7 @@
+// 모듈 import
 import { Link } from 'react-router-dom';
+
+// css import
 import styles from './CommunityHeader.module.css';
 
 export default function CommunityHeader() {

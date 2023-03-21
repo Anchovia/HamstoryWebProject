@@ -1,4 +1,6 @@
-// 설명: 화면 상단으로 이동하는 버튼 컴포넌트
+/*
+    설명: 화면 상단으로 이동하는 버튼 컴포넌트
+*/
 
 // 이미지 import
 import iconGoToUp from '../../images/icon/image_icon_goToUp.png'
