@@ -16,7 +16,7 @@ public class BoardDTO {
     private Long id;
     private String title;
     private String writer;
-    private Timestamp createdTime;  // 글 작성시간
+    private Date createdTime;  // 글 작성시간
     private int hits;  // 조회수
     private int likes; // 좋아요수
     private String contents;
