@@ -13,11 +13,18 @@ export default function useFetch(url){
 
     // url이 변경될 때마다 데이터를 가져오는 useEffect
     useEffect(() => {
-        axios.get(url) // url을 이용해 데이터를 가져옴 
-        .then((res) => {
-            console.log(res);
-            setData(res.data); // 데이터를 state에 저장
-        });
+        // 비동기 함수 선언
+        const fetchData = async () => {
+            try{
+                const res = await axios.get(url); // url을 이용해 데이터를 가져옴
+                setData(res.data); // 데이터를 state에 저장
+            }
+            catch (error) {
+                console.log("useFetch 훅에서 데이터를 가져오는데 실패하였습니다. url 및 로그:", url, error)
+            }
+        };
+        
+        fetchData(); // 비동기 함수 호출
     }, [url]);
 
     return data; // return: 데이터
