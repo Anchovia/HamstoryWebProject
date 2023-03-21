@@ -41,11 +41,10 @@ export default function IconNav() {
                 { src: iconInfo, alt: 'IconInfo', componentName: 'info' },
                 { src: iconMenu, alt: 'IconMenu', componentName: 'menu' },
                 ].map((icon) => (
-                <div key={icon.alt} className={styles.container}>
+                <div key={icon.alt} className={styles.container} onClick={(event) => handleIconClick(event, icon.componentName)}>
                     <img
                     src={icon.src}
                     alt={icon.alt}
-                    onClick={(event) => handleIconClick(event, icon.componentName)}
                     />
                 </div>
             ))}
