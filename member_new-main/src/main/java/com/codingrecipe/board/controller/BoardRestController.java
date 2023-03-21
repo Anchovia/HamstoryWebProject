@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,7 @@ public class BoardRestController {
     BoardService boardService;
 
     @GetMapping("/board/findAll")   //  프론트로 모든 게시글 리스트 보냄
-    public ResponseEntity<List<BoardDTO>> findAll() throws ExecutionException, InterruptedException {
+    public ResponseEntity<List<BoardDTO>> findAll() throws ExecutionException, InterruptedException, ParseException {
         List<BoardDTO> list = boardService.findAll();
 
         return ResponseEntity.ok().body(list);
@@ -31,7 +32,7 @@ public class BoardRestController {
     @PostMapping("/board/save") //  프론트에서 작성할 게시글의 정보와 토큰을 보내주면 게시글을 저장
     public boolean save(@RequestBody BoardForm boardForm, HttpServletRequest request) throws ExecutionException, InterruptedException {
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
-        String date = new SimpleDateFormat("MM/dd/yyyy hh:mm").format(new Date(System.currentTimeMillis()));
+        String date = new SimpleDateFormat("yyyy/MM/dd hh:mm").format(new Date(System.currentTimeMillis()));
 
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setTitle(boardForm.getBoardTitle());

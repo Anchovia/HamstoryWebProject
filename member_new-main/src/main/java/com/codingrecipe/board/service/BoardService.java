@@ -7,7 +7,10 @@ import com.google.firebase.cloud.FirestoreClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -43,16 +46,33 @@ public class BoardService {
         return document.toObject(BoardDTO.class);
     }
 
-    public List<BoardDTO> findAll() throws ExecutionException, InterruptedException {
+    public List<BoardDTO> findAll() throws ExecutionException, InterruptedException, ParseException {
         Firestore firestore = FirestoreClient.getFirestore();
 
         ApiFuture<QuerySnapshot> future = firestore.collection("BOARD").get();
         List<QueryDocumentSnapshot> documents = future.get().getDocuments();  //뭔소린지 모르는 형태
         List<BoardDTO> boardDTOList = new ArrayList<>();
+
         for (QueryDocumentSnapshot document : documents) { // documents에 있는 애들을 하나씩 빼와서 document에 넣음
-        //  document.toObject(BoardDTO.class)
-            boardDTOList.add(document.toObject(BoardDTO.class));
+            BoardDTO boardDTO = document.toObject(BoardDTO.class);
+
+            Date createdTime = new SimpleDateFormat("yyyy/MM/dd hh:mm").parse(boardDTO.getCreatedTime()); // 작성 시간 가져옴
+            long diff = System.currentTimeMillis() - createdTime.getTime(); // 현재시간 - 작성시간
+            long day = 86400000; // 1일 = 86400000 밀리초
+            if(diff > day * 3){ // 작성일이 3일 전 이후 이라면 날짜 표시
+                boardDTO.setCreatedTime(new SimpleDateFormat("yyyy/MM/dd").format(createdTime));
+            } else {
+                int diff2 = (int) (diff / day);
+                if(diff2 == 0){ // 오늘이면 시간 표시
+                    boardDTO.setCreatedTime(new SimpleDateFormat("hh시 mm분").format(createdTime));
+                }else{ // 1일 ~ 3일 전이라면 며칠전인지 표시
+                    boardDTO.setCreatedTime(diff2 + "일 전");
+                }
+            }
+
+            boardDTOList.add(boardDTO);
         }
+
         return boardDTOList;
     }
 
