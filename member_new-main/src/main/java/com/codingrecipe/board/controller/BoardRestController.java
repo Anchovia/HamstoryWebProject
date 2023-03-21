@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -29,12 +31,12 @@ public class BoardRestController {
     @PostMapping("/board/save") //  프론트에서 작성할 게시글의 정보와 토큰을 보내주면 게시글을 저장
     public boolean save(@RequestBody BoardForm boardForm, HttpServletRequest request) throws ExecutionException, InterruptedException {
         Map<String, Object> claims = (Map<String, Object>) request.getAttribute("claims");
-        Timestamp now = new Timestamp(System.currentTimeMillis());
+        String date = new SimpleDateFormat("MM/dd/yyyy hh:mm").format(new Date(System.currentTimeMillis()));
 
         BoardDTO boardDTO = new BoardDTO();
         boardDTO.setTitle(boardForm.getBoardTitle());
         boardDTO.setWriter((String) claims.get("nickName"));
-        boardDTO.setCreatedTime(now);
+        boardDTO.setCreatedTime(date);
         boardDTO.setHits(0);
         boardDTO.setLikes(0);
         boardDTO.setContents(boardForm.getBoardContents());
