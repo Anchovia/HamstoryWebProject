@@ -2,6 +2,7 @@ package com.codingrecipe.board.controller;
 
 import com.codingrecipe.board.dto.BoardDTO;
 import com.codingrecipe.board.form.BoardForm;
+import com.codingrecipe.board.form.PostId;
 import com.codingrecipe.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -48,9 +49,9 @@ public class BoardRestController {
     }
 
     @PostMapping("/board/findOne")  //  프론트에서 게시글의 아이디를 보내주면 그 아이디를 가진 게시글 찾아서 정보 리턴
-    public ResponseEntity<BoardDTO> findOne(@RequestBody String id) throws ExecutionException, InterruptedException {
+    public ResponseEntity<BoardDTO> findOne(@RequestBody PostId id) throws ExecutionException, InterruptedException {
 
-        BoardDTO boardDTO = boardService.findOne(Long.valueOf(id));
+        BoardDTO boardDTO = boardService.findOne(Long.valueOf(id.getPostId()));
 
         return ResponseEntity.ok().body(boardDTO);
     }
