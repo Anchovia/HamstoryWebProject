@@ -1,4 +1,4 @@
-package com.codingrecipe.member.jwt;
+package com.codingrecipe.jwt;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

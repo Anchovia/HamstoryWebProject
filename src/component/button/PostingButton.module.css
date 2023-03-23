@@ -1,0 +1,8 @@
+.button{
+    position: fixed;
+    bottom: 40px;
+    right: 140px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
