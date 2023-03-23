@@ -1,5 +1,6 @@
 package com.codingrecipe.member.form;
 
+// 사용자가 입력한 정보를 받아오는 곳
 public class LoginForm {
     String email;
     String pw;

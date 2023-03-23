@@ -2,19 +2,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Cookie from "js-cookie";
+
+// config import
+import { URL_INFO } from "../../config/config";
 
 // CSS import
 import styles from "./MembersOnlyWindow.module.css";
 
 export default function MembersOnlyWindow({setGetToken}){
-    const url = "http://localhost:8080/info"
+    const url = URL_INFO;
 
     const [userEmail, setUserEmail] = useState("");
     const [userName, setUserName] = useState("");
 
     function logout(e){
         e.preventDefault();
-        localStorage.removeItem('jwt');
+        Cookie.remove("jwt");
         setGetToken(false);
     }
 
@@ -23,7 +27,7 @@ export default function MembersOnlyWindow({setGetToken}){
             const res = await axios.get(url, {
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("jwt"),
+                    "Authorization": "Bearer " + Cookie.get("jwt"),
                 }
             });
 
@@ -37,7 +41,7 @@ export default function MembersOnlyWindow({setGetToken}){
 
     useEffect(()=>{
         getUserData(url);
-    }, []);
+    }, [url]);
 
     return(
         <div className={styles.gridTable}>
@@ -51,11 +55,11 @@ export default function MembersOnlyWindow({setGetToken}){
                 <div className={styles.userData}>
                     <Link className={styles.link}>
                         <span className={styles.linkTitle}>게시글</span>
-                        <span className={styles.linkElement}>9999+</span>
+                        <span className={styles.linkElement}>0</span>
                     </Link>
                     <Link className={styles.link}>
                         <span className={styles.linkTitle}>댓글</span>
-                        <span className={styles.linkElement}>9999+</span>
+                        <span className={styles.linkElement}>0</span>
                     </Link>
                 </div>
             </div>

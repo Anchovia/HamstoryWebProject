@@ -8,12 +8,20 @@ import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
 // CSS import
 import styles from "./IndexCommunity.module.css";
+import { useNavigate } from 'react-router-dom';
 
-export default function IndexCommunity({position}){
+export default function IndexCommunity({isVisible}){
+    const navigate = useNavigate();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate("/community");
+    }
+
     return (
         <div className={styles.indexCommunity}>
             <img src={pictureCommunity} alt="PictureCommunity" className={styles.indexCommunityPicture}/>
-            <div className={position >= 310 && position <= 1800 ? styles.indexCommunityContentsYesAnimation : styles.indexCommunityContentsNoAnimation}>
+            <div className={isVisible ? styles.indexCommunityContentsYesAnimation : styles.indexCommunityContentsNoAnimation}>
                 <div className={styles.indexGenre}>
                     <img src={iconCommunity} alt="IconCommunity"/>
                     <span className={styles.genreTitle}>커뮤니티</span>
@@ -26,7 +34,7 @@ export default function IndexCommunity({position}){
                     <p>홈페이지 이용자분들이 공유해주신</p>
                     <p>사랑스러운 가족분들을 만나보실 수 있어요.</p>
                 </div>
-                <button className={styles.button}>커뮤니티로 이동</button>
+                <button className={styles.button} onClick={handleClick}>커뮤니티로 이동</button>
             </div>
         </div>
     );

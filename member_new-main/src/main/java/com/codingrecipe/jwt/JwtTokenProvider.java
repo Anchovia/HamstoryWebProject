@@ -1,4 +1,4 @@
-package com.codingrecipe.member.jwt;
+package com.codingrecipe.jwt;
 
 import com.codingrecipe.member.dto.MemberDTO;
 import io.jsonwebtoken.*;
@@ -18,6 +18,7 @@ public class JwtTokenProvider {
     }
 
     //member를 Map 형태로 바꿔줌(토큰으로 바꿔줄려면 Map 형태여야 함)
+    // 토큰을 만들때 사용
     public Map<String, Object> createPayload(MemberDTO member){
         Map<String, Object> payloads = new HashMap<>();
         payloads.put("email", member.getMemberEmail());
@@ -28,6 +29,7 @@ public class JwtTokenProvider {
     }
 
     //토큰 생성
+    // 내가 토큰 만들때는 이것만 쓰면 됨
     public String createToken(MemberDTO member){
 
         Map<String, Object> payloads = createPayload(member);
@@ -45,6 +47,7 @@ public class JwtTokenProvider {
     }
 
     //토큰을 해석해서 내용 추출
+    // 토큰을 넣으면 이메일 닉네임 비번을 Map형태로 반환해줌
     public Map<String, Object> getSubject(String token){
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 

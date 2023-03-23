@@ -1,6 +1,6 @@
-package com.codingrecipe.member.config;
+package com.codingrecipe.config;
 
-import com.codingrecipe.member.jwt.BearerAuthInterceptor;
+import com.codingrecipe.jwt.BearerAuthInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,6 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry){
         System.out.println(">>> Interceptor added");
         registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/info");
+        registry.addInterceptor(bearerAuthInterceptor).addPathPatterns("/board/save");
     }
 
     //프론트엔드에서 백엔드로 접속할 수 있게 해줌
@@ -25,5 +26,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addMapping("/members/new").allowedOrigins("http://localhost:3000");
         registry.addMapping("/members/login").allowedOrigins("http://localhost:3000");
         registry.addMapping("/info").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/board/findAll").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/board/findOne").allowedOrigins("http://localhost:3000");
+        registry.addMapping("/board/save").allowedOrigins("http://localhost:3000");
     }
 }

@@ -1,6 +1,6 @@
-package com.codingrecipe.member.config;
+package com.codingrecipe.config;
 
-import com.codingrecipe.member.jwt.JwtTokenProvider;
+import com.codingrecipe.jwt.JwtTokenProvider;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

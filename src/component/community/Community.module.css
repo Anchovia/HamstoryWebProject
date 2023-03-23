@@ -1,0 +1,8 @@
+.body{
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}

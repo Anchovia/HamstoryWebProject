@@ -1,0 +1,108 @@
+.body{
+    padding-top: 200px;
+    width: 1920px;
+    height: 930px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.backElementContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.backElement{
+    display: flex;
+    align-items: center;
+    margin-right: 350px;
+    cursor: pointer;
+}
+
+.backImg{
+    width: 29px;
+    height: 29px;
+}
+
+.backText{
+    font-size: 20px;
+}
+
+.element{
+    width: 1220px
+}
+
+.title{
+    font-size: 30px;
+    text-align: left;
+}
+
+.grandGridHelper{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 46px auto;
+    grid-template-rows: 46px;
+    column-gap: 10px;
+}
+
+.profile{
+    width: 46px;
+    height: 46px;
+    background-color: #d9d9d9;
+    border-radius: 100%;
+}
+
+.detailGridHelper{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 23px 23px;
+}
+
+.writer {
+    font-size: 16px;
+}
+
+.finalGridHelper{
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 23px;
+}
+
+.createdTime{
+    font-size: 16px;
+    color: #555555;
+}
+
+.hits{
+    font-size: 16px;
+    color: #555555;
+}
+
+.line{
+    width: 1220px;
+    height: 20px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.contents{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.likesBody{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.likesText{
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.likesImg{
+    width: 23px;
+    height: 23px;
+}
