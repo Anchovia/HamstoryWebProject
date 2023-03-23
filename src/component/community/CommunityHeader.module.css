@@ -21,3 +21,9 @@
 .link{
     text-decoration: none;
 }
+
+.activeLink .container {
+    text-decoration: underline;
+    color: black;
+    font-weight: 900;
+  }

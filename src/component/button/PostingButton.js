@@ -1,5 +1,5 @@
 // 이미지 import
-import iconPosting from '../../images/icon/iamge_icon_posting.png'
+import iconPosting from '../../images/icon/image_icon_posting.png'
 
 // CSS import
 import styles from "./PostingButton.module.css"

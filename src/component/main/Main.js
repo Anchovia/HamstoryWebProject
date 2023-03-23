@@ -13,6 +13,7 @@ import SendToFeedback from "./SendToFeedback";
 
 // 훅 import
 import useScrollTop from "../../hooks/useScrollTop";
+import useAnimatedVisibility from "../../hooks/useAnimatedVisibility";
 
 // CSS import
 import styles from "./Main.module.css";
@@ -34,14 +35,19 @@ export default function Main(){
         }
     }, []);
 
-    useScrollTop(); // 스크롤을 최상단으로 이동
+    // 스크롤 설정부
+    const indexCommunityVisibility = useAnimatedVisibility(position, 310, 1800);
+    const indexWikiVisibility = useAnimatedVisibility(position, 1230, 2699);
+    const sendToFeedbackPosition = 1280 + (position - 2160) * 1.67;
+
+    useScrollTop(); // 스크롤을 최상단으로 이동 
 
     return (
         <div className={styles.main}>
             <MainTitle/>
-            <IndexCommunity position={position}/>
-            <IndexWiki position={position}/>
-            <SendToFeedback position={position}/>
+            <IndexCommunity isVisible={indexCommunityVisibility}/>
+            <IndexWiki isVisible={indexWikiVisibility}/>
+            <SendToFeedback setPosition={sendToFeedbackPosition}/>
         </div>
     );
 }

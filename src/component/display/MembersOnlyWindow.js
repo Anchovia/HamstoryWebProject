@@ -18,7 +18,7 @@ export default function MembersOnlyWindow({setGetToken}){
 
     function logout(e){
         e.preventDefault();
-        Cookie.remove("token");
+        Cookie.remove("jwt");
         setGetToken(false);
     }
 
@@ -55,11 +55,11 @@ export default function MembersOnlyWindow({setGetToken}){
                 <div className={styles.userData}>
                     <Link className={styles.link}>
                         <span className={styles.linkTitle}>게시글</span>
-                        <span className={styles.linkElement}>9999+</span>
+                        <span className={styles.linkElement}>0</span>
                     </Link>
                     <Link className={styles.link}>
                         <span className={styles.linkTitle}>댓글</span>
-                        <span className={styles.linkElement}>9999+</span>
+                        <span className={styles.linkElement}>0</span>
                     </Link>
                 </div>
             </div>

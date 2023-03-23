@@ -1,11 +1,12 @@
 // 모듈 import
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // css import
 import styles from './CommunityHeader.module.css';
 
 export default function CommunityHeader() {
     const basePath = '/community';
+    const location = useLocation();
 
     const menuItems = [
         { name: '공지사항', path: basePath + '/notice' },
@@ -19,7 +20,7 @@ export default function CommunityHeader() {
         <div className={styles.body}>
         {menuItems.map((item, index) => (
             item.path ? (
-            <Link key={index} to={item.path} className={styles.link}>
+            <Link key={index} to={item.path} className={`${styles.link} ${location.pathname === item.path ? styles.activeLink : ''}`}>
                 <div className={styles.container}>{item.name}</div>
             </Link>
             ) : (
