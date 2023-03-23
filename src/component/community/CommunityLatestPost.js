@@ -1,6 +1,7 @@
 // 컴포넌트 import
 import CommunityHeader from './CommunityHeader';
 import PostList from "../post/PostList";
+import Loading from "../Loading";
 
 // config import
 import { URL_GET_BOARD } from '../../config/config';
@@ -14,10 +15,18 @@ import PostingButton from '../button/PostingButton';
 import useScrollTop from '../../hooks/useScrollTop';
 
 export default function CommunityLatestPost(){
-    const res = useFetch(URL_GET_BOARD)
+    const {data : res, loading} = useFetch(URL_GET_BOARD); // 데이터를 가져오는 hook
     const posts = res.slice().reverse(); // 배열의 복사본을 만들고 뒤집기
 
-    useScrollTop();
+    useScrollTop(); // 스크롤 상단 이동 hook
+
+
+    // 데이터 비로딩시 로딩 효과
+    if(loading){
+        return(
+            <Loading/>
+        );
+    }
 
     return(
         <div className={styles.body}>

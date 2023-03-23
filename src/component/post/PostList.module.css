@@ -6,6 +6,8 @@
     letter-spacing: -0.1em;
     align-items: center;
     border-bottom: 1px solid #D9D9D9;
+    text-decoration: none;
+    color: black;
 }
 
 .text{
