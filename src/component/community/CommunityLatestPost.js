@@ -32,16 +32,18 @@ export default function CommunityLatestPost(){
         <PostList key={id} id={id} title={title} writer={writer} createdTime={createdTime} hits={hits} likes={likes} />
     );
 
+    const elements = ["제목", "작성자", "작성일", "조회", "좋아요"]
+
     return(
         <div className={styles.body}>
             <PostingButton/>
             <CommunityHeader/>
             <div className={styles.communityLatestPostHeader}>
-                <div className={styles.headerContents}>제목</div>
-                <div className={styles.headerContents}>작성자</div>
-                <div className={styles.headerContents}>작성일</div>
-                <div className={styles.headerContents}>조회</div>
-                <div className={styles.headerContents}>좋아요</div>
+                {elements.map((element) => (
+                    <div key={element} className={styles.headerContents}>
+                        {element}
+                    </div>
+                ))}
             </div>
             {posts.map(renderPostList)}
         </div>
