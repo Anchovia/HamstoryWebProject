@@ -20,7 +20,6 @@ export default function CommunityLatestPost(){
 
     useScrollTop(); // 스크롤 상단 이동 hook
 
-
     // 데이터 비로딩시 로딩 효과
     if(loading){
         return(
