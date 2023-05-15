@@ -2,15 +2,17 @@
 import { Link } from 'react-router-dom';
 import styles from './PostList.module.css';
 
-export default function PostList({ id, title, writer, createdTime, hits, likes }){
+export default function PostList(props){
+    const dataList = ["id", "title", "writer", "createdTime", "hits", "likes"]
+    const datas = Object.values(props);
+
     return (
-        <Link to={"/community/latestPost/"+id} className={styles.gridHelper}>
-            <div className={styles.text}>{id}</div>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.text}>{writer}</div>
-            <div className={styles.text}>{createdTime}</div>
-            <div className={styles.text}>{hits}</div>
-            <div className={styles.text}>{likes}</div>
+        <Link to={"/community/latestPost/"+props.id} className={styles.gridHelper}>
+            {datas.map((data, index) => (
+                <div key={dataList[index]} className={dataList[index] === 2 ? styles.title : styles.text}>
+                    {data}
+                </div>
+            ))}
         </Link>
     );
 }

@@ -5,9 +5,10 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './CommunityHeader.module.css';
 
 export default function CommunityHeader() {
-    const basePath = '/community';
-    const location = useLocation();
+    const basePath = '/community'; // 기본 주소
+    const location = useLocation(); // 현재 url을 location에 반환
 
+    // 메뉴 주소들 모음
     const menuItems = [
         { name: '공지사항', path: basePath + '/notice' },
         { name: '베스트 글', path: basePath + '/bestPost' },

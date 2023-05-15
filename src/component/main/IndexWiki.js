@@ -18,6 +18,7 @@ export default function IndexWiki({isVisible}){
 
         navigate("/wiki");
     }
+    
     return (
         <div className={styles.indexWiki}>
             <span className={isVisible ? styles.indexWikiContentsYesAnimation : styles.indexWikiContentsNoAnimation}>
