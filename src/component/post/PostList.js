@@ -9,7 +9,7 @@ export default function PostList(props){
     return (
         <Link to={"/community/latestPost/"+props.id} className={styles.gridHelper}>
             {datas.map((data, index) => (
-                <div key={dataList[index]} className={dataList[index] === 2 ? styles.title : styles.text}>
+                <div key={dataList[index]} className={dataList[index] === "title" ? styles.title : styles.text}>
                     {data}
                 </div>
             ))}
