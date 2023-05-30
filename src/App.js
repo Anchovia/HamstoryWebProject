@@ -15,7 +15,7 @@ import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header/>
       <AppRoutes/>
       <Footer/>
