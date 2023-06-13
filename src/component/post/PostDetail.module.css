@@ -8,28 +8,6 @@
     background-color: white;
 }
 
-.backElementContainer{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.backElement{
-    display: flex;
-    align-items: center;
-    margin-right: 350px;
-    cursor: pointer;
-}
-
-.backImg{
-    width: 29px;
-    height: 29px;
-}
-
-.backText{
-    font-size: 20px;
-}
-
 .element{
     width: 1220px
 }
