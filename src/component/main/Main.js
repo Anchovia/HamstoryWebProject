@@ -41,11 +41,9 @@ export default function Main(){
     useScrollTop(); // 스크롤을 최상단으로 이동 
 
     return (
-        <div className={styles.main}>
-            <header>
-                <nav>
-                    <Header/>
-                </nav>
+        <div className={styles.body}>
+            <header className={styles.header}>
+                <Header/>
                 <section>
                     <MainTitle/>
                 </section>

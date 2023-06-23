@@ -1,6 +1,14 @@
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.body{
+    width: inherit;
+    height: inherit;
     background-color: white;
+    display: grid;
+    place-items: center;
+}
+
+.header{
+    width: inherit;
+    height: inherit;
+    display: grid;
+    place-items: center;
 }

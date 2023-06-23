@@ -35,7 +35,7 @@ export default function IconNav() {
     
     return(
         <>
-            <nav className={styles.iconNav}>
+            <nav className={styles.body}>
                 {[
                     { src: iconGit, alt: 'IconGit', componentName: 'git' },
                     { src: iconInfo, alt: 'IconInfo', componentName: 'info' },

@@ -1,18 +1,28 @@
 .body{
+    width: inherit;
+    height: 100px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 0.5px solid #d9d9d9;
+    background-color: #ffffff;
+    z-index: 2;
 }
 
 .header{
-    border-bottom: 0.5px solid #d9d9d9;
+    width: inherit;
+    height: inherit;
+    display: grid;
     grid-template-columns: 1fr 2.571428fr 1fr;
     grid-template-rows: 100px;
-    display: grid;
-    position: fixed;
     place-items: center;
-    background-color: #ffffff;
-    z-index: 2;
     list-style: none;
     margin: 0;
+    padding: 0;
+}
+
+li{
+    height: inherit;
 }

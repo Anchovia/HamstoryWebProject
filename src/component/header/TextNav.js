@@ -13,7 +13,7 @@ export default function TextNav() {
     ];
 
   return (
-    <nav className={styles.textNav}>
+    <nav className={styles.body}>
       {menuItems.map((item, index) => (
         item.path ? (
           <Link key={index} to={item.path} className={styles.link}>

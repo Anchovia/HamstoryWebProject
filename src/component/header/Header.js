@@ -1,7 +1,3 @@
-/*
-    설명: 헤더 컴포넌트
-*/
-
 // 컴포넌트 import
 import LogoNav from './LogoNav';
 import TextNav from './TextNav';
