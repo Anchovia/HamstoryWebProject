@@ -60,27 +60,11 @@
 
 .line{
     width: 1220px;
-    height: 20px;
+    margin-top: 20px;
     border-bottom: 1px solid #d9d9d9;
 }
 
 .contents{
     margin-top: 30px;
     font-size: 20px;
-}
-
-.likesBody{
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.likesText{
-    margin-left: 5px;
-    font-size: 16px;
-}
-
-.likesImg{
-    width: 23px;
-    height: 23px;
 }

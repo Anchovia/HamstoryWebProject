@@ -1,10 +1,18 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header{
     border-bottom: 0.5px solid #d9d9d9;
-    grid-template-columns: 420px 1080px 420px;
+    grid-template-columns: 1fr 2.571428fr 1fr;
     grid-template-rows: 100px;
     display: grid;
     position: fixed;
     place-items: center;
     background-color: #ffffff;
     z-index: 2;
+    list-style: none;
+    margin: 0;
 }

@@ -1,12 +1,9 @@
-.mainTitle{
-    width: 1920px;
-    height: 880px;
-    display: block;
-    padding-top: 100px;
+.body{
+    display: flex;
 }
 
 .title{
-    padding-top: 215px;
+    padding-top: 15%;
     text-align: center;
     letter-spacing: -0.06em;
     animation-name: titleTextAnimation;
@@ -26,12 +23,12 @@
     }
 }
 
-.text{
+.titleText{
     font-size: 70px;
     color: #666666;
 }
 
-.emphasis{
+.titleTexteEmphasis{
     font-size: 90px;
     color: #000000;
 }

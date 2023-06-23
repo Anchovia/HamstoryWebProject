@@ -3,8 +3,6 @@
 */
 
 // 컴포넌트 import
-import Header from "./component/header/Header";
-import Footer from "./component/footer/Footer";
 import GoToUpButton from "./component/button/GoToUpButton";
 
 // 모듈 import
@@ -16,9 +14,7 @@ import AppRoutes from "./AppRoutes";
 function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Header/>
       <AppRoutes/>
-      <Footer/>
       <GoToUpButton/>
     </BrowserRouter>
   );

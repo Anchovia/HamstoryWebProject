@@ -1,5 +1,7 @@
+// CSS import
 import styles from './LikeCounter.module.css';
 
+// Image import
 import iconLikes from '../../images/icon/image_icon_likes.png';
 
 export default function LikeCounter(props){

@@ -12,10 +12,12 @@ import styles from "./Header.module.css";
 
 export default function Header(){
     return (
-        <div className={styles.header}>
-            <LogoNav/>
-            <TextNav/>
-            <IconNav/>
-        </div>
+        <nav className={styles.body}>
+            <ul className={styles.header}>
+                <li><LogoNav/></li>
+                <li><TextNav/></li>
+                <li><IconNav/></li>
+            </ul>
+        </nav>
     );
 }

@@ -10,9 +10,10 @@ import Loading from "../Loading";
 import BackButton from '../button/BackButton';
 import LikeCounter from '../analytics/LikeCounter';
 import PostProfile from './PostProfile';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
-export default function PostDetail(){
-  const { postId } = useParams();
+export default function PostDetail(){const { postId } = useParams();
   const [postData, setPostData] = useState(null);
 
   useEffect(() => {
@@ -54,15 +55,23 @@ export default function PostDetail(){
 
   return (
     <div className={styles.body}>
-      <BackButton/>
-      <div className={styles.element}>
-        <div className={styles.title}>{postData.title}</div>
+      <header>
+        <nav>
+          <Header/>
+          <BackButton/>
+        </nav>
+        <h1 className={styles.title}>{postData.title}</h1>
         <PostProfile writer = {postData.writer} createdTime = {postData.createdTime} hits = {postData.hits}/>
-        <div className={styles.line}></div>
-        <div className={styles.contents}>{postData.contents}</div>
+      </header>
+      <hr className={styles.line}/>
+      <main className={styles.element}>
+        <article className={styles.contents}>{postData.contents}</article>
         <LikeCounter likes = {postData.likes}/>
-        <div className={styles.line}></div>
-      </div>
+      </main>
+      <hr className={styles.line}/>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 }
