@@ -58,19 +58,6 @@
     color: #666666;
 }
 
-.button{
-    color: white;
-    margin-top: 15px;
-    width: 290px;
-    height: 60px;
-    border-radius: 30px;
-    border: none;
-    background-color: #72B2C6;
-    font-size: 20px;
-    letter-spacing: -0.05em;
-    cursor: pointer;
-}
-
 .indexWikiPicture{
     width: 620px;
     height: 620px;

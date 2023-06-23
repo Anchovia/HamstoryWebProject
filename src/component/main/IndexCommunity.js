@@ -1,8 +1,8 @@
-// 이미지 import
+// image import
 import pictureCommunity from '../../images/picture/image_picture_community.png'
 import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
-// CSS import
+// css import
 import styles from "./IndexCommunity.module.css";
 import MoveCommunity from '../button/MoveCommunity';
 

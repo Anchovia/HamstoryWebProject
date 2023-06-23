@@ -13,8 +13,8 @@ export default function MoveWiki(){
     }
 
     return(
-        <nav>
+        <div>
             <button className={styles.button} onClick={handleClick}>위키로 이동</button>
-        </nav>
+        </div>
     );
 }
