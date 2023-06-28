@@ -1,64 +1,47 @@
-.body{
-    width: 1280px;
-    height: 620px;
-    padding-top: 300px;
-    display: flex;
-    justify-content: right;
+.body, .titleArticle{
     align-items: center;
 }
 
-.indexWikiContentsYesAnimation{
+.body{
+    width: inherit;
+    height: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5%;
+}
+
+.pictureSection{
+    text-align: left;
+}
+
+.mainPicture{
+    width: 70%;
+    height: 70%;
+}
+
+.textSection{
     text-align: right;
-    margin-right: 40px;
-    animation-name: indexWikiContentsAnimation;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
 }
 
-@keyframes indexWikiContentsAnimation{
-    from{
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to{
-        opacity: 3;
-        transform: none;
-    }
-}
-
-.indexWikiContentsNoAnimation{
-    text-align: right;
-    margin-right: 40px;
-}
-
-.indexGenre{
+.titleArticle{
     display: flex;
-    justify-content: right;
-    justify-items: center;
-    font-size: 30px;
-    letter-spacing: -0.1em;
-    margin-bottom: -10px;
+    justify-content: flex-end;
 }
 
-.genreTitle{
-    margin-right: 4px;
+.titlePicture{
+    width: 40px;
+    height: 40px;
 }
 
-.contentsTitle{
-    font-size: 52px;
-    line-height: 50%;
-    letter-spacing: -0.1em;
+.titleText{
+    font-size: 23px;
 }
 
-.contentsDetails{
-    font-size: 25px;
-    line-height: 60%;
-    letter-spacing: -0.1em;
+.mainText{
+    font-size: 35px;
+}
+
+.subText{
+    font-size: 18px;
     color: #666666;
-}
-
-.indexWikiPicture{
-    width: 620px;
-    height: 620px;
 }

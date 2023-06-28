@@ -44,16 +44,16 @@ export default function Main(){
         <div className={styles.body}>
             <header className={styles.header}>
                 <Header/>
-                <section>
+                <section className={styles.mainTitle}>
                     <MainTitle/>
                 </section>
             </header>
-            <main>
-                <section><IndexCommunity isVisible={indexCommunityVisibility}/></section>
-                <section><IndexWiki isVisible={indexWikiVisibility}/></section>
-                <aside><SendToFeedback setPosition={sendToFeedbackPosition}/></aside>
+            <main className={styles.main}>
+                <section className={styles.mainSection}><IndexCommunity isVisible={indexCommunityVisibility}/></section>
+                <section className={styles.mainSection}><IndexWiki isVisible={indexWikiVisibility}/></section>
+                <aside className={styles.mainAside}><SendToFeedback setPosition={sendToFeedbackPosition}/></aside>
             </main>
-            <footer>
+            <footer className={styles.footer}>
                 <Footer/>
             </footer>
         </div>
