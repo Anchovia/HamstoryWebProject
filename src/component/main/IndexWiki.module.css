@@ -34,14 +34,18 @@
 }
 
 .titleText{
-    font-size: 23px;
+    margin-right: 5px;
+    font-size: 30px;
+    letter-spacing: -2px;
 }
 
 .mainText{
     font-size: 35px;
+    letter-spacing: -3.5px;
 }
 
 .subText{
-    font-size: 18px;
+    font-size: 20px;
+    letter-spacing: -1.5px;
     color: #666666;
 }

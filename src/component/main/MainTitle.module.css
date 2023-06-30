@@ -10,6 +10,25 @@
     text-align: center;
 }
 
+.titleSection{
+    letter-spacing: -4px;
+    animation-name: titleTextAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes titleTextAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(-2vh);
+    }
+
+    to{
+        opacity: 3;
+        transform: none;
+    }
+}
+
 .titleText{
     font-size: 40pt;
     color: #666666;
@@ -18,6 +37,24 @@
 .titleTextBold{
     font-size: 50pt;
     color: #000000;
+}
+
+.toUnderSection{
+    letter-spacing: -1px;
+    animation-name: toUnderAnimation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes toUnderAnimation{
+    from{
+        margin-bottom: 4vh;
+    }
+
+    to{
+        margin-bottom: 0px;
+    }
 }
 
 .toUnderText{

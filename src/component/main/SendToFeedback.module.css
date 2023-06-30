@@ -20,9 +20,12 @@
 }
 
 .mainText{
-    font-size: 35px;
+    font-size: 40px;
+    letter-spacing: -4px;
 }
 
 .subText{
-    font-size: 18px;
+    letter-spacing: -1.6px;
+    color: #666666;
+    font-size: 23px;
 }
