@@ -1,6 +1,6 @@
 .footer{
     display: block;
-    width: 1920px;
-    height: 150px;
+    width: inherit;
+    height: inherit;
     background-color: #E0E2E5;
 }

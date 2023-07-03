@@ -13,17 +13,17 @@ export default function TextNav() {
     ];
 
   return (
-    <nav className={styles.textNav}>
+    <nav className={styles.body}>
       {menuItems.map((item, index) => (
         item.path ? (
           <Link key={index} to={item.path} className={styles.link}>
             <div className={styles.container}>
-              <div className={styles.title}>{item.name}</div>
+              <p className={styles.title}>{item.name}</p>
             </div>
           </Link>
         ) : (
           <div key={index} className={styles.container}>
-            <div className={styles.title}>{item.name}</div>
+            <p className={styles.title}>{item.name}</p>
           </div>
         )
       ))}

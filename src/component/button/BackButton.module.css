@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.element{
+    display: flex;
+    align-items: center;
+    margin-right: 350px;
+    cursor: pointer;
+}
+
+.img{
+    width: 29px;
+    height: 29px;
+}
+
+.text{
+    font-size: 20px;
+}

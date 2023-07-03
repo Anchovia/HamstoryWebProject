@@ -1,15 +1,13 @@
-/*
-    설명: 메인 페이지
-*/
-
 // 모듈 import
 import { useEffect, useState } from "react";
 
 // 컴포넌트 import
+import Header from "../header/Header";
 import MainTitle from "./MainTitle";
 import IndexCommunity from "./IndexCommunity";
 import IndexWiki from "./IndexWiki";
 import SendToFeedback from "./SendToFeedback";
+import Footer from "../footer/Footer";
 
 // 훅 import
 import useScrollTop from "../../hooks/useScrollTop";
@@ -43,11 +41,21 @@ export default function Main(){
     useScrollTop(); // 스크롤을 최상단으로 이동 
 
     return (
-        <div className={styles.main}>
-            <MainTitle/>
-            <IndexCommunity isVisible={indexCommunityVisibility}/>
-            <IndexWiki isVisible={indexWikiVisibility}/>
-            <SendToFeedback setPosition={sendToFeedbackPosition}/>
+        <div className={styles.body}>
+            <header className={styles.header}>
+                <Header/>
+                <section className={styles.mainTitle}>
+                    <MainTitle/>
+                </section>
+            </header>
+            <main className={styles.main}>
+                <section className={styles.mainSection}><IndexCommunity isVisible={indexCommunityVisibility}/></section>
+                <section className={styles.mainSection}><IndexWiki isVisible={indexWikiVisibility}/></section>
+                <aside className={styles.mainAside}><SendToFeedback setPosition={sendToFeedbackPosition}/></aside>
+            </main>
+            <footer className={styles.footer}>
+                <Footer/>
+            </footer>
         </div>
     );
 }

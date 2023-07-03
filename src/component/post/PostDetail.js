@@ -2,22 +2,19 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL_POST_ONE_BOARD } from '../../config/config';
-import { useNavigate } from 'react-router-dom';
 
 import styles from './PostDetail.module.css';
 
-import iconLikes from '../../images/icon/image_icon_likes.png';
-import iconBack from '../../images/icon/image_icon_back.png';
 import Loading from "../Loading";
 
-export default function PostDetail() {
-  const { postId } = useParams();
-  const [postData, setPostData] = useState(null);
-  const navigate = useNavigate();
+import BackButton from '../button/BackButton';
+import LikeCounter from '../analytics/LikeCounter';
+import PostProfile from './PostProfile';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
-  const handleBackClick = () => {
-    navigate(-1);
-  }
+export default function PostDetail(){const { postId } = useParams();
+  const [postData, setPostData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,32 +55,23 @@ export default function PostDetail() {
 
   return (
     <div className={styles.body}>
-      <div className={styles.backElementContainer}>
-        <div onClick={handleBackClick} className={styles.backElement}>
-          <img alt="back icon" src={iconBack} className={styles.backImg}/>
-          <span className={styles.backText}>뒤로가기</span>
-        </div>
-      </div>
-      <div className={styles.element}>
-          <div className={styles.title}>{postData.title}</div>
-          <div className={styles.grandGridHelper}>
-              <div className={styles.profile}/>
-              <div className={styles.detailGridHelper}>
-                  <div className={styles.writer}>{postData.writer}</div>
-                  <div className={styles.finalGridHelper}>
-                      <div className={styles.createdTime}>{postData.createdTime}</div>
-                      <div className={styles.hits}>조회 {postData.hits}</div>
-                  </div>
-              </div>
-          </div>
-          <div className={styles.line}></div>
-          <div className={styles.contents}>{postData.contents}</div>
-          <div className={styles.likesBody}>
-              <img alt="Like icon" src={iconLikes} className={styles.likesImg}/>
-              <span className={styles.likesText}>좋아요 {postData.likes}</span>
-          </div>
-          <div className={styles.line}></div>
-      </div>
+      <header>
+        <nav>
+          <Header/>
+          <BackButton/>
+        </nav>
+        <h1 className={styles.title}>{postData.title}</h1>
+        <PostProfile writer = {postData.writer} createdTime = {postData.createdTime} hits = {postData.hits}/>
+      </header>
+      <hr className={styles.line}/>
+      <main className={styles.element}>
+        <article className={styles.contents}>{postData.contents}</article>
+        <LikeCounter likes = {postData.likes}/>
+      </main>
+      <hr className={styles.line}/>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 }
