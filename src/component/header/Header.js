@@ -1,7 +1,3 @@
-/*
-    설명: 헤더 컴포넌트
-*/
-
 // 컴포넌트 import
 import LogoNav from './LogoNav';
 import TextNav from './TextNav';
@@ -12,10 +8,12 @@ import styles from "./Header.module.css";
 
 export default function Header(){
     return (
-        <div className={styles.header}>
-            <LogoNav/>
-            <TextNav/>
-            <IconNav/>
-        </div>
+        <nav className={styles.body}>
+            <ul className={styles.header}>
+                <li><LogoNav/></li>
+                <li><TextNav/></li>
+                <li><IconNav/></li>
+            </ul>
+        </nav>
     );
 }

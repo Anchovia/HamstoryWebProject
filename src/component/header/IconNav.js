@@ -34,23 +34,23 @@ export default function IconNav() {
     };
     
     return(
-    <>
-        <nav className={styles.iconNav}>
-            {[
-                { src: iconGit, alt: 'IconGit', componentName: 'git' },
-                { src: iconInfo, alt: 'IconInfo', componentName: 'info' },
-                { src: iconMenu, alt: 'IconMenu', componentName: 'menu' },
-                ].map((icon) => (
-                <div key={icon.alt} className={styles.container} onClick={(event) => handleIconClick(event, icon.componentName)}>
-                    <img
-                    src={icon.src}
-                    alt={icon.alt}
-                    />
-                </div>
-            ))}
-      </nav>
-      {displayedComponent === 'info' && <Displayinfo setInfoFunc={setDisplayedComponent} />}
-      {displayedComponent === 'menu' && <DisplayMenu />}
-    </>
-  );
+        <>
+            <nav className={styles.body}>
+                {[
+                    { src: iconGit, alt: 'IconGit', componentName: 'git' },
+                    { src: iconInfo, alt: 'IconInfo', componentName: 'info' },
+                    { src: iconMenu, alt: 'IconMenu', componentName: 'menu' },
+                    ].map((icon) => (
+                    <div key={icon.alt} className={styles.container} onClick={(event) => handleIconClick(event, icon.componentName)}>
+                        <img
+                        src={icon.src}
+                        alt={icon.alt}
+                        />
+                    </div>
+                ))}
+            </nav>
+        {displayedComponent === 'info' && <Displayinfo setInfoFunc={setDisplayedComponent} />}
+        {displayedComponent === 'menu' && <DisplayMenu />}
+        </>
+    );
 }

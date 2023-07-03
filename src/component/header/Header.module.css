@@ -1,10 +1,28 @@
-.header{
-    border-bottom: 0.5px solid #d9d9d9;
-    grid-template-columns: 420px 1080px 420px;
-    grid-template-rows: 100px;
-    display: grid;
+.body{
+    width: inherit;
+    height: 100px;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    place-items: center;
+    top: 0;
+    left: 0;
+    border-bottom: 0.5px solid #d9d9d9;
     background-color: #ffffff;
     z-index: 2;
+}
+
+.header{
+    width: inherit;
+    height: inherit;
+    display: grid;
+    grid-template-columns: 1fr 2.571428fr 1fr;
+    grid-template-rows: 100px;
+    place-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    height: inherit;
 }

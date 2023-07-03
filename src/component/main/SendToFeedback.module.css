@@ -1,34 +1,31 @@
-.sendToFeedback{
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.body{
+    width: inherit;
+    height: inherit;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
     align-items: center;
-    margin-top: 300px;
+}
+
+.gridContainer{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
     background-color: #f1f1f1;
 }
 
-.title{
-    font-size: 70px;
-    letter-spacing: -0.1em;
+.textContainer{
+    text-align: center;
 }
 
-.contents{
-    margin-top: 15px;
-    font-size: 25px;
-    letter-spacing: -0.1em;
+.mainText{
+    font-size: 40px;
+    letter-spacing: -4px;
+}
+
+.subText{
+    letter-spacing: -1.6px;
     color: #666666;
-}
-
-.button{
-    color: white;
-    margin-top: 30px;
-    width: 290px;
-    height: 60px;
-    border-radius: 30px;
-    border: none;
-    background-color: #72B2C6;
-    font-size: 20px;
-    letter-spacing: -0.05em;
-    cursor: pointer;
+    font-size: 23px;
 }
