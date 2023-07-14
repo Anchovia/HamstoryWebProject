@@ -1,7 +1,3 @@
-/*
-    설명: url을 이용해 데이터를 가져오는 훅
-*/
-
 // 모듈 import
 import { useEffect, useState } from "react"
 import axios from "axios";

@@ -1,7 +1,3 @@
-/*
-    설명: 페이지 이동시 스크롤을 맨 위로 올려주는 훅
-*/
-
 // 모듈 import
 import { useEffect } from 'react';
 

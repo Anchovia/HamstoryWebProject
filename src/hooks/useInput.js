@@ -1,7 +1,3 @@
-/*
-    설명: 데이터를 저장하고 변경하는 함수를 리턴하는 훅
-*/
-
 // 모듈 import
 import { useState } from "react";
 

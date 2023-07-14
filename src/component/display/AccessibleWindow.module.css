@@ -1,20 +1,27 @@
-.container{
-    width: 370px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.body{
+    width: inherit;
+    height: inherit;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    align-items: center;
 }
 
-.needToLogin{
+.textSection{
+    margin-left: 2.7%;
+    letter-spacing: -3px;
+}
+
+.buttonSection{
+    text-align: center;
+}
+
+.title{
     font-size: 35px;
-    letter-spacing: -0.1em;
     color: #000000;
 }
 
-.nonMember{
+.contents{
     font-size: 25px;
-    letter-spacing: -0.1em;
     margin-top: 5px;
     margin-bottom: 15px;
     color: #666666;
@@ -22,12 +29,11 @@
 
 .button{
     color: white;
-    width: 370px;
-    height: 40px;
+    width: 95%;
+    height: 5vh;
     font-size: 20px;
-    letter-spacing: -0.1em;
+    letter-spacing: -2px;
     cursor: pointer;
-    filter: blur(0.5px);
     border: 0.5px solid rgba(0, 0, 0, 0.35);
     background-color: #72B2C6;
 }

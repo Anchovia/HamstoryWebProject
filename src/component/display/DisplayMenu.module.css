@@ -1,9 +1,9 @@
 .display{
-    width: 420px;
-    height: 980px;
+    width: 23vw;
+    height: 100vh;
     position: fixed;
     top: 100px;
-    left: 1500px;
+    left: 77%;
     border: 1px solid #D9D9D9;
     background-color: #ffffff;
     z-index: 1;
