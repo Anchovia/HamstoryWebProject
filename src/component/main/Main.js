@@ -17,8 +17,8 @@ import useAnimatedVisibility from "../../hooks/useAnimatedVisibility";
 import styles from "./Main.module.css";
 
 export default function Main(){
-    // 스크롤 위치를 저장할 state
-    const[position, setPosition] = useState(0);
+    const [position, setPosition] = useState(0); // 스크롤 위치를 저장할 state
+    const [vHeight, setVHeight] = useState(0); // 뷰포트 높이를 저장할 state
 
     // 스크롤 이벤트
     function onScroll(){
@@ -33,12 +33,25 @@ export default function Main(){
         }
     }, []);
 
-    // 스크롤 설정부
-    const indexCommunityVisibility = useAnimatedVisibility(position, 310, 1800);
-    const indexWikiVisibility = useAnimatedVisibility(position, 1230, 2699);
-    const sendToFeedbackPosition = 1280 + (position - 2160) * 1.67;
+    // 뷰포트 높이를 구하는 useEffect
+    useEffect(() => {
+        const handleResize = () => {
+            setVHeight(window.innerHeight);
+        };
 
-    useScrollTop(); // 스크롤을 최상단으로 이동 
+        handleResize(); // 초기 사이즈 설정
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        };
+    }, []);
+
+    // 스크롤 설정부
+    const sendToFeedbackPosition = useAnimatedVisibility(position, 1, 1);
+
+    useScrollTop(); // 스크롤을 최상단으로 이동
 
     return (
         <div className={styles.body}>
@@ -49,8 +62,8 @@ export default function Main(){
                 </section>
             </header>
             <main className={styles.main}>
-                <section className={styles.mainSection}><IndexCommunity isVisible={indexCommunityVisibility}/></section>
-                <section className={styles.mainSection}><IndexWiki isVisible={indexWikiVisibility}/></section>
+                <section className={styles.mainSection}><IndexCommunity isVisible={false}/></section>
+                <section className={styles.mainSection}><IndexWiki isVisible={false}/></section>
                 <aside className={styles.mainAside}><SendToFeedback setPosition={sendToFeedbackPosition}/></aside>
             </main>
             <footer className={styles.footer}>

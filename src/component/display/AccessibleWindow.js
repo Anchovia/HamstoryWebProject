@@ -1,8 +1,3 @@
-/*
-    설명:
-*/
-
-
 // 모듈 import
 import { useNavigate } from "react-router";
 
@@ -21,10 +16,15 @@ export default function AccessibleWindow({setInfoFunc}){
     }
 
     return(
-        <div className={styles.container}>
-            <div className={styles.needToLogin}>로그인이 필요합니다.</div>
-            <div className={styles.nonMember}>현재 비회원 상태입니다.</div>
-            <button className={styles.button} onClick={handleLoginClick}>로그인</button>
+        <div className={styles.body}>
+            <section className={styles.textSection}>
+                <p className={styles.title}>로그인이 필요합니다.</p>
+                <p className={styles.contents}>현재 비회원 상태입니다.</p>
+            </section>
+            <nav className={styles.buttonSection}>
+                <button className={styles.button} onClick={handleLoginClick}>로그인</button>
+            </nav>
+            
         </div>
     );
 }
