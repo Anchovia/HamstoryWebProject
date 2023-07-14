@@ -1,10 +1,9 @@
 // image import
 import pictureCommunity from '../../images/picture/image_picture_community.png'
-import iconCommunity from '../../images/icon/image_icon_index_community.png'
 
 // css import
 import styles from "./IndexCommunity.module.css";
-import MoveCommunity from '../button/MoveCommunity';
+import MovePageButton from '../button/MovePageButton';
 
 export default function IndexCommunity(props){
     return (
@@ -14,7 +13,6 @@ export default function IndexCommunity(props){
             </section>
             <section className={styles.textSection}>
                 <article className={styles.titleArticle}>
-                    <img className={styles.titlePicture} src={iconCommunity} alt="IconCommunity"/>
                     <span className={styles.titleText}>커뮤니티</span>
                 </article>
                 <article className={styles.mainText}>
@@ -26,7 +24,7 @@ export default function IndexCommunity(props){
                     <p>사랑스러운 가족분들을 만나보실 수 있어요.</p>
                 </article>
                 <nav>
-                    <MoveCommunity/>
+                    <MovePageButton url={"/community"} text={"커뮤니티로 이동"}/>
                 </nav>
             </section>
         </div>

@@ -15,12 +15,14 @@
 }
 
 .mainPicture{
-    width: 70%;
-    height: 70%;
+    border-radius: 5%;
+    width: 85%;
+    height: 85%;
 }
 
 .textSection{
     text-align: left;
+    line-height: 200%;
 }
 
 .titleArticle{
@@ -28,24 +30,20 @@
     justify-content: flex-start;
 }
 
-.titlePicture{
-    width: 40px;
-    height: 40px;
-}
-
 .titleText{
-    margin-left: 5px;
-    font-size: 30px;
-    letter-spacing: -2px;
+    font-size: 28px;
+    letter-spacing: -1.5px;
+    color: #72B2C6;
+    font-weight: 900;
 }
 
 .mainText{
-    font-size: 35px;
-    letter-spacing: -3.5px;
+    font-size: 50px;
+    letter-spacing: -3px;
 }
 
 .subText{
-    font-size: 20px;
-    letter-spacing: -1.5px;
+    font-size: 22px;
+    letter-spacing: -1px;
     color: #666666;
 }
