@@ -20,6 +20,8 @@ export default function Main(){
     const [position, setPosition] = useState(0); // 스크롤 위치를 저장할 state
     const [vHeight, setVHeight] = useState(0); // 뷰포트 높이를 저장할 state
 
+    console.log(vHeight)
+
     // 스크롤 이벤트
     function onScroll(){
         setPosition(window.scrollY);

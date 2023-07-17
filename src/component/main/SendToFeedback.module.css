@@ -16,16 +16,10 @@
 }
 
 .textContainer{
+    line-height: 320%;
     text-align: center;
 }
 
-.mainText{
-    font-size: 40px;
-    letter-spacing: -4px;
-}
-
 .subText{
-    letter-spacing: -1.6px;
     color: #666666;
-    font-size: 23px;
 }

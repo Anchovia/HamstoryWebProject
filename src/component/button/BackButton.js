@@ -14,7 +14,7 @@ export default function BackButton(){
         navigate(-1);
     }
 
-    return(
+    return( 
         <div className={styles.container}>
             <div onClick={handleBackClick} className={styles.element}>
                 <img alt="back icon" src={iconBack} className={styles.img}/>

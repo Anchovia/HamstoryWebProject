@@ -1,7 +1,3 @@
-/*
-    설명: 로그인 페이지 컴포넌트
-*/
-
 // 모듈 import
 import axios from "axios";
 import { useState } from "react";

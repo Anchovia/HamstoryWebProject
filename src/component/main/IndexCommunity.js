@@ -13,11 +13,11 @@ export default function IndexCommunity(props){
             </section>
             <section className={styles.textSection}>
                 <article className={styles.titleArticle}>
-                    <span className={styles.titleText}>커뮤니티</span>
+                    <h3 className={styles.titleText}>커뮤니티</h3>
                 </article>
-                <article className={styles.mainText}>
-                    <p>햄스터들의 다채로운 일상들을</p>
-                    <p>커뮤니티에서 만나보세요</p>
+                <article>
+                    <h1>햄스터들의 다채로운 일상들을</h1>
+                    <h1>커뮤니티에서 만나보세요</h1>
                 </article>
                 <article className={styles.subText}>
                     <p>홈페이지 이용자분들이 공유해주신</p>
