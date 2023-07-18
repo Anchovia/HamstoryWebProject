@@ -14,7 +14,6 @@
 | ------ | ---- |
 | 팀장 | Anchovia |
 | UX/UI & 프론트엔드 | Anchovia |
-| Ready | 해당 이슈를 작업할 준비가 됨 |
 | 백엔드 & QA | Jiyun82 |
 | 백엔드 & QA | tmdgus0228 |
 
