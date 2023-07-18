@@ -15,7 +15,7 @@ export default function IndexCommunity(props){
                 <article className={styles.titleArticle}>
                     <h3 className={styles.titleText}>커뮤니티</h3>
                 </article>
-                <article>
+                <article className={styles.mainText}>
                     <h1>햄스터들의 다채로운 일상들을</h1>
                     <h1>커뮤니티에서 만나보세요</h1>
                 </article>

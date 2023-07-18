@@ -27,18 +27,24 @@ h1{
     font-size: 50px;
     letter-spacing: -3px;
     font-weight: 500;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
 }
 
 h3{
     font-size: 28px;
     letter-spacing: -1.5px;
     font-weight: 500;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 p{
     font-size: 22px;
     letter-spacing: -1px;
     font-weight: 500;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
 }
 
 a{
