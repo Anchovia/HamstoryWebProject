@@ -1,8 +1,8 @@
-// 모듈 import
+// module import
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// jsx
+// jsx import
 import './index.css';
 import App from './App';
 

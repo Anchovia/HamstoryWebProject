@@ -1,7 +1,7 @@
-// 모듈 import
+// module import
 import { Route, Routes } from 'react-router-dom';
 
-// 컴포넌트 import
+// components import
 import Main from './component/main/Main';
 import Login from './component/login/Login';
 import Community from './component/community/Community';

@@ -1,7 +1,3 @@
-/*
-  설명: App.js
-*/
-
 // 컴포넌트 import
 import GoToUpButton from "./component/button/GoToUpButton";
 
