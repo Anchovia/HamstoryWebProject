@@ -1,7 +1,7 @@
-// 모듈 import
+// module import
 import { Link } from 'react-router-dom';
 
-// CSS import
+// css import
 import styles from './TextNav.module.css';
 
 export default function TextNav() {

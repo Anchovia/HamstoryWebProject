@@ -31,19 +31,11 @@
 }
 
 .titleText{
-    font-size: 28px;
-    letter-spacing: -1.5px;
     color: #72B2C6;
     font-weight: 900;
-}
-
-.mainText{
-    font-size: 50px;
-    letter-spacing: -3px;
+    line-height: 0%;
 }
 
 .subText{
-    font-size: 22px;
-    letter-spacing: -1px;
     color: #666666;
 }

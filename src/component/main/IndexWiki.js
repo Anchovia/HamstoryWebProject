@@ -1,5 +1,5 @@
-// image import
-import pictureWiki from '../../images/picture/image_picture_wiki.png'
+// config import
+import { SRC_PICTURE_WIKI } from "../../config/config";
 
 // css import
 import styles from "./IndexWiki.module.css";
@@ -10,11 +10,11 @@ export default function IndexWiki(props){
         <div className={styles.body}> 
             <section className={styles.textSection}>
                 <article className={styles.titleArticle}>
-                    <span className={styles.titleText}>위키</span>
+                    <h3 className={styles.titleText}>위키</h3>
                 </article>
-                <article className={styles.mainText}>
-                    <p>클릭하는 순간,</p>
-                    <p>당신도 햄스터 박사</p>
+                <article>
+                    <h1>클릭하는 순간,</h1>
+                    <h1>당신도 햄스터 박사</h1>
                 </article>
                 <article className={styles.subText}>
                     <p>다양한 종류의 햄스터를 알아가보세요.</p>
@@ -24,7 +24,7 @@ export default function IndexWiki(props){
                 </nav>
             </section>
             <section className={styles.pictureSection}>
-                <img className={styles.mainPicture} src={pictureWiki} alt="PictureWiki"/>
+                <img className={styles.mainPicture} src={SRC_PICTURE_WIKI} alt="PictureWiki"/>
             </section>
         </div>
     );

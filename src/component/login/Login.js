@@ -1,71 +1,38 @@
-// 모듈 import
-import { useState } from "react";
+// module import
+import { Link } from "react-router-dom";
 
-// 컴포넌트 import
+// hook import
+import useScrollTop from "../../hooks/useScrollTop";
+
+// component import
 import Member from "./Member";
+import LoginSelectButton from "../button/LoginSelectButton";
 import SignUp from "./SignUp";
 import Footer from "../footer/Footer";
 
-// 훅 import
-import useScrollTop from "../../hooks/useScrollTop";
-
-// CSS import
+// css import
 import styles from "./Login.module.css";
+import { useState } from "react";
 
 export default function Login(){
-    // 로그인 여부를 저장할 state
-    const [isLogin , setIsLogin] = useState(true);
-    // 회원가입 성공 여부를 저장할 state
-    const [signUpSuccess, setSignUpSuccess] = useState(false);
-
-    // 회원 버튼 클릭 이벤트
-    function memberClick(event){
-        event.preventDefault();
-        if(isLogin === false){
-            setIsLogin(true);
-        }
-    }
-
-    // 비회원 버튼 클릭 이벤트
-    function signUpClick(event){
-        event.preventDefault();
-        setSignUpSuccess(false);
-        if(isLogin === true){
-            setIsLogin(false);
-        }
-    }
-
     useScrollTop(); // 스크롤을 최상단으로 이동
+
+    const [btnJudg, setBtnJudg] = useState(true);
 
     return (
         <div className={styles.body}>
-            <header className={styles.header}>
-                <p className={styles.title}>HAMSTORY</p>
-            </header>
             <main className={styles.main}>
-                <section className={styles.loginSection}>
-                    <div className={styles.selector}>
-                        <button onClick={memberClick} style={isLogin | signUpSuccess ? {
-                            backgroundColor: "#72B2C6",
-                            color: "white"
-                        } : {
-                            backgroundColor : "#FFFFFF",
-                            color: "black"
-                        }} className={styles.button}>회원</button>
-                        <button onClick={signUpClick} style={isLogin | signUpSuccess ? {
-                            backgroundColor : "#FFFFFF",
-                            color: "black"
-                        } : {
-                            backgroundColor : "#72B2C6",
-                            color: "white"
-                        }} className={styles.button}>비회원</button>
-                    </div>
-                    <div className={styles.form}>
-                        {isLogin === true | signUpSuccess ? <Member/> : <SignUp setSignUpSuccess = {setSignUpSuccess}/>}
-                    </div>
+                <section>
+                    <Link to="/"><h1>HAMSTORY</h1></Link>
+                </section>
+                <section>
+                    <LoginSelectButton btnJudg = {btnJudg} setBtnJudg = {setBtnJudg}/>
+                </section>
+                <section>
+                    {btnJudg === true  ? <Member/> : <SignUp/>}
                 </section>
             </main>
-            <footer className={styles.footer}>
+            <footer>
                 <Footer/>
             </footer>
         </div>

@@ -18,11 +18,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
 }
 
 .logo{
     font-size: 40px;
     letter-spacing: 0.025em;
-    color: #000000;
+    font-weight: 900;
 }

@@ -1,11 +1,11 @@
-// 이미지 import
-import iconPosting from '../../images/icon/image_icon_posting.png'
+// 모듈 import
+import { useNavigate } from 'react-router-dom';
+
+// config import
+import { SRC_ICON_POSTING } from "../../config/config";
 
 // CSS import
 import styles from "./PostingButton.module.css"
-
-// 모듈 import
-import { useNavigate } from 'react-router-dom';
 
 export default function PostingButton(){
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function PostingButton(){
     }
     return (
         <>
-            <img src={iconPosting} alt="IconPosting" onClick={handleClick} className={styles.button}/>
+            <img src={SRC_ICON_POSTING} alt="IconPosting" onClick={handleClick} className={styles.button}/>
         </>
     );
 }

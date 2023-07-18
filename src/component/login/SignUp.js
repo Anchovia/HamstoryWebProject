@@ -1,8 +1,4 @@
-/*
-    설명: 회원가입 페이지 컴포넌트
-*/
-
-// 모듈 import
+// module import
 import { useState, useEffect } from "react";
 import axios from "axios";
 import validator from "validator";
@@ -10,11 +6,11 @@ import validator from "validator";
 // hook import
 import useInput from "../../hooks/useInput";
 
-// CSS import
-import styles from "./SignUp.module.css";
-
 // config import
 import { URL_SIGNUP } from "../../config/config";
+
+// css import
+import styles from "./SignUp.module.css";
 
 export default function SignUp({setSignUpSuccess}){
     // 데이터를 전송할 url

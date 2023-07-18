@@ -1,17 +1,19 @@
+// module import
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL_POST_ONE_BOARD } from '../../config/config';
 
-import styles from './PostDetail.module.css';
-
+// component import
 import Loading from "../Loading";
-
 import BackButton from '../button/BackButton';
 import LikeCounter from '../analytics/LikeCounter';
 import PostProfile from './PostProfile';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
+
+// css import
+import styles from './PostDetail.module.css';
 
 export default function PostDetail(){const { postId } = useParams();
   const [postData, setPostData] = useState(null);

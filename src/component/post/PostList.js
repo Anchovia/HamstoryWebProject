@@ -1,4 +1,4 @@
-// CSS import
+// css import
 import { Link } from 'react-router-dom';
 import styles from './PostList.module.css';
 

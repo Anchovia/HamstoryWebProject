@@ -1,4 +1,4 @@
-// CSS import
+// css import
 import styles from './PostProfile.module.css';
 
 export default function PostProfile(props){

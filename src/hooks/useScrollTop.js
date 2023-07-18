@@ -1,4 +1,4 @@
-// 모듈 import
+// module import
 import { useEffect } from 'react';
 
 export default function useScrollTop(){
