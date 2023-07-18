@@ -10,10 +10,13 @@
 * ### 햄스터 관련 커뮤니티 및 위키
 
 ## 3. 제작 인원
-* ### 팀장: Anchovia
-* ### UX/UI & 프론트엔드 : Anchovia
-* ### 백엔드 & QA: Jiyun82
-* ### 백엔드 & QA: tmdgus0228
+| 역할 | 이름(github) |
+| ------ | ---- |
+| 팀장 | Anchovia |
+| UX/UI & 프론트엔드 | Anchovia |
+| Ready | 해당 이슈를 작업할 준비가 됨 |
+| 백엔드 & QA | Jiyun82 |
+| 백엔드 & QA | tmdgus0228 |
 
 ## 4. 스테이터스
 | status | 설명 |
