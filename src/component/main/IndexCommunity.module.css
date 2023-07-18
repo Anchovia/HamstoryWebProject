@@ -22,7 +22,6 @@
 
 .textSection{
     text-align: left;
-    line-height: 200%;
 }
 
 .titleArticle{
@@ -33,9 +32,12 @@
 .titleText{
     color: #72B2C6;
     font-weight: 900;
-    line-height: 0%;
+}
+
+.mainText{
+    color: #191f28;
 }
 
 .subText{
-    color: #666666;
+    color: #333d4b;
 }

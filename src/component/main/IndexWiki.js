@@ -12,7 +12,7 @@ export default function IndexWiki(props){
                 <article className={styles.titleArticle}>
                     <h3 className={styles.titleText}>위키</h3>
                 </article>
-                <article>
+                <article className={styles.mainText}>
                     <h1>클릭하는 순간,</h1>
                     <h1>당신도 햄스터 박사</h1>
                 </article>

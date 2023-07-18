@@ -16,10 +16,13 @@
 }
 
 .textContainer{
-    line-height: 320%;
     text-align: center;
 }
 
+.mainText{
+    color: #191f28;
+}
+
 .subText{
-    color: #666666;
+    color: #333d4b;
 }
