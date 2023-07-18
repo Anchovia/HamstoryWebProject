@@ -5,59 +5,11 @@
     background-color: #EAECF0;
 }
 
-.header{
-    width: 100vh;
-    height: 20vh;
-}
-
 .main{
-    width: 100vh;
-    height: 80vh;
-}
-
-.footer{
-    width: 100vh;
-    height: 20vh;
-}
-
-.title{
-    font-size: 50px;
-    letter-spacing: -0.1em;
-    text-align: center;
-}
-
-.loginSection{
-    width: 100%;
-    height: 100%;
-}
-
-.selector{
-    margin-top: 35px;
-}
-
-.button{
-    font-size: 18px;
-    width: 230px;
-    height: 42px;
-    box-sizing: border-box;
-    border: 0.5px solid rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-    letter-spacing: -0.1em;
-}
-
-.form{
-    margin-top: 25px;
-}
-
-.element{
-    animation: fadein 0.4s;
-}
-
-@keyframes fadein{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-row-gap: 30px;
 }

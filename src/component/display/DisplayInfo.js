@@ -1,16 +1,12 @@
-/*
-    설명: 
-*/
-
-// 모듈 import
+// module import
 import { useEffect, useState } from "react";
 import Cookie from "js-cookie";
 
-// 컴포넌트 import
+// component import
 import AccessibleWindow from "./AccessibleWindow";
 import MembersOnlyWindow from "./MembersOnlyWindow";
 
-// CSS import
+// css import
 import styles from "./DisplayInfo.module.css";
 
 export default function DisplayInfo({setInfoFunc}){

@@ -1,16 +1,14 @@
-// 모듈 import
+// module import
 import { useState } from 'react';
 
-// 이미지 import
-import iconGit from '../../images/icon/image_icon_git.png';
-import iconInfo from '../../images/icon/image_icon_info.png';
-import iconMenu from '../../images/icon/image_icon_menu.png';
-
-// 컴포넌트 import
+// component import
 import Displayinfo from '../display/DisplayInfo';
 import DisplayMenu from '../display/DisplayMenu';
 
-// CSS import
+// config import
+import { SRC_ICON_GIT, SRC_ICON_INFO, SRC_ICON_MENU } from '../../config/config';
+
+// css import
 import styles from './IconNav.module.css';
 
 export default function IconNav() {
@@ -37,9 +35,9 @@ export default function IconNav() {
         <>
             <nav className={styles.body}>
                 {[
-                    { src: iconGit, alt: 'IconGit', componentName: 'git' },
-                    { src: iconInfo, alt: 'IconInfo', componentName: 'info' },
-                    { src: iconMenu, alt: 'IconMenu', componentName: 'menu' },
+                    { src: SRC_ICON_GIT, alt: 'IconGit', componentName: 'git' },
+                    { src: SRC_ICON_INFO, alt: 'IconInfo', componentName: 'info' },
+                    { src: SRC_ICON_MENU, alt: 'IconMenu', componentName: 'menu' },
                     ].map((icon) => (
                     <div key={icon.alt} className={styles.container} onClick={(event) => handleIconClick(event, icon.componentName)}>
                         <img

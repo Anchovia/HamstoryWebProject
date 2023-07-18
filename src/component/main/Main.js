@@ -1,7 +1,11 @@
-// 모듈 import
+// module import
 import { useEffect, useState } from "react";
 
-// 컴포넌트 import
+// hook import
+import useScrollTop from "../../hooks/useScrollTop";
+import useAnimatedVisibility from "../../hooks/useAnimatedVisibility";
+
+// component import
 import Header from "../header/Header";
 import MainTitle from "./MainTitle";
 import IndexCommunity from "./IndexCommunity";
@@ -9,16 +13,14 @@ import IndexWiki from "./IndexWiki";
 import SendToFeedback from "./SendToFeedback";
 import Footer from "../footer/Footer";
 
-// 훅 import
-import useScrollTop from "../../hooks/useScrollTop";
-import useAnimatedVisibility from "../../hooks/useAnimatedVisibility";
-
-// CSS import
+// css import
 import styles from "./Main.module.css";
 
 export default function Main(){
     const [position, setPosition] = useState(0); // 스크롤 위치를 저장할 state
     const [vHeight, setVHeight] = useState(0); // 뷰포트 높이를 저장할 state
+
+    console.log(vHeight)
 
     // 스크롤 이벤트
     function onScroll(){

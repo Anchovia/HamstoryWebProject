@@ -1,15 +1,11 @@
-/*
-  설명: App.js
-*/
-
-// 컴포넌트 import
-import GoToUpButton from "./component/button/GoToUpButton";
-
-// 모듈 import
+// module import
 import { BrowserRouter } from 'react-router-dom'
 
-// 라우팅 import
+// route import
 import AppRoutes from "./AppRoutes";
+
+// component import
+import GoToUpButton from "./component/button/GoToUpButton";
 
 function App() {
   return (

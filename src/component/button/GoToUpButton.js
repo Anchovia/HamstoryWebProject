@@ -1,9 +1,5 @@
-/*
-    설명: 화면 상단으로 이동하는 버튼 컴포넌트
-*/
-
-// 이미지 import
-import iconGoToUp from '../../images/icon/image_icon_goToUp.png'
+// config import
+import { SRC_ICON_GO_TO_UP } from "../../config/config";
 
 // CSS import
 import styles from "./GoToUpButton.module.css"
@@ -25,7 +21,7 @@ export default function GoToUpButton(){
 
     return (
         <>
-            <img src={iconGoToUp} alt="IconGoToUp" onClick={onClick} className={styles.button}/>
+            <img src={SRC_ICON_GO_TO_UP} alt="IconGoToUp" onClick={onClick} className={styles.button}/>
         </>
     );
 }

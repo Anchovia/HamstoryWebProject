@@ -1,4 +1,8 @@
-// 컴포넌트 import
+// hook import
+import useFetch from '../../hooks/useFetch';
+import useScrollTop from '../../hooks/useScrollTop';
+
+// component import
 import CommunityHeader from './CommunityHeader';
 import PostList from "../post/PostList";
 import Loading from "../Loading";
@@ -6,10 +10,6 @@ import PostingButton from '../button/PostingButton';
 
 // config import
 import { URL_GET_BOARD } from '../../config/config';
-
-// hook import
-import useFetch from '../../hooks/useFetch';
-import useScrollTop from '../../hooks/useScrollTop';
 
 // css import
 import styles from './CommunityLatestPost.module.css';

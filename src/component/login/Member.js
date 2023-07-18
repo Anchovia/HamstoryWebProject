@@ -1,20 +1,16 @@
-/*
-    설명: 로그인 페이지 컴포넌트
-*/
-
-// 모듈 import
+// module import
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookie from "js-cookie";
 
+// hook import
+import useInput from "../../hooks/useInput";
+
 // config import
 import { URL_LOGIN } from "../../config/config";
 
-// 훅 import
-import useInput from "../../hooks/useInput";
-
-// CSS import
+// css import
 import styles from "./Member.module.css";
 
 export default function Member(){
