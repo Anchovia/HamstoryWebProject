@@ -1,9 +1,9 @@
-// 컴포넌트 import
+// component import
 import LogoNav from './LogoNav';
 import TextNav from './TextNav';
 import IconNav from './IconNav';
 
-// CSS import
+// css import
 import styles from "./Header.module.css";
 
 export default function Header(){

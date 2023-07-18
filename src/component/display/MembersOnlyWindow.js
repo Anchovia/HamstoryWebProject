@@ -1,4 +1,4 @@
-// 모듈 import
+// module import
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import Cookie from "js-cookie";
 // config import
 import { URL_INFO } from "../../config/config";
 
-// CSS import
+// css import
 import styles from "./MembersOnlyWindow.module.css";
 
 export default function MembersOnlyWindow({setGetToken}){

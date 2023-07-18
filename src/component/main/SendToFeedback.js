@@ -1,6 +1,7 @@
+// component import
 import MovePageButton from "../button/MovePageButton";
 
-// CSS import
+// css import
 import styles from "./SendToFeedback.module.css";
 
 export default function SendToFeedback(props){

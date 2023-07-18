@@ -1,7 +1,7 @@
 // module import
 import { Route, Routes } from 'react-router-dom';
 
-// components import
+// component import
 import Main from './component/main/Main';
 import Login from './component/login/Login';
 import Community from './component/community/Community';

@@ -1,5 +1,5 @@
-// image import
-import pictureWiki from '../../images/picture/image_picture_wiki.png'
+// config import
+import { SRC_PICTURE_WIKI } from "../../config/config";
 
 // css import
 import styles from "./IndexWiki.module.css";
@@ -24,7 +24,7 @@ export default function IndexWiki(props){
                 </nav>
             </section>
             <section className={styles.pictureSection}>
-                <img className={styles.mainPicture} src={pictureWiki} alt="PictureWiki"/>
+                <img className={styles.mainPicture} src={SRC_PICTURE_WIKI} alt="PictureWiki"/>
             </section>
         </div>
     );

@@ -1,4 +1,4 @@
-// 모듈 import
+// module import
 import { useState } from "react";
 
 // initialValue: 초기값

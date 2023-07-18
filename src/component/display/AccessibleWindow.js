@@ -1,7 +1,7 @@
-// 모듈 import
+// module import
 import { useNavigate } from "react-router";
 
-// CSS import
+// css import
 import styles from "./AccessibleWindow.module.css";
 
 export default function AccessibleWindow({setInfoFunc}){
@@ -24,7 +24,6 @@ export default function AccessibleWindow({setInfoFunc}){
             <nav className={styles.buttonSection}>
                 <button className={styles.button} onClick={handleLoginClick}>로그인</button>
             </nav>
-            
         </div>
     );
 }

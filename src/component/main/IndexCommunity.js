@@ -1,5 +1,5 @@
-// image import
-import pictureCommunity from '../../images/picture/image_picture_community.png'
+// config import
+import { SRC_PICTURE_COMMUNITY } from "../../config/config";
 
 // css import
 import styles from "./IndexCommunity.module.css";
@@ -9,7 +9,7 @@ export default function IndexCommunity(props){
     return (
         <div className={styles.body}>
             <section className={styles.pictureSection}>
-                <img className={styles.mainPicture} src={pictureCommunity} alt="PictureCommunity"/>
+                <img className={styles.mainPicture} src={SRC_PICTURE_COMMUNITY} alt="PictureCommunity"/>
             </section>
             <section className={styles.textSection}>
                 <article className={styles.titleArticle}>

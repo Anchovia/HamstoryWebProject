@@ -1,4 +1,4 @@
-// 모듈 import
+// module import
 import { useEffect, useState } from "react"
 import axios from "axios";
 

@@ -1,13 +1,13 @@
 // module import
 import { Link } from "react-router-dom";
 
-// components import
+// hook import
+import useScrollTop from "../../hooks/useScrollTop";
+
+// component import
 import Member from "./Member";
 import SignUp from "./SignUp";
 import Footer from "../footer/Footer";
-
-// hook import
-import useScrollTop from "../../hooks/useScrollTop";
 
 // css import
 import styles from "./Login.module.css";
