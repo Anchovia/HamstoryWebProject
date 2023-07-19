@@ -1,4 +1,4 @@
-package com.codingrecipe.board.form;
+package com.codingrecipe.board.dto;
 
 // 사용자가 작성해야하는 것들
 
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class BoardForm {
+public class BoardRequestDto {
     private String boardTitle;
     private String boardContents;
 }
