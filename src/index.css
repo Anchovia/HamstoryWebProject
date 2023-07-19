@@ -5,6 +5,8 @@
 
 *{
     font-family: "NotoSansKRMedium";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body{
