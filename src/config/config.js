@@ -7,7 +7,6 @@ export const URL_POST_ONE_BOARD = "http://localhost:8080/board/findOne";
 
 // imageSrcPath
 export const SRC_ICON_TO_UNDER = process.env.PUBLIC_URL + "/images/icon/image_icon_toUnder.png"
-export const SRC_ICON_GO_TO_UP = process.env.PUBLIC_URL + "/images/icon/image_icon_goToUp.png"
 export const SRC_ICON_GIT = process.env.PUBLIC_URL + "/images/icon/image_icon_git.png"
 export const SRC_ICON_INFO = process.env.PUBLIC_URL + "/images/icon/image_icon_info.png"
 export const SRC_ICON_MENU = process.env.PUBLIC_URL + "/images/icon/image_icon_menu.png"
