@@ -56,4 +56,14 @@ public class BoardServiceImpl implements BoardService{
         }
         return null;
     }
+
+    @Override
+    public List<Board> findByMemberName(String name){
+        try {
+            return boardRepository.findByMemberName(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

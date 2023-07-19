@@ -14,4 +14,6 @@ public interface BoardRepository {
     public Optional<Board> findById(Long id);
 
     public List<Board> findAll();
+
+    public List<Board> findByMemberName(String name);
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class BoardRepositoryImpl implements BoardRepository {
@@ -92,6 +93,26 @@ public class BoardRepositoryImpl implements BoardRepository {
             }
 
             return boardDTOList;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Board> findByMemberName(String name) {
+        try {
+            Firestore firestore = FirestoreClient.getFirestore();
+
+            ApiFuture<QuerySnapshot> apiFuture = firestore.collection(COLLECTION_NAME).whereEqualTo("writer", name).get();
+            List<QueryDocumentSnapshot> documents = apiFuture.get().getDocuments();
+
+            List<Board> boardList = new ArrayList<>();
+            for(QueryDocumentSnapshot document : documents) {
+                boardList.add(document.toObject(Board.class));
+            }
+
+            return boardList;
         } catch (Exception e){
             e.printStackTrace();
         }

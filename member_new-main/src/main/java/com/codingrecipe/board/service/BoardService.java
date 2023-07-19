@@ -14,4 +14,6 @@ public interface BoardService {
     public List<Board> findAll();
 
     public void delete(String postId);
+
+    public List<Board> findByMemberName(String name);
 }

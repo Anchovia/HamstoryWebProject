@@ -82,4 +82,15 @@ public class BoardController {
         }
         return null;
     }
+
+    @GetMapping("/my")
+    public ResponseEntity<List<Board>> findMyPosts(HttpServletRequest request){
+        try {
+            String name = JwtUtil.getName(request);
+            return ResponseEntity.ok().body(boardService.findByMemberName(name));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
 }
