@@ -1,6 +1,5 @@
 package com.codingrecipe.board.service;
 
-import com.codingrecipe.board.dto.PostId;
 import com.codingrecipe.board.entity.Board;
 import com.codingrecipe.board.repository.BoardRepositoryImpl;
 import lombok.RequiredArgsConstructor;

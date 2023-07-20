@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 public class BoardRepositoryImpl implements BoardRepository {
@@ -70,7 +69,7 @@ public class BoardRepositoryImpl implements BoardRepository {
 
             ApiFuture<QuerySnapshot> future = firestore.collection("BOARD").get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();  //뭔소린지 모르는 형태
-            List<Board> boardDTOList = new ArrayList<>();
+            List<Board> boardList = new ArrayList<>();
 
             for (QueryDocumentSnapshot document : documents) { // documents에 있는 애들을 하나씩 빼와서 document에 넣음
                 Board boardDTO = document.toObject(Board.class);
@@ -89,10 +88,11 @@ public class BoardRepositoryImpl implements BoardRepository {
                     }
                 }
 
-                boardDTOList.add(boardDTO);
+                boardList.add(boardDTO);
             }
 
-            return boardDTOList;
+            boardList.sort((b1, b2) -> (int) (b2.getId() - b1.getId()));
+            return boardList;
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -112,6 +112,7 @@ public class BoardRepositoryImpl implements BoardRepository {
                 boardList.add(document.toObject(Board.class));
             }
 
+            boardList.sort((b1, b2) -> (int) (b2.getId() - b1.getId()));
             return boardList;
         } catch (Exception e){
             e.printStackTrace();
