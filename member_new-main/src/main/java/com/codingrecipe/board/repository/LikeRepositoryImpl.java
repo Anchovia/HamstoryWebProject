@@ -33,6 +33,19 @@ public class LikeRepositoryImpl implements LikeRepository {
         }
     }
 
+    @Override
+    public void deleteByBoardId(Long boardId){
+        try {
+            Firestore firestore = FirestoreClient.getFirestore();
+            List<QueryDocumentSnapshot> documents = firestore.collection(COLLECTION_NAME).whereEqualTo("boardId", boardId).get().get().getDocuments(); //boardId로 가져오기
+            for (QueryDocumentSnapshot document : documents){
+                firestore.collection(COLLECTION_NAME).document(String.valueOf(document.get("likeId"))).delete();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private Long isDuplicate(Like like){
         try{
             Firestore firestore = FirestoreClient.getFirestore();
@@ -86,7 +99,7 @@ public class LikeRepositoryImpl implements LikeRepository {
                 return;
             }
             Long likes = (Long) document.get("likes");  // 게시물 좋아요 수 가져오기
-            docRef.update("likes", likes - 1);  // 게시물 좋아요 수+1
+            docRef.update("likes", likes - 1);  // 게시물 좋아요 수-1
         } catch (Exception e){
             e.printStackTrace();
         }

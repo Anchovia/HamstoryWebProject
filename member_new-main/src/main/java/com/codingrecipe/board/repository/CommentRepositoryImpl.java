@@ -40,6 +40,18 @@ public class CommentRepositoryImpl implements CommentRepository{
     }
 
     @Override
+    public void deleteByBoardId(Long boardId){
+        try {
+            List<Comment> commentList = findByBoardId(boardId);
+            for (Comment comment : commentList) {
+                delete(String.valueOf(comment.getCommentId()));
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public List<Comment> findByBoardId(Long boardId){
         try{
             Firestore firestore = FirestoreClient.getFirestore();

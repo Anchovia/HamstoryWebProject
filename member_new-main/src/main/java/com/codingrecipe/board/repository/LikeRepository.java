@@ -6,4 +6,6 @@ public interface LikeRepository {
 
     public void update(Like like);
 
+    public void deleteByBoardId(Long boardId);
+
 }

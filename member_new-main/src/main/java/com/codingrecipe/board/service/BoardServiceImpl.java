@@ -2,6 +2,8 @@ package com.codingrecipe.board.service;
 
 import com.codingrecipe.board.entity.Board;
 import com.codingrecipe.board.repository.BoardRepositoryImpl;
+import com.codingrecipe.board.repository.CommentRepositoryImpl;
+import com.codingrecipe.board.repository.LikeRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,10 @@ public class BoardServiceImpl implements BoardService{
 
     @Autowired
     BoardRepositoryImpl boardRepository;
+    @Autowired
+    CommentRepositoryImpl commentRepository;
+    @Autowired
+    LikeRepositoryImpl likeRepository;
 
     public static final String COLLECTION_NAME = "BOARD";
 
@@ -28,9 +34,11 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public void delete(String postId){
+    public void delete(String id){
         try{
-            boardRepository.delete(postId);
+            commentRepository.deleteByBoardId(Long.valueOf(id));
+            likeRepository.deleteByBoardId(Long.valueOf(id));
+            boardRepository.delete(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
