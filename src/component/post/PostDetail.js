@@ -20,9 +20,8 @@ export default function PostDetail(){const { postId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.post(URL_POST_ONE_BOARD, {
-        postId,
-      });
+      console.log(URL_POST_ONE_BOARD + postId)
+      const res = await axios.get(URL_POST_ONE_BOARD + postId)
 
       const {
         title,
