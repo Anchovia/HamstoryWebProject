@@ -15,11 +15,11 @@ import styles from "./Member.module.css";
 
 export default function Member(){
     // 만료일자 설정
-    const minuteExpries = 30; // 입력부
-    const expiresTime = minuteExpries / 60 / 24; // 계산식
+    const minuteExpries :number = 30; // 입력부
+    const expiresTime :number = minuteExpries / 60 / 24; // 계산식
 
     // 데이터를 가져올 url
-    const url = URL_LOGIN;
+    const url :string = URL_LOGIN;
 
     // 이메일을 저장할 state
     const [email, emailChange] = useInput("");
@@ -32,7 +32,7 @@ export default function Member(){
     const [error, setError] = useState(false);
 
     // dataPost 함수
-    let dataPost = async(email, pw) => {
+    let dataPost = async(email :string, pw :string) => {
         try{
             // 이메일과 pw를 axios를 이용해 url로 전송 및 jwt 토큰 생성
             const res = await axios.post(url, {
@@ -58,9 +58,9 @@ export default function Member(){
     }
 
     // 로그인 버튼 클릭 시 실행되는 함수
-    let login = (e) => {
+    let login = (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        
+
         dataPost(email, pw)
         .then((res) => {
             if(res === true){

@@ -1,7 +1,7 @@
-package com.codingrecipe.member.form;
+package com.codingrecipe.member.dto;
 
 // 사용자가 입력한 정보를 받아오는 곳
-public class LoginForm {
+public class LoginDto {
     String email;
     String pw;
 
