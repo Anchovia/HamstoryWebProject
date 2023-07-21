@@ -2,11 +2,16 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
 
+type returnType = {
+    data : object,
+    loading : boolean
+}
+
 // 데이터를 가져오는 hook
-export default function useFetch(url){ 
+export default function useFetch(url :string) :returnType{
     // 데이터를 저장할 state
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState<object>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     // url이 변경될 때마다 데이터를 가져오는 useEffect
     useEffect(() => {
