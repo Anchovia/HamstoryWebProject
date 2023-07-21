@@ -1,4 +1,5 @@
 // module import
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // hook import
@@ -12,12 +13,11 @@ import Footer from "../footer/Footer";
 
 // css import
 import styles from "./Login.module.css";
-import { useState } from "react";
 
 export default function Login(){
-    useScrollTop(); // 스크롤을 최상단으로 이동
+    const [btnJudg, setBtnJudg] = useState<boolean>(true);
 
-    const [btnJudg, setBtnJudg] = useState(true);
+    useScrollTop(); // 스크롤을 최상단으로 이동
 
     return (
         <div className={styles.body}>
@@ -29,7 +29,7 @@ export default function Login(){
                     <LoginSelectButton btnJudg = {btnJudg} setBtnJudg = {setBtnJudg}/>
                 </section>
                 <section>
-                    {btnJudg === true  ? <Member/> : <SignUp/>}
+                    {btnJudg === true  ? <Member/> : <SignUp setBtnJudg = {setBtnJudg}/>}
                 </section>
             </main>
             <footer>
