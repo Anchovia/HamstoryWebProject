@@ -1,6 +1,6 @@
-import com.codingrecipe.member.form.LoginForm;
+import com.codingrecipe.member.dto.LoginDto;
 import com.codingrecipe.jwt.JwtTokenProvider;
-import com.codingrecipe.member.service.MemberService;
+import com.codingrecipe.member.service.MemberServiceImpl;
 import org.junit.jupiter.api.Test;
 
 public class JwtTest {
@@ -9,11 +9,11 @@ public class JwtTest {
     private String secretKey = "secretsecretsecretsecretsecret";
     private long validityInMilliseconds = 3600000;
     JwtTokenProvider jwtTokenProvider = new JwtTokenProvider(secretKey, validityInMilliseconds);
-    MemberService memberService = new MemberService(jwtTokenProvider);
+    MemberServiceImpl memberService = new MemberServiceImpl(jwtTokenProvider);
 
     @Test
     public void login() throws Exception{
-        LoginForm form = new LoginForm();
+        LoginDto form = new LoginDto();
         form.setEmail("jwt@a.com");
         form.setPw("jwt1111");
         token = memberService.login(form);

@@ -42,3 +42,6 @@
 | ⚓ <span style="color:violet">Chore</span> | 빌드 업무 수정, 패키지 매니저 수정, 패키지 관리자 구성 등 업데이트 |
 | ❓ <span style="color:blueviolet">Question</span> | 질문이 필요한 이슈인 경우 |
 | ✋ <span style="color:blueviolet">HelpWanted</span> | 개인의 노력으로는 해결이 어려운 과제인 경우 |
+
+## 6. API 명세서
+* ### https://www.notion.so/fde421774beb41a1b05efdc1a0df83a7?v=8852182db97f4284a984258c88dd8c40

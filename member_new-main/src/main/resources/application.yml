@@ -1,4 +1,8 @@
 server:
   port: 8080
-
 ddl-auto: update
+security:
+  jwt:
+    token:
+      secret-key: secretsecretsecretsecretsecret
+      expire-length: 3600000

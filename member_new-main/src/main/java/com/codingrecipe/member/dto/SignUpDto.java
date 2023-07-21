@@ -1,6 +1,6 @@
-package com.codingrecipe.member.form;
+package com.codingrecipe.member.dto;
 
-public class MemberForm {
+public class SignUpDto {
     private String nickName;
     private String email;
     private String pw;

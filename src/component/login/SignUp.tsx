@@ -12,9 +12,13 @@ import { URL_SIGNUP } from "../../config/config";
 // css import
 import styles from "./SignUp.module.css";
 
-export default function SignUp({setSignUpSuccess}){
+interface signUpProps{
+    setBtnJudg: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function SignUp(props : signUpProps){
     // 데이터를 전송할 url
-    const url = URL_SIGNUP;
+    const url :string = URL_SIGNUP;
 
     // 회원가입 폼 데이터를 저장할 state
     const [nickName, nickNameChange] = useInput("");
@@ -22,29 +26,31 @@ export default function SignUp({setSignUpSuccess}){
     const [pw, pwChange] = useInput("");
 
     // 회원가입 폼 데이터 유효성을 저장할 state
-    const [nickNameValid, setNickNameValid] = useState(false);
-    const [emailValid, setEmailValid] = useState(false);
-    const [pwValid, setPwValid] = useState(false);
+    const [nickNameValid, setNickNameValid] = useState<boolean>(false);
+    const [emailValid, setEmailValid] = useState<boolean>(false);
+    const [pwValid, setPwValid] = useState<boolean>(false);
 
     // 회원가입 버튼 활성화 여부를 저장할 state
-    const [notAllow, setNotAllow] = useState(true);
+    const [notAllow, setNotAllow] = useState<boolean>(true);
 
     // 회원가입 함수
-    let signUp = (event) => {
-        event.preventDefault();
+    let signUp = (e : React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        
         pushData(nickName, email, pw); // 데이터 전송
-        setSignUpSuccess(true); // 회원가입 성공 여부를 true로 변경
+        props.setBtnJudg(true); // 회원가입 성공 여부를 true로 변경
     }
 
-    let pushData = async(nickName, email, pw) => {
+    let pushData = async(nickName :string, email :string, pw :string) => {
         try{
             // 데이터 전송
-            // eslint-disable-next-line
             const res = await axios.post(url, {
                 nickName: nickName, // 닉네임
                 email: email, // 이메일
                 pw: pw, // 비밀번호
             })
+
+            console.log(res)
 
             return true;
         }
@@ -68,10 +74,10 @@ export default function SignUp({setSignUpSuccess}){
 
     // 회원가입 폼 데이터 유효성을 결정하는 useEffect
     useEffect(()=>{
-        // validator 라이브러리를 사용하여 데이터 유효성 검사를 수행합니다.
+        // validator 라이브러리를 사용하여 데이터 유효성 검사를 수행
         nickName.length > 0 ? setNickNameValid(true) : setNickNameValid(false);
         validator.isEmail(email) ? setEmailValid(true) : setEmailValid(false);
-        validator.isStrongPassword(pw, { minLength: 6, maxLength: 20, minLowercase: 1, minUppercase: 0, minSymbols: 0, minNumbers: 1 }) ? setPwValid(true) : setPwValid(false);
+        validator.isStrongPassword(pw, { minLength: 6, minLowercase: 1, minUppercase: 0, minSymbols: 0, minNumbers: 1 }) ? setPwValid(true) : setPwValid(false);
     }, [nickName, email, pw])
 
     return (
@@ -104,7 +110,7 @@ export default function SignUp({setSignUpSuccess}){
             />
             <div className={styles.container}>
                 {!pwValid && pw.length > 0 && (
-                <div className={styles.errorText}>영문, 숫자 포함 6자 이상 20자 이하로 입력해주세요.</div>
+                <div className={styles.errorText}>영문, 숫자 포함 6자 이상 입력해주세요.</div>
             )}
             </div>
             <button disabled={notAllow} className={styles.button} onClick={signUp}>회원가입</button>

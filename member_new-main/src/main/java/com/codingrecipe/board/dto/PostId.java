@@ -1,4 +1,4 @@
-package com.codingrecipe.board.form;
+package com.codingrecipe.board.dto;
 
 import lombok.Getter;
 import lombok.Setter;

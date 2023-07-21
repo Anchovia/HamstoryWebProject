@@ -10,8 +10,8 @@ export default function LoginSelectButton(props){
 
     return(
         <div>
-            <button className={styles.button} onClick={handleButtonClick(true)}>로그인</button>
-            <button className={styles.button} onClick={handleButtonClick(false)}>회원가입</button>
+            <button className={props.btnJudg ? [styles.button, styles.highlight].join(" ") : styles.button} onClick={handleButtonClick(true)}>로그인</button>
+            <button className={props.btnJudg ? styles.button : [styles.button, styles.highlight].join(" ")} onClick={handleButtonClick(false)}>회원가입</button>
         </div>
     );  
 }

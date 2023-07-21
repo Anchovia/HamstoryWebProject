@@ -7,3 +7,8 @@
     cursor: pointer;
     letter-spacing: -0.1em;
 }
+
+.highlight{
+    background-color: #72B2C6;
+    color: #ffffff;
+}
