@@ -12,24 +12,24 @@ import { URL_LOGIN } from "../../config/config";
 
 // css import
 import styles from "./Member.module.css";
+import LoginButton from "../button/LoginButton";
 
 export default function Member(){
+    // state 관리 부분
+    const [email, emailChange] = useInput(""); // 이메일을 저장할 state
+    const [pw, pwChange] = useInput(""); // pw를 저장할 state
+    const [error, setError] = useState(false); // 에러 메시지 표시 여부
+
+    // 변수 저장 부분
+    const url :string = URL_LOGIN;
+    const loginErrStr :string = "아이디 또는 비밀번호가 틀렸습니다."
+    
     // 만료일자 설정
     const minuteExpries :number = 30; // 입력부
     const expiresTime :number = minuteExpries / 60 / 24; // 계산식
 
-    // 데이터를 가져올 url
-    const url :string = URL_LOGIN;
-
-    // 이메일을 저장할 state
-    const [email, emailChange] = useInput("");
-    const [pw, pwChange] = useInput("");
-
     // 페이지 이동 함수
     const movePage = useNavigate();
-
-    // 에러 메시지 표시 여부
-    const [error, setError] = useState(false);
 
     // dataPost 함수
     let dataPost = async(email :string, pw :string) => {
@@ -64,7 +64,7 @@ export default function Member(){
         dataPost(email, pw)
         .then((res) => {
             if(res === true){
-                movePage("/");
+                movePage("/"); // 메인 페이지로 이동
             }
             else{
                 setError(true); // 에러 메시지 표시
@@ -73,26 +73,28 @@ export default function Member(){
     }
     
     return (
-        <form className={styles.body}>
-            <input
-                type="text" 
-                placeholder="이메일"
-                value={email}
-                onChange={emailChange}
-            />
+        <div className={styles.body}>
+            <form className={styles.form}>
+                <input
+                    type="text" 
+                    placeholder="이메일"
+                    value={email}
+                    onChange={emailChange}
+                />
             <input 
-                className={styles.inputMarin} 
+                className={styles.inputMargin}
                 type="text" 
                 placeholder="비밀번호"
                 value={pw}
                 onChange={pwChange}
             />
-            <div className={styles.container}>
+            </form>
+            <section className={styles.errSection}>
                 {error && (
-                <div className={styles.errorText}>아이디 또는 비밀번호가 틀렸습니다.</div>
+                <div className={styles.errorText}>{loginErrStr}</div>
             )}
-            </div>
-            <button className={styles.button} onClick={login}>로그인</button>
-        </form>
+            </section>
+            <LoginButton loginFunc = {login}/>
+        </div>
     );
 }

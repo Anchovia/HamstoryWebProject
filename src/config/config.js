@@ -1,9 +1,9 @@
 // url
 export const URL_LOGIN = "http://localhost:8080/members/login";
-export const URL_SIGNUP = "http://localhost:8080/members/new";
-export const URL_INFO = "http://localhost:8080/info";
-export const URL_GET_BOARD = "http://localhost:8080/board/findAll";
-export const URL_POST_ONE_BOARD = "http://localhost:8080/board/findOne";
+export const URL_SIGNUP = "http://localhost:8080/members/create";
+export const URL_INFO = "http://localhost:8080/members";
+export const URL_GET_BOARD = "http://localhost:8080/boards";
+export const URL_POST_ONE_BOARD = "http://localhost:8080/boards/";
 
 // imageSrcPath
 export const SRC_ICON_TO_UNDER = process.env.PUBLIC_URL + "/images/icon/image_icon_toUnder.png"
