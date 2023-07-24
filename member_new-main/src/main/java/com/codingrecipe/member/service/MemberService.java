@@ -18,6 +18,8 @@ public interface MemberService {
 
     public void deleteByEmail(String email);  // 이거는 지우는 함수야~
 
+    public void updatePassword(String email, String password);
+
     public String createToken(Member member);  //함수야~
 
     public boolean validateToken(String token);  // 이건머지?

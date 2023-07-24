@@ -14,4 +14,6 @@ public interface MemberRepository {
     public String getIdByEmail(String email);
 
     public void deleteByEmail(String email);
+
+    public void updatePassword(String email, String password);
 }
