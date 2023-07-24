@@ -13,3 +13,8 @@
     place-items: center;
     grid-row-gap: 30px;
 }
+
+.footer{
+    width: 100vw;
+    height: 150px;
+}

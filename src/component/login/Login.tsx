@@ -32,7 +32,7 @@ export default function Login(){
                     {btnJudg === true  ? <Member/> : <SignUp setBtnJudg = {setBtnJudg}/>}
                 </section>
             </main>
-            <footer>
+            <footer className={styles.footer}>
                 <Footer/>
             </footer>
         </div>
