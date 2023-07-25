@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -107,4 +108,26 @@ public class MemberController {
         }
     }
      */
+
+    @PutMapping("")
+    public ResponseEntity<?> changePassword(HttpServletRequest request, @RequestBody String password){
+        try {
+            String email = JwtUtil.getEmail(request);
+            memberService.updatePassword(email, password);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+
+//    @PutMapping("/img")
+//    public void changeImage(HttpServletRequest request, @RequestPart(value = "img", required = false) MultipartFile img){
+//        try {
+//            String email = JwtUtil.getEmail(request);
+//            memberService.updateImage(email, img);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }

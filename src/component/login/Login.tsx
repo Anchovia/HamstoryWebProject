@@ -25,14 +25,12 @@ export default function Login(){
                 <section>
                     <Link to="/"><h1>HAMSTORY</h1></Link>
                 </section>
-                <section>
+                <section className={styles.interactionSection}>
                     <LoginSelectButton btnJudg = {btnJudg} setBtnJudg = {setBtnJudg}/>
-                </section>
-                <section>
                     {btnJudg === true  ? <Member/> : <SignUp setBtnJudg = {setBtnJudg}/>}
                 </section>
             </main>
-            <footer>
+            <footer className={styles.footer}>
                 <Footer/>
             </footer>
         </div>
