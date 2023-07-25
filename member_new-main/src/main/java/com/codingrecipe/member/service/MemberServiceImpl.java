@@ -6,6 +6,7 @@ import com.codingrecipe.jwt.JwtTokenProvider;
 import com.codingrecipe.member.repository.MemberRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -109,6 +110,23 @@ public class MemberServiceImpl implements MemberService{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void updatePassword(String email, String password){
+        try {
+            memberRepository.updatePassword(email, password);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+//    public void updateImage(String email, MultipartFile img) {
+//        try {
+//            memberRepository.updateImage(email, img);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     //이메일로 토큰 생성 후 리턴
     @Override

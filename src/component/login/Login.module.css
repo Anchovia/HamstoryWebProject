@@ -11,5 +11,16 @@
     display: grid;
     place-content: center;
     place-items: center;
-    grid-row-gap: 30px;
+    grid-row-gap: 20px;
+}
+
+.interactionSection{
+    width: 27vw;
+    display: grid;
+    grid-row-gap: 20px;
+}
+
+.footer{
+    width: 100vw;
+    height: 150px;
 }

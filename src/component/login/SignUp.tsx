@@ -18,6 +18,8 @@ interface signUpProps{
 
 export default function SignUp(props : signUpProps){
     // 데이터를 전송할 url
+    const emailErrStr :string = "올바른 이메일을 입력해주시길 바랍니다."
+    const pwErrStr :string = "영문, 숫자 포함 6자 이상 입력해주세요."
     const url :string = URL_SIGNUP;
 
     // 회원가입 폼 데이터를 저장할 state
@@ -81,39 +83,44 @@ export default function SignUp(props : signUpProps){
     }, [nickName, email, pw])
 
     return (
-        <form className={styles.body}>
-            <div className={styles.profile}/>
-            <input
-                type="text"
-                placeholder="닉네임"
-                value={nickName}
-                onChange={nickNameChange}
-            />
-            <input
-                className={styles.inputMarin}
-                type="text"
-                placeholder="이메일"
-                value={email}
-                onChange={emailChange}
-            />
-            <div className={styles.container}>
+        <div className={styles.body}>
+            <section className={styles.sectionProfile}/>
+            <form className={styles.formBody}>
+                <input
+                className={styles.placeholder}
+                    type="text"
+                    placeholder="닉네임"
+                    value={nickName}
+                    onChange={nickNameChange}
+                />
+                <input
+                    className={styles.placeholder}
+                    type="text"
+                    placeholder="이메일"
+                    value={email}
+                    onChange={emailChange}
+                />
+            </form>
+            <article className={styles.errArticleMiddle}>
                 {!emailValid && email.length > 0 && (
-                    <div className={styles.errorText}>올바른 이메일을 입력해주시길 바랍니다.</div>
+                    <div className={styles.errorText}>{emailErrStr}</div>
                 )}
-            </div>
-            <input
-                className={styles.inputMarin}
-                type="text"
-                placeholder="비밀번호"
-                value={pw}
-                onChange={pwChange}
-            />
-            <div className={styles.container}>
+            </article>
+            <form>
+                <input
+                    className={styles.placeholder}
+                    type="text"
+                    placeholder="비밀번호"
+                    value={pw}
+                    onChange={pwChange}
+                />
+            </form>
+            <article className={styles.errArticleLast}>
                 {!pwValid && pw.length > 0 && (
-                <div className={styles.errorText}>영문, 숫자 포함 6자 이상 입력해주세요.</div>
+                <div className={styles.errorText}>{pwErrStr}</div>
             )}
-            </div>
+            </article>
             <button disabled={notAllow} className={styles.button} onClick={signUp}>회원가입</button>
-        </form>
+        </div>
     );
 }
