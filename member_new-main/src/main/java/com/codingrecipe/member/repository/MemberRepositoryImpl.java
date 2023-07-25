@@ -1,10 +1,14 @@
 package com.codingrecipe.member.repository;
 
+import com.codingrecipe.dto.FileDto;
 import com.codingrecipe.member.entity.Member;
+import com.codingrecipe.util.FileStore;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +17,9 @@ import java.util.Optional;
 public class MemberRepositoryImpl implements MemberRepository{
 
     public static final String COLLECTION_NAME = "MEMBER";
+
+    @Autowired
+    private FileStore fileStore;
 
     @Override
     public void save(Member member){
@@ -81,6 +88,28 @@ public class MemberRepositoryImpl implements MemberRepository{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void updatePassword(String email, String password){
+        try {
+            Firestore firestore = FirestoreClient.getFirestore();
+            String id = getIdByEmail(email);
+            firestore.collection(COLLECTION_NAME).document(id).update("memberPassword", password);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+//    public void updateImage(String email, MultipartFile img) {
+//        try {
+//            Firestore firestore = FirestoreClient.getFirestore();
+//            String id = getIdByEmail(email);
+//            FileDto fileDto = fileStore.storeFile(img);
+//            firestore.collection(COLLECTION_NAME).document(id).update("memberProfile", fileDto.getSaveFilename());
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     //파라미터로 멤버 찾기
     //field: memberEmail, memberPassword, memberName
