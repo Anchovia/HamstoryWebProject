@@ -6,11 +6,10 @@
 
 .body{
     animation: fadein 0.4s;
-    place-content: center;
 }
 
 .form{
-    grid-row-gap: 20px;
+    grid-row-gap: 10px;
 }
 
 @keyframes fadein{
@@ -22,13 +21,23 @@
     }
 }
 
+.placeholder{
+    width: auto;
+    height: 48px;
+    border: 0.5px solid #dadada;
+    letter-spacing: -0.5px;
+    font-size: 18px;
+    padding-left: 14px;
+}
+
 input[type=text]{
     border: 0.5px solid #dadada;
 }
 
 .errSection{
-    margin-top: 15px;
-    margin-bottom: 15px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .errorText{

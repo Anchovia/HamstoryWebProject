@@ -76,18 +76,20 @@ export default function Member(){
         <div className={styles.body}>
             <form className={styles.form}>
                 <input
+                    className={styles.placeholder}
                     type="text" 
                     placeholder="이메일"
                     value={email}
                     onChange={emailChange}
                 />
-            <input 
-                className={styles.inputMargin}
-                type="text" 
-                placeholder="비밀번호"
-                value={pw}
-                onChange={pwChange}
-            />
+
+                <input
+                    className={styles.placeholder}
+                    type="text" 
+                    placeholder="비밀번호"
+                    value={pw}
+                    onChange={pwChange}
+                />
             </form>
             <section className={styles.errSection}>
                 {error && (
