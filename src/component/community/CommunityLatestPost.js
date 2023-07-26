@@ -9,6 +9,7 @@ import { URL_GET_BOARD } from '../../config/config';
 import PostList from "../post/PostList";
 import Loading from "../Loading";
 import Header from '../header/Header';
+import CommunityHeader from './CommunityHeader';
 import CommunityLatestPostMain from './CommunityLatestPostMain';
 import Footer from '../footer/Footer';
 
@@ -33,7 +34,12 @@ export default function CommunityLatestPost(){
                 <Header/>
             </header>
             <main className={styles.main}>
-                {loading ? <Loading/> : <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {posts}/>}
+                <section>
+                    <CommunityHeader/>
+                </section>
+                <section>
+                {loading ? <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {posts}/> : <Loading/>}
+                </section>
             </main>
             <footer className={styles.footer}>
                 <Footer/>
