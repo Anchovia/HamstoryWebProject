@@ -19,15 +19,19 @@ export default function CommunityHeader() {
 
     return (
         <div className={styles.body}>
-        {menuItems.map((item, index) => (
-            item.path ? (
-            <Link key={index} to={item.path} className={`${styles.link} ${location.pathname === item.path ? styles.activeLink : ''}`}>
-                <div className={styles.container}>{item.name}</div>
-            </Link>
-            ) : (
-            <div key={index} className={styles.container}>{item.name}</div>
-            )
-        ))}
+            <div/>
+            <section className={styles.sectionGrid}>
+                {menuItems.map((item, index) => (
+                    item.path ? (
+                    <Link key={index} to={item.path} className={`${styles.link} ${location.pathname === item.path ? styles.activeLink : ''}`}>
+                        <div className={styles.text}>{item.name}</div>
+                    </Link>
+                    ) : (
+                    <div key={index} className={styles.container}>{item.name}</div>
+                    )
+                ))}
+            </section>
+            <div/>
         </div>
     );
 }

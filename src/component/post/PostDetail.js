@@ -56,21 +56,26 @@ export default function PostDetail(){const { postId } = useParams();
 
   return (
     <div className={styles.body}>
-      <header>
-        <nav>
-          <Header/>
-          <BackButton/>
-        </nav>
-        <h1 className={styles.title}>{postData.title}</h1>
-        <PostProfile writer = {postData.writer} createdTime = {postData.createdTime} hits = {postData.hits}/>
-      </header>
-      <hr className={styles.line}/>
-      <main className={styles.element}>
-        <article className={styles.contents}>{postData.contents}</article>
-        <LikeCounter likes = {postData.likes}/>
+      <header className={styles.header}><Header/></header>
+      <main className={styles.main}>
+        <div/>
+        <article className={styles.articleBody}>
+          <section className={styles.sectionTitle}>
+            <h1 className={styles.title}>{postData.title}</h1>
+            <nav><BackButton/></nav>
+          </section>
+          <section className={styles.sectionProfile}>
+            <PostProfile writer = {postData.writer} createdTime = {postData.createdTime} hits = {postData.hits}/>
+          </section>
+          <hr/>
+          <section className={styles.sectionContents}>
+            <p className={styles.contentsText}>{postData.contents}</p>
+          </section>
+          <section className={styles.sectionLikes}><LikeCounter likes = {postData.likes}/></section>
+        </article>
+        <div/>
       </main>
-      <hr className={styles.line}/>
-      <footer>
+      <footer className={styles.footer}>
         <Footer/>
       </footer>
     </div>
