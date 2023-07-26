@@ -1,29 +1,30 @@
 .body{
-    position: fixed;
-    width: 1280px;
-    height: 100px;
-    top: 100px;
-    border-bottom: 2px solid #666666;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100px;
+    width: 100vw;
+    height: 70px;
     display: grid;
-    position: fixed;
-    place-items: center;
+    grid-template-columns: 25% 50% 25%;
     background-color: #ffffff;
-    z-index: 1;
 }
 
-.container{
+.sectionGrid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.text{
     font-size: 17px;
-    color: #555555;
+    color: #6b7684;
 }
 
 .link{
     text-decoration: none;
 }
 
-.activeLink .container {
+.activeLink{
     text-decoration: underline;
-    color: black;
-    font-weight: 900;
+    text-underline-position: under;
+    font-weight: 600;
 }

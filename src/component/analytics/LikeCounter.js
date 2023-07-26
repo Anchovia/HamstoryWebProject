@@ -8,7 +8,7 @@ export default function LikeCounter(props){
     return(
         <div className={styles.body}>
           <img alt="iconLike" src={SRC_ICON_LIKE} className={styles.img}/>
-          <span className={styles.text}>좋아요 {props.likes}</span>
+          <p className={styles.text}>좋아요 {props.likes}</p>
         </div>
     );
 }

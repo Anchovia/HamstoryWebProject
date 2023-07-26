@@ -1,40 +1,58 @@
-.body{
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: 46px auto;
-    grid-template-rows: 46px;
-    column-gap: 10px;
+.body, .sectionContents, .articleGrid{
+    width: 100%;
 }
 
-.profilePicture{
-    width: 46px;
-    height: 46px;
-    background-color: #d9d9d9;
+.sectionContents, .articleGrid{
+    height: auto;
+}
+
+.body{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 5% 95%;
+    align-items: center;
+    column-gap: 0.5em;
+}
+
+.sectionProfilePicture{
+    display: flex;
+    place-content: center;
+}
+
+.sectionContents{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+}
+
+.picture{
+    width: 75%;
+    aspect-ratio: 1/1;
+    background-color: #dadada;
     border-radius: 100%;
 }
 
-.contents{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 23px 23px;
-}
-
 .writer {
-    font-size: 16px;
+    font-size: 14px;
 }
 
-.gridHelper{
-    display: grid;
-    grid-template-columns: 150px auto;
-    grid-template-rows: 23px;
+.articleGrid{
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
 .createdTime{
-    font-size: 16px;
-    color: #555555;
+    font-size: 14px;
+    color: #333d4b;
 }
 
 .hits{
-    font-size: 16px;
-    color: #555555;
+    font-size: 14px;
+    color: #333d4b;
+}
+
+.writer, .hits{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }

@@ -9,6 +9,7 @@ import { URL_GET_BOARD } from '../../config/config';
 import PostList from "../post/PostList";
 import Loading from "../Loading";
 import Header from '../header/Header';
+import CommunityHeader from './CommunityHeader';
 import CommunityLatestPostMain from './CommunityLatestPostMain';
 import Footer from '../footer/Footer';
 
@@ -17,7 +18,6 @@ import styles from './CommunityLatestPost.module.css';
 
 export default function CommunityLatestPost(){
     const {data : res, loading} = useFetch(URL_GET_BOARD); // 데이터를 가져오는 hook
-    const posts = res.slice().reverse(); // 배열의 복사본을 만들고 뒤집기
 
     const renderPostList = ({ id, title, writer, createdTime, hits, likes }) => (
         <PostList key={id} id={id} title={title} writer={writer} createdTime={createdTime} hits={hits} likes={likes} />
@@ -33,7 +33,12 @@ export default function CommunityLatestPost(){
                 <Header/>
             </header>
             <main className={styles.main}>
-                {loading ? <Loading/> : <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {posts}/>}
+                <section>
+                    <CommunityHeader/>
+                </section>
+                <section>
+                    {loading ? <Loading/> : <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {res}/>}
+                </section>
             </main>
             <footer className={styles.footer}>
                 <Footer/>

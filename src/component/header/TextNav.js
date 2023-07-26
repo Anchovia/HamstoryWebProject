@@ -8,8 +8,8 @@ export default function TextNav() {
     const menuItems = [
         { name: '햄스토리', path: '/hamstory' },
         { name: '커뮤니티', path: '/community' },
-        { name: '위키', path: 'wiki' },
-        { name: '도움말', path: 'help' },
+        { name: '위키', path: '/wiki' },
+        { name: '도움말', path: '/help' },
     ];
 
   return (

@@ -14,12 +14,10 @@ export default function BackButton(){
         navigate(-1);
     }
 
-    return( 
-        <div className={styles.container}>
-            <div onClick={handleBackClick} className={styles.element}>
-                <img alt="iconBack" src={SRC_ICON_BACK} className={styles.img}/>
-                <span className={styles.text}>뒤로가기</span>
-            </div>
+    return(
+        <div className={styles.body} onClick={handleBackClick}>
+            <img alt="iconBack" src={SRC_ICON_BACK} className={styles.img}/>
+            <h4>뒤로가기</h4>
         </div>
     );
 }
