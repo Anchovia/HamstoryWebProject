@@ -1,8 +1,6 @@
 package com.codingrecipe.member.repository;
 
-import com.codingrecipe.dto.FileDto;
 import com.codingrecipe.member.entity.Member;
-import com.codingrecipe.util.FileStore;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;

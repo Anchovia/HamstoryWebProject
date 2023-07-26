@@ -1,21 +1,13 @@
-.container{
+.body{
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.element{
-    display: flex;
-    align-items: center;
-    margin-right: 350px;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto auto;
     cursor: pointer;
 }
 
 .img{
-    width: 29px;
-    height: 29px;
-}
-
-.text{
-    font-size: 20px;
+    width: 2.2em;
+    height: 2.2em;
 }
