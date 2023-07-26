@@ -1,14 +1,10 @@
 package com.codingrecipe.member.repository;
 
-import com.codingrecipe.dto.FileDto;
 import com.codingrecipe.member.entity.Member;
-import com.codingrecipe.util.FileStore;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
