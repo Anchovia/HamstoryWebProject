@@ -18,8 +18,8 @@ public class MemberRepositoryImpl implements MemberRepository{
 
     public static final String COLLECTION_NAME = "MEMBER";
 
-    @Autowired
-    private FileStore fileStore;
+//    @Autowired
+//    private FileStore fileStore;
 
     @Override
     public void save(Member member){
