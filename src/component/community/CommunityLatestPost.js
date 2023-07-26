@@ -38,7 +38,7 @@ export default function CommunityLatestPost(){
                     <CommunityHeader/>
                 </section>
                 <section>
-                {loading ? <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {posts}/> : <Loading/>}
+                    {loading ? <Loading/> : <CommunityLatestPostMain elements = {elements} renderPostList = {renderPostList} posts = {posts}/>}
                 </section>
             </main>
             <footer className={styles.footer}>
