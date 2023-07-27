@@ -1,4 +1,4 @@
-.body, form, errSection{
+.body, form, .errSection{
     width: 100%;
     height: 100%;
     display: grid;

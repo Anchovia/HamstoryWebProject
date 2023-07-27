@@ -1,42 +1,57 @@
-.gridTable{
+.body, .articleBody, .sectionImage, .sectionProfile, .jwtGridBody, .logoutBody, .linkGridBody{
+    width: 100%;
+    height: 100%;
+}
+
+.body, .articleBody, .sectionImage, .sectionProfile, .jwtGridBody, .linkGridBody{
     display: grid;
-    grid-template-columns: 95px 250px;
-    grid-template-rows: 95px 40px;
-    row-gap: 15px;
-    column-gap: 25px;
+}
+
+.body{
+    align-items: center;
+    grid-row-gap: 2%;
+}
+
+.articleBody{
+    grid-template-columns: 27.5% auto;
+    grid-column-gap: 5%;
+}
+
+.sectionImage{
+    align-items: center;
 }
 
 .image{
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
     background-color: #D9D9D9;
 }
 
-.element{
-    width: 250px;
-    height: 95px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.jwtGridBody{
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    align-items: center;
 }
 
-.buttonEditProfile{
-    color: white;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    font-size: 20px;
-    letter-spacing: -0.1em;
-    cursor: pointer;
-    border: 0.5px solid rgba(0, 0, 0, 0.35);
-    background-color: #72B2C6;
+.name, .email{
+    margin: 0;
+}
+
+.email{
+    color: #6b7684;
+}
+
+.logoutBody{
+    text-align: right;
+    display: block;
 }
 
 .buttonLogout{
     box-sizing: border-box;
-    width: 60px;
-    height: 19px;
-    background-color: #666666;
+    width: 60%;
+    height: 2em;
+    background-color: #222222;
     border: 0.5px solid rgba(0, 0, 0, 0.35);
     border-radius: 100px;
     font-size: 11px;
@@ -46,51 +61,26 @@
     cursor: pointer;
 }
 
-.nickName{
-    font-size: 20px;
-    letter-spacing: -0.1em;
-    color: #000000;
-}
-
-.email{
-    font-size: 15px;
-    letter-spacing: -0.05em;
-    color: #666666;
-    margin-top: 2px;
-    margin-bottom: 10px;
-}
-
-.userData{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 15px;
-    letter-spacing: -0.1em;
-}
-
-.topContainer{
-    display: grid;
-    grid-template-columns: 190px 60px;
-    grid-template-rows: auto;
+.linkGridBody{
+    grid-template-columns: auto auto auto auto;
     align-items: center;
 }
 
-.linkTitle{
-    color: #000000;
+.linkTitle, .posts, .comments{
+    margin: 0;
 }
 
-.linkElement{
-    color: #666666;
-    padding-left: 5px;
+.posts, .comments{
+    color: #6b7684;
 }
 
-.link{
-    text-decoration: none;
-}
-
-.link:hover{
-    text-decoration: underline;
-}
-
-.link:active{
-    color: #FFFFFF;
+.buttonEditProfile{
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    letter-spacing: -0.1em;
+    cursor: pointer;
+    border: 0.5px solid rgba(0, 0, 0, 0.35);
+    background-color: #72B2C6;
 }

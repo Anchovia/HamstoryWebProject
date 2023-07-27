@@ -1,39 +1,14 @@
 .body{
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     display: grid;
-    grid-template-rows: 2fr 1fr;
     align-items: center;
 }
 
-.textSection{
-    margin-left: 2.7%;
-    letter-spacing: -3px;
-}
-
-.buttonSection{
-    text-align: center;
-}
-
 .title{
-    font-size: 35px;
     color: #000000;
 }
 
 .contents{
-    font-size: 25px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    color: #666666;
-}
-
-.button{
-    color: white;
-    width: 95%;
-    height: 5vh;
-    font-size: 20px;
-    letter-spacing: -2px;
-    cursor: pointer;
-    border: 0.5px solid rgba(0, 0, 0, 0.35);
-    background-color: #72B2C6;
+    color: #333d4b;
 }

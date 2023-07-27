@@ -44,26 +44,29 @@ export default function MembersOnlyWindow({setGetToken}){
     }, [url]);
 
     return(
-        <div className={styles.gridTable}>
-            <div className={styles.image}/>
-            <div className={styles.element}>
-                <div className={styles.topContainer}>
-                    <div className={styles.nickName}>{userName}</div>
-                    <button className={styles.buttonLogout} onClick={logout}>로그아웃</button>
-                </div>
-                <div className={styles.email}>{userEmail}</div>
-                <div className={styles.userData}>
-                    <Link className={styles.link}>
-                        <span className={styles.linkTitle}>게시글</span>
-                        <span className={styles.linkElement}>0</span>
-                    </Link>
-                    <Link className={styles.link}>
-                        <span className={styles.linkTitle}>댓글</span>
-                        <span className={styles.linkElement}>0</span>
-                    </Link>
-                </div>
-            </div>
-            <button className={styles.buttonEditProfile}>프로필 수정</button>
+        <div className={styles.body}>
+            <article className={styles.articleBody}>
+                <section className={styles.sectionImage}><div className={styles.image}/></section>
+                <section className={styles.sectionProfile}>
+                    <div className={styles.jwtGridBody}>
+                        <p className={styles.name}>{userName}</p>
+                        <div>
+                            <nav className={styles.logoutBody}><button className={styles.buttonLogout} onClick={logout}>로그아웃</button></nav>
+                        </div>
+                        <p className={styles.email}>{userEmail}</p>
+                        <div/>
+                    </div>
+                    <div className={styles.linkGridBody}>
+                        <p className={styles.linkTitle}>게시글</p>
+                        <p className={styles.posts}>0</p>
+                        <p className={styles.linkTitle}>댓글</p>
+                        <p className={styles.comments}>0</p>
+                    </div>
+                </section>
+            </article>
+            <nav>
+                <button className={styles.buttonEditProfile}>프로필 수정</button>
+            </nav>
         </div>
     );
 };
