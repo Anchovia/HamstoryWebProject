@@ -4,7 +4,7 @@ import MovePageButton from "../button/MovePageButton";
 // css import
 import styles from "./SendToFeedback.module.css";
 
-export default function SendToFeedback(props){
+export default function SendToFeedback(){
     return (
         <article className={styles.body}>
             <div/>
