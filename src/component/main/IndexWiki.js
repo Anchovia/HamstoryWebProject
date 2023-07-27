@@ -1,3 +1,6 @@
+// module import
+import { useInView } from "react-intersection-observer"
+
 // config import
 import { SRC_PICTURE_WIKI } from "../../config/config";
 
@@ -6,6 +9,8 @@ import styles from "./IndexWiki.module.css";
 import MovePageButton from '../button/MovePageButton';
 
 export default function IndexWiki(props){
+    const { ref: pictureRef, inView: pictureIsVisible } = useInView();
+
     return (
         <div className={styles.body}> 
             <section className={styles.textSection}>
@@ -23,7 +28,7 @@ export default function IndexWiki(props){
                     <MovePageButton url={"/wiki"} text={"위키로 이동"}/>
                 </nav>
             </section>
-            <section className={styles.pictureSection}>
+            <section ref={pictureRef} className={styles.pictureSection}>
                 <img className={styles.mainPicture} src={SRC_PICTURE_WIKI} alt="PictureWiki"/>
             </section>
         </div>

@@ -1,3 +1,6 @@
+// module import
+import { useInView } from "react-intersection-observer"
+
 // config import
 import { SRC_PICTURE_COMMUNITY } from "../../config/config";
 
@@ -6,10 +9,12 @@ import styles from "./IndexCommunity.module.css";
 import MovePageButton from '../button/MovePageButton';
 
 export default function IndexCommunity(props){
+    const { ref: pictureRef, inView: pictureIsVisible } = useInView();
+
     return (
         <div className={styles.body}>
-            <section className={styles.pictureSection}>
-                <img className={styles.mainPicture} src={SRC_PICTURE_COMMUNITY} alt="PictureCommunity"/>
+            <section ref={pictureRef} className={styles.pictureSection}>
+                <img className={`${styles.mainPicture} ${pictureIsVisible ? styles.pictureAnimation : ''}`} src={SRC_PICTURE_COMMUNITY} alt="PictureCommunity"/>
             </section>
             <section className={styles.textSection}>
                 <article className={styles.titleArticle}>
